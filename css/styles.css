@@ -1,0 +1,879 @@
+/* ==========================================================================
+   Hari.dev
+   Portfolio v2
+   Sprint 3
+   ========================================================================== */
+
+/* ==========================================================================
+   Google Font
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* ==========================================================================
+   Root Variables
+   ========================================================================== */
+
+:root {
+
+    --bg-primary: #020617;
+    --bg-secondary: #0f172a;
+    --surface: rgba(15, 23, 42, .75);
+
+    --card: #111827;
+
+    --text: #f8fafc;
+    --text-secondary: #94a3b8;
+
+    --accent: #3b82f6;
+    --accent-light: #60a5fa;
+
+    --border: rgba(255,255,255,.08);
+
+    --shadow:
+        0 20px 45px rgba(0,0,0,.35);
+
+    --radius: 18px;
+
+    --transition: .35s ease;
+
+    --container: 1200px;
+
+}
+
+/* ==========================================================================
+   Reset
+   ========================================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:'Inter',sans-serif;
+
+    color:var(--text);
+
+    line-height:1.7;
+
+    background:
+
+        radial-gradient(circle at 10% 10%,
+        rgba(59,130,246,.20),
+        transparent 30%),
+
+        radial-gradient(circle at 90% 5%,
+        rgba(96,165,250,.12),
+        transparent 28%),
+
+        linear-gradient(
+            180deg,
+            #020617,
+            #081222
+        );
+
+}
+
+/* ==========================================================================
+   Grid Background
+   ========================================================================== */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background-image:
+
+        linear-gradient(
+            rgba(255,255,255,.03) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.03) 1px,
+            transparent 1px
+        );
+
+    background-size:40px 40px;
+
+    opacity:.25;
+
+}
+
+/* ==========================================================================
+   Common Layout
+   ========================================================================== */
+
+.container,
+.hero-content,
+.navbar{
+
+    width:min(92%,var(--container));
+
+    margin:auto;
+
+}
+
+.section{
+
+    padding:7rem 0;
+
+}
+
+.section h2{
+
+    font-size:2.3rem;
+
+    margin-bottom:1.5rem;
+
+}
+
+.section p{
+
+    color:var(--text-secondary);
+
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:999;
+
+    backdrop-filter:blur(18px);
+
+    background:rgba(2,6,23,.75);
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.navbar{
+
+    height:82px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.logo{
+
+    font-size:1.7rem;
+
+    font-weight:800;
+
+    color:var(--accent-light);
+
+    letter-spacing:.5px;
+
+}
+
+.nav-links{
+
+    list-style:none;
+
+    display:flex;
+
+    gap:2rem;
+
+}
+
+.nav-links a{
+
+    color:var(--text-secondary);
+
+    text-decoration:none;
+
+    transition:var(--transition);
+
+    position:relative;
+
+}
+
+.nav-links a:hover{
+
+    color:white;
+
+}
+
+.nav-links a.active{
+
+    color:white;
+
+}
+
+.nav-links a.active::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-8px;
+
+    width:100%;
+
+    height:2px;
+
+    background:linear-gradient(
+        90deg,
+        var(--accent),
+        var(--accent-light)
+    );
+
+}
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.hero-content{
+
+    display:grid;
+
+    grid-template-columns:
+
+        1.2fr
+
+        .8fr;
+
+    gap:5rem;
+
+    align-items:center;
+
+}
+
+.tag{
+
+    color:var(--accent-light);
+
+    font-weight:700;
+
+    margin-bottom:1rem;
+
+}
+
+.hero h1{
+
+    font-size:
+
+        clamp(
+            3rem,
+            7vw,
+            5.5rem
+        );
+
+    line-height:1;
+
+    margin-bottom:1rem;
+
+}
+
+.hero h1 span{
+
+    display:block;
+
+    color:var(--accent-light);
+
+    margin-top:.5rem;
+
+}
+
+.hero h2{
+
+    font-size:1.6rem;
+
+    color:white;
+
+    margin-bottom:1.25rem;
+
+}
+
+.hero-description{
+
+    color:var(--text-secondary);
+
+    font-size:1.1rem;
+
+    max-width:640px;
+
+    margin-bottom:2rem;
+
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:1rem;
+
+    flex-wrap:wrap;
+
+    margin-bottom:2rem;
+
+}
+
+.btn{
+
+    display:inline-block;
+
+    padding:
+
+        .95rem
+
+        1.6rem;
+
+    border-radius:999px;
+
+    text-decoration:none;
+
+    transition:var(--transition);
+
+    font-weight:600;
+
+}
+
+.btn-primary{
+
+    color:white;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--accent),
+            var(--accent-light)
+        );
+
+}
+
+.btn-secondary{
+
+    color:white;
+
+    border:
+
+        1px solid
+
+        var(--border);
+
+}
+
+.btn:hover{
+
+    transform:
+
+        translateY(-4px);
+
+    box-shadow:
+
+        var(--shadow);
+
+}
+
+/* ==========================================================================
+   Hero Right
+   ========================================================================== */
+
+.hero-right{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.avatar-placeholder{
+
+    width:360px;
+
+    height:460px;
+
+    border-radius:28px;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    backdrop-filter:blur(16px);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    box-shadow:var(--shadow);
+
+    transition:var(--transition);
+
+}
+
+.avatar-placeholder:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.avatar-circle{
+
+    width:170px;
+
+    height:170px;
+
+    border-radius:50%;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--accent),
+            var(--accent-light)
+        );
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:4rem;
+
+    margin-bottom:2rem;
+
+    animation:float 4s ease-in-out infinite;
+
+}
+
+.avatar-placeholder p{
+
+    color:var(--text-secondary);
+
+    line-height:1.6;
+
+}
+
+/* ==========================================================================
+   Currently Building
+   ========================================================================== */
+
+.currently-building{
+
+    margin-top:2rem;
+
+}
+
+.currently-building h3{
+
+    margin-bottom:1rem;
+
+    color:white;
+
+}
+
+.currently-building ul{
+
+    list-style:none;
+
+    display:grid;
+
+    grid-template-columns:
+
+        repeat(2,1fr);
+
+    gap:1rem;
+
+}
+
+.currently-building li{
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:14px;
+
+    padding:1rem;
+
+    transition:var(--transition);
+
+}
+
+.currently-building li:hover{
+
+    border-color:var(--accent);
+
+    transform:translateY(-4px);
+
+}
+
+/* ==========================================================================
+   Highlights
+   ========================================================================== */
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:
+
+        repeat(4,1fr);
+
+    gap:1.5rem;
+
+}
+
+.stat-card{
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius);
+
+    padding:2rem;
+
+    text-align:center;
+
+    transition:var(--transition);
+
+}
+
+.stat-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:var(--accent);
+
+    box-shadow:var(--shadow);
+
+}
+
+.stat-card h3{
+
+    font-size:3rem;
+
+    color:var(--accent-light);
+
+    margin-bottom:.5rem;
+
+}
+
+.stat-card p{
+
+    color:var(--text-secondary);
+
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+footer{
+
+    border-top:1px solid var(--border);
+
+    padding:5rem 0;
+
+    text-align:center;
+
+}
+
+footer h2{
+
+    margin-bottom:1rem;
+
+}
+
+footer p{
+
+    color:var(--text-secondary);
+
+}
+
+.footer-links{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:2rem;
+
+    margin:2rem 0;
+
+    flex-wrap:wrap;
+
+}
+
+.footer-links a{
+
+    color:var(--accent-light);
+
+    text-decoration:none;
+
+    transition:var(--transition);
+
+}
+
+.footer-links a:hover{
+
+    color:white;
+
+}
+
+/* ==========================================================================
+   Reveal Animation
+   ========================================================================== */
+
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(40px);
+
+    transition:
+
+        opacity .8s ease,
+
+        transform .8s ease;
+
+}
+
+.reveal.visible{
+
+    opacity:1;
+
+    transform:none;
+
+}
+
+/* ==========================================================================
+   Floating Animation
+   ========================================================================== */
+
+@keyframes float{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-12px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width:1024px){
+
+    .hero-content{
+
+        grid-template-columns:1fr;
+
+        text-align:center;
+
+    }
+
+    .hero-description{
+
+        margin-left:auto;
+
+        margin-right:auto;
+
+    }
+
+    .hero-buttons{
+
+        justify-content:center;
+
+    }
+
+    .hero-right{
+
+        margin-top:2rem;
+
+    }
+
+    .stats{
+
+        grid-template-columns:
+
+            repeat(2,1fr);
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .navbar{
+
+        flex-direction:column;
+
+        height:auto;
+
+        padding:1rem 0;
+
+    }
+
+    .nav-links{
+
+        margin-top:1rem;
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+        gap:1rem;
+
+    }
+
+    .avatar-placeholder{
+
+        width:100%;
+
+        max-width:340px;
+
+        height:360px;
+
+    }
+
+    .currently-building ul{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .stats{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    .hero h1{
+
+        font-size:3rem;
+
+    }
+
+    .hero-buttons{
+
+        flex-direction:column;
+
+    }
+
+    .btn{
+
+        width:100%;
+
+        text-align:center;
+
+    }
+
+}
+
+/* ==========================================================================
+   Scrollbar
+   ========================================================================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#081222;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--accent);
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:var(--accent-light);
+
+}
+
+/* ==========================================================================
+   Selection
+   ========================================================================== */
+
+::selection{
+
+    background:var(--accent);
+
+    color:white;
+
+}
