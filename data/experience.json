@@ -1,0 +1,221 @@
+[
+  {
+    "id": 1,
+    "current": true,
+    "year": "Jul 2025 - Present",
+    "company": "Cognizant Technology Solutions",
+    "role": "Senior Cloud Architect",
+    "location": "Hyderabad, India",
+
+    "impact": "Leading AI-driven GCP cloud transformation by designing enterprise level applications built using Google Cloud, Vertex AI and Gemini to automate support operations and improve productivity and customer experience.",
+
+    "projects": [
+      "Digital SME",
+      [
+        "Intelligent Knowledge Base based on RAG model",
+        "AI-powered Troubleshooting Chatbot"
+      ]
+      "C.O.R.E Assessment Platform"
+      [
+        "Secure Sandbox Labs for Linux, Java and Python",
+        "Adaptive in MCQ, Contexual and Sandbox with proctoring",
+        "Behavioral Analytics",
+        "AI-powered Assessment Reports"
+      ]
+    ],
+
+    "technologies": [
+      "Google Cloud",
+      "Vertex AI",
+      "Gemini",
+      "FastAPI",
+      "Cloud Run",
+      "Terraform",
+      "Python",
+      "Docker",
+      "PostgreSQL",
+      "Angular"
+    ]
+  },
+
+  {
+    "id": 2,
+    "current": false,
+    "year": "Aug 2024 - Jul 2025",
+    "company": "Cognizant Technology Solutions",
+    "role": "Senior Cloud Manager",
+    "location": "Hyderabad, India",
+
+    "impact": "Led global Google Cloud operations across India and Europe while driving AI adoption, automation initiatives and operational excellence.",
+
+    "projects": [
+      "Global GCP Operations"
+    ],
+
+    "highlights": [
+      "Led Google Cloud Operations.",
+      "Managed 200+ engineers after organizational merger.",
+      "Created AI transformation initiatives.",
+      "Improved delivery quality while reducing escalations."
+    ],
+
+    "technologies": [
+      "Google Cloud",
+      "Operations",
+      "Leadership",
+      "Automation",
+      "AI"
+    ]
+  },
+
+  {
+    "id": 3,
+    "current": false,
+    "year": "Oct 2021 - Aug 2024",
+    "company": "Google Operations Center",
+    "role": "Technical Lead",
+    "location": "Hyderabad, India",
+
+    "impact": "Led Google Cloud Tech Support teams that assists Google's enterprise cloud customers with security, architecture and automation initiatives.",
+
+    "projects": [
+      "Google Cloud Support"
+    ],
+
+    "highlights": [
+      "Mentored 30+ Cloud Engineers.",
+      "Presented business reviews to leadership.",
+      "Designed automation initiatives reducing manual effort.",
+      "Helped enterprise customers implement security best practices."
+    ],
+
+    "technologies": [
+      "Google Cloud",
+      "Security",
+      "IAM",
+      "Automation",
+      "Leadership"
+    ]
+  },
+
+  {
+    "id": 4,
+    "current": false,
+    "year": "Oct 2017 - Oct 2021",
+    "company": "Cisco Systems",
+    "role": "Technical Solution Architect",
+    "location": "Chennai, India",
+
+    "impact": "Designed modern DevOps platforms by introducing containerization, CI/CD and infrastructure automation across enterprise applications.",
+
+    "projects": [
+      "Webex Platform"
+    ],
+
+    "highlights": [
+      "Migrated monolithic applications to Docker.",
+      "Designed Jenkins CI/CD pipelines.",
+      "Built Google Cloud environments.",
+      "Implemented Envoy, Consul and Terraform automation."
+    ],
+
+    "technologies": [
+      "Docker",
+      "Terraform",
+      "Ansible",
+      "Jenkins",
+      "Google Cloud",
+      "Linux",
+      "javascript"
+    ]
+  },
+
+  {
+    "id": 5,
+    "current": false,
+    "year": "May 2016 - Sep 2017",
+    "company": "SecureKloud (8K Miles)",
+    "role": "Lead Cloud Engineer",
+    "location": "Chennai, India",
+
+    "impact": "Helped enterprise customers adopt AWS through automation, monitoring and cloud-native operational practices.",
+
+    "projects": [
+      "Enterprise AWS Migration"
+    ],
+
+    "highlights": [
+      "AWS CloudFormation automation.",
+      "Python automation using boto.",
+      "CloudWatch dashboards.",
+      "Lambda automation."
+    ],
+
+    "technologies": [
+      "AWS",
+      "Lambda",
+      "CloudFormation",
+      "Python",
+      "CloudWatch"
+    ]
+  },
+
+  {
+    "id": 6,
+    "current": false,
+    "year": "Jun 2015 - May 2016",
+    "company": "Qruize Technologies",
+    "role": "Technical Lead",
+    "location": "Chennai, India",
+
+    "impact": "Led hybrid cloud implementations involving AWS, OpenStack and enterprise migrations.",
+
+    "projects": [
+      "CliQr Platform"
+    ],
+
+    "highlights": [
+      "Hybrid cloud deployments.",
+      "AWS migrations.",
+      "OpenStack administration.",
+      "Enterprise customer support."
+    ],
+
+    "technologies": [
+      "AWS",
+      "OpenStack",
+      "Linux",
+      "Networking"
+    ]
+  },
+
+  {
+    "id": 7,
+    "current": false,
+    "year": "Feb 2011 - Oct 2014",
+    "company": "Real Image",
+    "role": "Senior Technical Support Engineer",
+    "location": "Chennai, India",
+
+    "impact": "Started my engineering career managing large-scale Linux infrastructure while automating repetitive operational tasks.",
+
+    "projects": [
+      "Enterprise Linux Infrastructure"
+    ],
+
+    "highlights": [
+      "Managed 100+ Linux servers.",
+      "Patch automation.",
+      "Shell scripting.",
+      "Infrastructure maintenance."
+    ],
+
+    "technologies": [
+      "Linux",
+      "Shell",
+      "VMware",
+      "Storage",
+      "Networking"
+    ]
+  }
+]
