@@ -59,8 +59,7 @@ class ExperienceRenderer {
             .join("");
 
         return `
-            <article class="timeline-card ${exp.current ? "current" : ""}">
-
+            <article class="timeline-card ${exp.id % 2 === 0 ? "right" : "left"} ${exp.current ? "current" : ""}">
                 <div class="timeline-node">
                     <div class="timeline-dot"></div>
                     <div class="timeline-line"></div>

@@ -2,38 +2,72 @@
    CAREER JOURNEY
 ======================================================= */
 
-#timeline {
-    position: relative;
-    margin-top: 4rem;
-    padding-left: 70px;
+#timeline{
+    position:relative;
+    width:min(1200px,95%);
+    margin:5rem auto;
 }
 
-#timeline::before {
-    content: "";
-    position: absolute;
-    left: 24px;
-    top: 0;
-    bottom: 0;
-    width: 3px;
-    background: linear-gradient(
+#timeline::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    top:0;
+
+    bottom:0;
+
+    width:3px;
+
+    background:linear-gradient(
         to bottom,
         #60a5fa,
         rgba(96,165,250,.15)
     );
+
 }
 
-.timeline-card {
-    position: relative;
-    margin-bottom: 60px;
+.timeline-card{
+
+    position:relative;
+
+    display:flex;
+
+    width:100%;
+
+    margin-bottom:80px;
+
 }
 
-.timeline-node {
-    position: absolute;
-    left: -70px;
-    top: 28px;
-    width: 50px;
-    display: flex;
-    justify-content: center;
+.timeline-card.left{
+
+    justify-content:flex-start;
+
+}
+
+.timeline-card.right{
+
+    justify-content:flex-end;
+
+}
+
+.timeline-node{
+
+    position:absolute;
+
+    left:50%;
+
+    top:32px;
+
+    transform:translateX(-50%);
+
+    z-index:5;
+
 }
 
 .timeline-dot {
@@ -51,22 +85,25 @@
     display: none;
 }
 
-.timeline-content {
+.timeline-content{
 
-    background: rgba(20,27,46,.82);
+    width:46%;
 
-    border: 1px solid rgba(255,255,255,.08);
+    background:rgba(20,27,46,.82);
 
-    border-radius: 18px;
+    border:1px solid rgba(255,255,255,.08);
 
-    padding: 28px;
+    border-radius:18px;
 
-    backdrop-filter: blur(14px);
+    padding:30px;
 
-    transition: .35s;
+    backdrop-filter:blur(16px);
+
+    transition:.4s;
 
     box-shadow:
         0 20px 60px rgba(0,0,0,.35);
+
 }
 
 .timeline-content:hover{
