@@ -35,87 +35,77 @@ class ExperienceRenderer {
 
     }
 
-    createCard(exp) {
+        createCard(exp) {
 
         const techStack = (exp.technologies || [])
-            .map(
-                tech => `
-                    <span class="tech-pill">
-                        ${tech}
-                    </span>
-                `
-            )
+            .map(tech => `
+                <span class="tech-pill">${tech}</span>
+            `)
             .join("");
 
         const highlights = (exp.highlights || [])
-            .map(
-                item => `
-                    <li>
-                        <span class="highlight-icon">✓</span>
-                        <span>${item}</span>
-                    </li>
-                `
-            )
+            .map(item => `
+                <li>
+                    <span class="highlight-icon">✓</span>
+                    <span>${item}</span>
+                </li>
+            `)
             .join("");
 
         return `
-            <article class="timeline-card ${exp.id % 2 === 0 ? "right" : "left"} ${exp.current ? "current" : ""}">
-                <div class="timeline-node">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-line"></div>
-                </div>
+        <article class="timeline-item ${exp.id % 2 === 0 ? "right" : "left"}">
 
-                <div class="timeline-content">
+            <div class="timeline-card ${exp.current ? "current" : ""}">
 
-                    <div class="timeline-top">
+                <div class="timeline-header">
 
-                        <span class="timeline-year">
+                    <div>
+
+                        <div class="timeline-year">
                             ${exp.year}
-                        </span>
+                        </div>
 
-                        ${
-                            exp.current
-                                ? `
-                                    <span class="current-badge">
-                                        ● CURRENT
-                                    </span>
-                                `
-                                : ""
-                        }
+                        <h3 class="timeline-role">
+                            ${exp.role}
+                        </h3>
+
+                        <div class="timeline-company">
+                            ${exp.company}
+                        </div>
+
+                        <div class="timeline-location">
+                            📍 ${exp.location}
+                        </div>
 
                     </div>
 
-                    <h3 class="timeline-role">
-                        ${exp.role}
-                    </h3>
-
-                    <h4 class="timeline-company">
-                        ${exp.company}
-                    </h4>
-
-                    <p class="timeline-location">
-                        📍 ${exp.location}
-                    </p>
-
-                    <p class="timeline-impact">
-                        ${exp.impact}
-                    </p>
-
-                    <ul class="timeline-highlights">
-                        ${highlights}
-                    </ul>
-
-                    <div class="timeline-tech">
-                        ${techStack}
-                    </div>
-
-                    <button class="project-button">
-                        View Projects →
-                    </button>
+                    ${
+                        exp.current
+                            ? `<span class="current-badge">CURRENT</span>`
+                            : ""
+                    }
 
                 </div>
 
-            </article>
+                <p class="timeline-impact">
+                    ${exp.impact}
+                </p>
+
+                <ul class="timeline-highlights">
+                    ${highlights}
+                </ul>
+
+                <div class="timeline-tech">
+                    ${techStack}
+                </div>
+
+                <button class="project-button">
+                    View Projects →
+                </button>
+
+            </div>
+
+        </article>
         `;
     }
 }
