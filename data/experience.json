@@ -4,6 +4,7 @@
     "current": true,
     "year": "Jul 2025 - Present",
     "company": "Cognizant Technology Solutions",
+    "logo": "assets/logos/cognizant.svg",
     "role": "Senior Cloud Architect",
     "location": "Hyderabad, India",
 
@@ -53,6 +54,7 @@
     "current": false,
     "year": "Aug 2024 - Jul 2025",
     "company": "Cognizant Technology Solutions",
+    "logo": "assets/logos/cognizant.svg",
     "role": "Senior Cloud Manager",
     "location": "Hyderabad, India",
 
@@ -83,6 +85,7 @@
     "current": false,
     "year": "Oct 2021 - Aug 2024",
     "company": "Google Operations Center",
+    "logo": "assets/logos/google.svg", 
     "role": "Technical Lead",
     "location": "Hyderabad, India",
 
@@ -113,6 +116,7 @@
     "current": false,
     "year": "Oct 2017 - Oct 2021",
     "company": "Cisco Systems",
+    "logo": "assets/logos/cisco.svg",
     "role": "Technical Solution Architect",
     "location": "Chennai, India",
 
@@ -145,6 +149,7 @@
     "current": false,
     "year": "May 2016 - Sep 2017",
     "company": "SecureKloud (8K Miles)",
+    "logo": "assets/logos/securekloud.svg", 
     "role": "Lead Cloud Engineer",
     "location": "Chennai, India",
 
@@ -175,6 +180,7 @@
     "current": false,
     "year": "Jun 2015 - May 2016",
     "company": "Qruize Technologies",
+    "logo": "assets/logos/qruize.svg", 
     "role": "Technical Lead",
     "location": "Chennai, India",
 
@@ -204,6 +210,7 @@
     "current": false,
     "year": "Feb 2011 - Oct 2014",
     "company": "Real Image",
+    "logo": "assets/logos/realimage.svg", 
     "role": "Senior Technical Support Engineer",
     "location": "Chennai, India",
 

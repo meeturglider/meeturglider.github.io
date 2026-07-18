@@ -153,3 +153,39 @@
   .timeline-card{grid-column:2 !important;}
   .timeline-card::after{display:none;}
 }
+
+/* ===============================
+   Company Branding
+================================= */
+
+.company-block{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    margin-bottom:12px;
+}
+
+.company-logo{
+    width:42px;
+    height:42px;
+    object-fit:contain;
+    flex-shrink:0;
+
+    filter:brightness(0) invert(1);
+    opacity:.8;
+
+    transition:
+        transform .3s ease,
+        opacity .3s ease;
+}
+
+.timeline-card:hover .company-logo{
+    transform:scale(1.08);
+    opacity:1;
+}
+
+.company-details{
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+}

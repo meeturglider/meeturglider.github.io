@@ -57,9 +57,17 @@ class ExperienceRenderer {
 
             <div class="timeline-card ${exp.current ? "current" : ""}">
 
-                <div class="timeline-header">
+            <div class="timeline-header">
 
-                    <div>
+                <div class="company-block">
+
+                    <img
+                        class="company-logo"
+                        src="${exp.logo}"
+                        alt="${exp.company}"
+                    >
+
+                    <div class="company-details">
 
                         <div class="timeline-year">
                             ${exp.year}
@@ -79,13 +87,15 @@ class ExperienceRenderer {
 
                     </div>
 
-                    ${
-                        exp.current
-                            ? `<span class="current-badge">CURRENT</span>`
-                            : ""
-                    }
-
                 </div>
+
+                ${
+                    exp.current
+                    ? `<span class="current-badge">CURRENT</span>`
+                    : ""
+                }
+
+            </div>
 
                 <p class="timeline-impact">
                     ${exp.impact}
