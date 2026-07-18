@@ -37,11 +37,11 @@ class ExperienceRenderer {
 
     createCard(exp) {
 
-        const techStack = exp.technologies
+        const techStack = (exp.technologies || [])
             .map(tech => `<span class="tech-badge">${tech}</span>`)
             .join("");
 
-        const highlights = exp.highlights
+        const highlights = (exp.highlights || [])
             .map(item => `<li>${item}</li>`)
             .join("");
 

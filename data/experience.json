@@ -9,7 +9,13 @@
 
     "impact": "Leading AI-driven GCP cloud transformation by designing enterprise level applications built using Google Cloud, Vertex AI and Gemini to automate support operations and improve productivity and customer experience.",
 
-  "projects": [
+  "highlights": [
+    "Designed Digital chatbot assistant for enterprise support operations",
+    "Developed adaptive assessment platform",
+    "Built secure coding sandbox labs"
+  ],
+
+    "projects": [
     {
       "name": "Digital SME",
       "highlights": [
