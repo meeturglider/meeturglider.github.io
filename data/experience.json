@@ -9,20 +9,24 @@
 
     "impact": "Leading AI-driven GCP cloud transformation by designing enterprise level applications built using Google Cloud, Vertex AI and Gemini to automate support operations and improve productivity and customer experience.",
 
-    "projects": [
-      "Digital SME",
-      [
-        "Intelligent Knowledge Base based on RAG model",
+  "projects": [
+    {
+      "name": "Digital SME",
+      "highlights": [
+        "Intelligent Knowledge Base based on RAG",
         "AI-powered Troubleshooting Chatbot"
       ]
-      "C.O.R.E Assessment Platform",
-      [
+    },
+    {
+      "name": "C.O.R.E Assessment Platform",
+      "highlights": [
         "Secure Sandbox Labs for Linux, Java and Python",
-        "Adaptive in MCQ, Contexual and Sandbox with proctoring",
+        "Adaptive MCQ, Contextual and Sandbox Assessments",
         "Behavioral Analytics",
         "AI-powered Assessment Reports"
       ]
-    ],
+    }
+  ],
 
     "technologies": [
       "Google Cloud",
