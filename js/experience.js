@@ -38,40 +38,82 @@ class ExperienceRenderer {
     createCard(exp) {
 
         const techStack = (exp.technologies || [])
-            .map(tech => `<span class="tech-badge">${tech}</span>`)
+            .map(
+                tech => `
+                    <span class="tech-pill">
+                        ${tech}
+                    </span>
+                `
+            )
             .join("");
 
         const highlights = (exp.highlights || [])
-            .map(item => `<li>${item}</li>`)
+            .map(
+                item => `
+                    <li>
+                        <span class="highlight-icon">✓</span>
+                        <span>${item}</span>
+                    </li>
+                `
+            )
             .join("");
 
         return `
             <article class="timeline-card ${exp.current ? "current" : ""}">
 
-                <div class="timeline-header">
-
-                    <span class="timeline-year">${exp.year}</span>
-
-                    ${exp.current ? `<span class="current-badge">Current</span>` : ""}
-
+                <div class="timeline-node">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-line"></div>
                 </div>
 
-                <h3>${exp.role}</h3>
+                <div class="timeline-content">
 
-                <h4>${exp.company}</h4>
+                    <div class="timeline-top">
 
-                <p class="timeline-location">${exp.location}</p>
+                        <span class="timeline-year">
+                            ${exp.year}
+                        </span>
 
-                <p class="timeline-impact">
-                    ${exp.impact}
-                </p>
+                        ${
+                            exp.current
+                                ? `
+                                    <span class="current-badge">
+                                        ● CURRENT
+                                    </span>
+                                `
+                                : ""
+                        }
 
-                <ul class="timeline-highlights">
-                    ${highlights}
-                </ul>
+                    </div>
 
-                <div class="timeline-tech">
-                    ${techStack}
+                    <h3 class="timeline-role">
+                        ${exp.role}
+                    </h3>
+
+                    <h4 class="timeline-company">
+                        ${exp.company}
+                    </h4>
+
+                    <p class="timeline-location">
+                        📍 ${exp.location}
+                    </p>
+
+                    <p class="timeline-impact">
+                        ${exp.impact}
+                    </p>
+
+                    <ul class="timeline-highlights">
+                        ${highlights}
+                    </ul>
+
+                    <div class="timeline-tech">
+                        ${techStack}
+                    </div>
+
+                    <button class="project-button">
+                        View Projects →
+                    </button>
+
                 </div>
 
             </article>
