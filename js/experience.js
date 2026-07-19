@@ -55,60 +55,48 @@ class ExperienceRenderer {
         return `
         <article class="timeline-item ${exp.id % 2 === 0 ? "right" : "left"}">
 
-            <div class="timeline-header">
+        <div class="timeline-header">
 
-                <div class="company-block">
+            <div class="company-block">
 
-                    <img
-                        class="company-logo"
-                        src="${exp.logo}"
-                        alt="${exp.company}"
-                    >
+                <img
+                    class="company-logo"
+                    src="${exp.logo}"
+                    alt="${exp.company}"
+                >
 
-                    <div class="company-details">
+                <div class="company-details">
 
-                        <h3 class="timeline-role">
-                            ${exp.role}
-                        </h3>
+                    <div class="timeline-year">
+                        ${exp.year}
+                    </div>
 
-                        <div class="timeline-company">
-                            ${exp.company}
-                        </div>
+                    <h3 class="timeline-role">
+                        ${exp.role}
+                    </h3>
 
-                        <div class="timeline-meta">
+                    <div class="timeline-company">
+                        ${exp.company}
+                    </div>
 
-                            <span class="timeline-location">
-                                📍 ${exp.location}
-                            </span>
-
-                            <span class="meta-separator">
-                                •
-                            </span>
-
-                            <span class="timeline-duration">
-                                ${exp.year}
-                            </span>
-
-                            ${exp.current ? `
-                                <span class="current-status">
-                                    <span class="present-dot"></span>
-                                    <span>Present</span>
-                                </span>
-                            ` : ""}
-
-                        </div>
-
+                    <div class="timeline-location">
+                        📍 ${exp.location}
                     </div>
 
                 </div>
 
-                ${
-                    exp.current
-                    ? `<span class="current-badge">CURRENT</span>`
-                    : ""
-                }
-
             </div>
+
+            ${
+                exp.current
+                ? `<span class="current-status">
+                        <span class="present-dot"></span>
+                        <span>Present</span>
+                    </span>`
+                : ""
+            }
+
+        </div>
 
                 <p class="timeline-impact">
                     ${exp.impact}
