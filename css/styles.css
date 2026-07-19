@@ -754,6 +754,12 @@ footer p{
 
     }
 
+    .hero-highlight {
+    color: var(--accent);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
     .stats{
 
         grid-template-columns:
