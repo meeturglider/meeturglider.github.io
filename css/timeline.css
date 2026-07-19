@@ -150,8 +150,8 @@
 }
 
 .company-logo{
-    width:42px;
-    height:42px;
+    width: 54px;
+    height:54px;
     object-fit:contain;
     flex-shrink:0;
 
@@ -171,7 +171,7 @@
 .company-details{
     display:flex;
     flex-direction:column;
-    gap:4px;
+    gap:2px;
 }
 
 .timeline-meta{
@@ -195,7 +195,7 @@
     display:inline-flex;
     align-items:center;
     gap:8px;
-    margin-left:14px;
+    margin-left:auto;
 
     color:#22c55e;
     font-weight:600;
