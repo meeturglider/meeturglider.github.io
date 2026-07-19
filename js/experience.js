@@ -87,8 +87,14 @@ class ExperienceRenderer {
 
                             <span class="timeline-duration">
                                 ${exp.year}
-                                ${exp.current ? "– Present" : ""}
                             </span>
+
+                            ${exp.current ? `
+                                <span class="current-status">
+                                    <span class="present-dot"></span>
+                                    <span>Present</span>
+                                </span>
+                            ` : ""}
 
                         </div>
 
