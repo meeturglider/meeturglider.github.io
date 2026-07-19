@@ -54,6 +54,7 @@ class ExperienceRenderer {
 
         return `
         <article class="timeline-item ${exp.id % 2 === 0 ? "right" : "left"}">
+        <div class="timeline-card ${exp.current ? "current" : ""}">
 
         <div class="timeline-header">
 
@@ -117,6 +118,7 @@ class ExperienceRenderer {
             </div>
 
         </article>
+        </div>
         `;
     }
 }
