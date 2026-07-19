@@ -55,8 +55,6 @@ class ExperienceRenderer {
         return `
         <article class="timeline-item ${exp.id % 2 === 0 ? "right" : "left"}">
 
-            <div class="timeline-card ${exp.current ? "current" : ""}">
-
             <div class="timeline-header">
 
                 <div class="company-block">
@@ -69,10 +67,6 @@ class ExperienceRenderer {
 
                     <div class="company-details">
 
-                        <div class="timeline-year">
-                            ${exp.year}
-                        </div>
-
                         <h3 class="timeline-role">
                             ${exp.role}
                         </h3>
@@ -81,8 +75,21 @@ class ExperienceRenderer {
                             ${exp.company}
                         </div>
 
-                        <div class="timeline-location">
-                            📍 ${exp.location}
+                        <div class="timeline-meta">
+
+                            <span class="timeline-location">
+                                📍 ${exp.location}
+                            </span>
+
+                            <span class="meta-separator">
+                                •
+                            </span>
+
+                            <span class="timeline-duration">
+                                ${exp.year}
+                                ${exp.current ? "– Present" : ""}
+                            </span>
+
                         </div>
 
                     </div>
