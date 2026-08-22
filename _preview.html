@@ -473,7 +473,12 @@
 
     </footer>
 
-    <script type="module" src="js/main.js"></script>
+    <script type="module">
+      import "./js/main.js";
+      setTimeout(() => {
+        document.querySelectorAll(".case-toggle, .project-button").forEach(b => b.click());
+      }, 800);
+    </script>
 
 </body>
 

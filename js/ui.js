@@ -117,57 +117,86 @@ export function initScrollSpy() {
    Reveal on scroll
    -------------------------------------------------------------------------- */
 
-export function initReveal(selector = ".section, .stat-card, .case-study, .lab-card") {
+const DEFAULT_REVEAL = ".section, .stat-card, .case-study, .lab-card";
 
-    const nodes = document.querySelectorAll(selector);
+/**
+ * Fade content in on scroll.
+ *
+ * `.reveal` sets opacity to 0, so nothing here may leave an element in that
+ * state. Two guards make that impossible:
+ *
+ *   1. Anything already within the viewport is revealed synchronously, before
+ *      the observer is attached — there is no frame where above-the-fold
+ *      content is transparent.
+ *   2. A timeout reveals everything still pending, so a missed or delayed
+ *      observer callback degrades to "no animation" rather than "no content".
+ *
+ * @param {ParentNode} [root]
+ * @param {string} [selector]
+ */
+export function initReveal(root = document, selector = DEFAULT_REVEAL) {
+
+    const nodes = Array.from(root.querySelectorAll(selector))
+        .filter((node) => !node.classList.contains("reveal"));
+
+    if (!nodes.length) return;
+
+    const show = (node) => {
+        node.classList.add("visible");
+    };
 
     // Respect the user's motion preference: show everything, animate nothing.
     if (REDUCED_MOTION.matches) {
-        nodes.forEach((node) => node.classList.add("visible"));
+        nodes.forEach(show);
         return;
     }
 
-    const observer = new IntersectionObserver((entries) => {
+    const inViewport = (node) => {
+        const rect = node.getBoundingClientRect();
+        return rect.top < window.innerHeight && rect.bottom > 0;
+    };
 
+    const observer = new IntersectionObserver((entries) => {
         for (const entry of entries) {
             if (!entry.isIntersecting) continue;
-            entry.target.classList.add("visible");
+            show(entry.target);
             observer.unobserve(entry.target);
         }
-
     }, { threshold: 0.12 });
 
-    nodes.forEach((node) => {
+    const pending = [];
+
+    for (const node of nodes) {
         node.classList.add("reveal");
+
+        // Guard 1 — already on screen, so reveal now rather than waiting.
+        if (inViewport(node)) {
+            show(node);
+            continue;
+        }
+
+        pending.push(node);
         observer.observe(node);
-    });
+    }
+
+    // Guard 2 — never leave content stuck at opacity 0.
+    if (pending.length) {
+        window.setTimeout(() => {
+            for (const node of pending) {
+                if (!node.classList.contains("visible")) show(node);
+            }
+        }, 2500);
+    }
 }
 
 /**
  * Apply reveal to content injected after first paint.
  *
- * @param {HTMLElement} root
+ * @param {ParentNode} root
  * @param {string} selector
  */
 export function revealWithin(root, selector) {
-
-    if (REDUCED_MOTION.matches) {
-        root.querySelectorAll(selector).forEach((n) => n.classList.add("visible"));
-        return;
-    }
-
-    const observer = new IntersectionObserver((entries) => {
-        for (const entry of entries) {
-            if (!entry.isIntersecting) continue;
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-        }
-    }, { threshold: 0.12 });
-
-    root.querySelectorAll(selector).forEach((node) => {
-        node.classList.add("reveal");
-        observer.observe(node);
-    });
+    initReveal(root, selector);
 }
 
 /* --------------------------------------------------------------------------
