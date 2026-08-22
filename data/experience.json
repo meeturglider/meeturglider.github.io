@@ -10,30 +10,30 @@
 
     "impact": "Leading AI-driven GCP cloud transformation by designing enterprise level applications built using Google Cloud, Vertex AI and Gemini to automate support operations and improve productivity and customer experience.",
 
-  "highlights": [
-    "Designed Digital chatbot assistant for enterprise support operations",
-    "Developed adaptive assessment platform",
-    "Built secure coding sandbox labs"
-  ],
+    "highlights": [
+      "Designed Digital chatbot assistant for enterprise support operations",
+      "Developed adaptive assessment platform",
+      "Built secure coding sandbox labs"
+    ],
 
     "projects": [
-    {
-      "name": "Digital SME",
-      "highlights": [
-        "Intelligent Knowledge Base based on RAG",
-        "AI-powered Troubleshooting Chatbot"
-      ]
-    },
-    {
-      "name": "C.O.R.E Assessment Platform",
-      "highlights": [
-        "Secure Sandbox Labs for Linux, Java and Python",
-        "Adaptive MCQ, Contextual and Sandbox Assessments",
-        "Behavioral Analytics",
-        "AI-powered Assessment Reports"
-      ]
-    }
-  ],
+      {
+        "name": "Digital SME",
+        "highlights": [
+          "Intelligent Knowledge Base based on RAG",
+          "AI-powered Troubleshooting Chatbot"
+        ]
+      },
+      {
+        "name": "C.O.R.E Assessment Platform",
+        "highlights": [
+          "Secure Sandbox Labs for Linux, Java and Python",
+          "Adaptive MCQ, Contextual and Sandbox Assessments",
+          "Behavioral Analytics",
+          "AI-powered Assessment Reports"
+        ]
+      }
+    ],
 
     "technologies": [
       "Google Cloud",
@@ -60,15 +60,21 @@
 
     "impact": "Led global Google Cloud operations across India and Europe while driving AI adoption, automation initiatives and operational excellence.",
 
-    "projects": [
-      "Global GCP Operations"
+    "highlights": [
+      "Led Google Cloud Operations across India and Europe",
+      "Managed 200+ engineers after organizational merger",
+      "Created AI transformation initiatives",
+      "Improved delivery quality while reducing escalations"
     ],
 
-    "highlights": [
-      "Led Google Cloud Operations.",
-      "Managed 200+ engineers after organizational merger.",
-      "Created AI transformation initiatives.",
-      "Improved delivery quality while reducing escalations."
+    "projects": [
+      {
+        "name": "Global GCP Operations",
+        "highlights": [
+          "Unified two operating models after a merger",
+          "AI-assisted triage for recurring incident classes"
+        ]
+      }
     ],
 
     "technologies": [
@@ -85,21 +91,27 @@
     "current": false,
     "year": "Oct 2021 - Aug 2024",
     "company": "Google Operations Center",
-    "logo": "assets/logos/google.svg", 
+    "logo": "assets/logos/google.svg",
     "role": "Technical Lead",
     "location": "Hyderabad, India",
 
-    "impact": "Led Google Cloud Tech Support teams that assists Google's enterprise cloud customers with security, architecture and automation initiatives.",
-
-    "projects": [
-      "Google Cloud Support"
-    ],
+    "impact": "Led Google Cloud Tech Support teams that assist Google's enterprise cloud customers with security, architecture and automation initiatives.",
 
     "highlights": [
-      "Mentored 30+ Cloud Engineers.",
-      "Presented business reviews to leadership.",
-      "Designed automation initiatives reducing manual effort.",
-      "Helped enterprise customers implement security best practices."
+      "Mentored 30+ Cloud Engineers",
+      "Presented business reviews to leadership",
+      "Designed automation initiatives reducing manual effort",
+      "Helped enterprise customers implement security best practices"
+    ],
+
+    "projects": [
+      {
+        "name": "Google Cloud Support",
+        "highlights": [
+          "Enterprise escalation and architecture guidance",
+          "IAM and security posture reviews for cloud customers"
+        ]
+      }
     ],
 
     "technologies": [
@@ -122,15 +134,21 @@
 
     "impact": "Designed modern DevOps platforms by introducing containerization, CI/CD and infrastructure automation across enterprise applications.",
 
-    "projects": [
-      "Webex Platform"
+    "highlights": [
+      "Migrated monolithic applications to Docker",
+      "Designed Jenkins CI/CD pipelines",
+      "Built Google Cloud environments",
+      "Implemented Envoy, Consul and Terraform automation"
     ],
 
-    "highlights": [
-      "Migrated monolithic applications to Docker.",
-      "Designed Jenkins CI/CD pipelines.",
-      "Built Google Cloud environments.",
-      "Implemented Envoy, Consul and Terraform automation."
+    "projects": [
+      {
+        "name": "Webex Platform",
+        "highlights": [
+          "Containerised monolithic services for the Webex estate",
+          "Service discovery and routing with Consul and Envoy"
+        ]
+      }
     ],
 
     "technologies": [
@@ -140,7 +158,7 @@
       "Jenkins",
       "Google Cloud",
       "Linux",
-      "javascript"
+      "JavaScript"
     ]
   },
 
@@ -149,21 +167,27 @@
     "current": false,
     "year": "May 2016 - Sep 2017",
     "company": "SecureKloud (8K Miles)",
-    "logo": "assets/logos/securekloud.svg", 
+    "logo": "assets/logos/securekloud.svg",
     "role": "Lead Cloud Engineer",
     "location": "Chennai, India",
 
     "impact": "Helped enterprise customers adopt AWS through automation, monitoring and cloud-native operational practices.",
 
-    "projects": [
-      "Enterprise AWS Migration"
+    "highlights": [
+      "AWS CloudFormation automation",
+      "Python automation using boto",
+      "CloudWatch dashboards",
+      "Lambda automation"
     ],
 
-    "highlights": [
-      "AWS CloudFormation automation.",
-      "Python automation using boto.",
-      "CloudWatch dashboards.",
-      "Lambda automation."
+    "projects": [
+      {
+        "name": "Enterprise AWS Migration",
+        "highlights": [
+          "Repeatable landing zones via CloudFormation",
+          "Event-driven remediation with Lambda"
+        ]
+      }
     ],
 
     "technologies": [
@@ -180,21 +204,27 @@
     "current": false,
     "year": "Jun 2015 - May 2016",
     "company": "Qruize Technologies",
-    "logo": "assets/logos/qruize.svg", 
+    "logo": "assets/logos/qruize.svg",
     "role": "Technical Lead",
     "location": "Chennai, India",
 
     "impact": "Led hybrid cloud implementations involving AWS, OpenStack and enterprise migrations.",
 
-    "projects": [
-      "CliQr Platform"
+    "highlights": [
+      "Hybrid cloud deployments",
+      "AWS migrations",
+      "OpenStack administration",
+      "Enterprise customer support"
     ],
 
-    "highlights": [
-      "Hybrid cloud deployments.",
-      "AWS migrations.",
-      "OpenStack administration.",
-      "Enterprise customer support."
+    "projects": [
+      {
+        "name": "CliQr Platform",
+        "highlights": [
+          "Application orchestration across AWS and OpenStack",
+          "Migration tooling for enterprise workloads"
+        ]
+      }
     ],
 
     "technologies": [
@@ -210,21 +240,27 @@
     "current": false,
     "year": "Feb 2011 - Oct 2014",
     "company": "Real Image",
-    "logo": "assets/logos/realimage.svg", 
+    "logo": "assets/logos/realimage.svg",
     "role": "Senior Technical Support Engineer",
     "location": "Chennai, India",
 
     "impact": "Started my engineering career managing large-scale Linux infrastructure while automating repetitive operational tasks.",
 
-    "projects": [
-      "Enterprise Linux Infrastructure"
+    "highlights": [
+      "Managed 100+ Linux servers",
+      "Patch automation",
+      "Shell scripting",
+      "Infrastructure maintenance"
     ],
 
-    "highlights": [
-      "Managed 100+ Linux servers.",
-      "Patch automation.",
-      "Shell scripting.",
-      "Infrastructure maintenance."
+    "projects": [
+      {
+        "name": "Enterprise Linux Infrastructure",
+        "highlights": [
+          "Fleet-wide patching without scheduled downtime",
+          "Shell tooling for repetitive operational tasks"
+        ]
+      }
     ],
 
     "technologies": [

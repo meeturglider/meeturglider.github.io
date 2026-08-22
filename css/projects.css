@@ -1,0 +1,424 @@
+/* ==========================================================================
+   Hari.dev — Case studies & AI Lab
+   ========================================================================== */
+
+.projects-list {
+    display: grid;
+    gap: 1.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   Case study card
+   -------------------------------------------------------------------------- */
+
+.case-study {
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--surface);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: var(--shadow);
+    transition: border-color var(--transition);
+}
+
+.case-study:hover {
+    border-color: var(--accent-border);
+}
+
+.case-study.is-open {
+    border-color: var(--accent-border);
+}
+
+.case-summary {
+    padding: clamp(1.4rem, 3vw, 2rem);
+}
+
+.case-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .5rem;
+    margin-bottom: 1rem;
+}
+
+.case-category {
+    padding: .25rem .7rem;
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-pill);
+    background: var(--accent-soft);
+    color: var(--accent-light);
+    font-size: .72rem;
+    font-weight: 600;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+}
+
+.case-status {
+    padding: .25rem .7rem;
+    border: 1px solid rgba(34, 197, 94, .28);
+    border-radius: var(--radius-pill);
+    background: rgba(34, 197, 94, .08);
+    color: #86efac;
+    font-size: .72rem;
+    font-weight: 600;
+}
+
+.case-context {
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: .78rem;
+}
+
+.case-title {
+    margin-bottom: .6rem;
+    font-size: var(--step-2);
+}
+
+.case-tagline {
+    max-width: 68ch;
+    margin-bottom: 1.25rem;
+    color: var(--text-secondary);
+    font-size: var(--step-1);
+}
+
+.case-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem;
+    margin-bottom: 1.5rem;
+}
+
+.case-stack li {
+    padding: .28rem .68rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    font-size: .74rem;
+}
+
+.case-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+    padding: .7rem 1.3rem;
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-pill);
+    background: var(--accent-soft);
+    color: var(--accent-light);
+    font-size: var(--step--1);
+    font-weight: 600;
+    transition: background var(--transition), color var(--transition);
+}
+
+.case-toggle:hover {
+    background: rgba(96, 165, 250, .2);
+    color: var(--text);
+}
+
+.case-toggle-icon {
+    display: inline-block;
+    transition: transform var(--transition);
+}
+
+.case-toggle[aria-expanded="true"] .case-toggle-icon {
+    transform: rotate(90deg);
+}
+
+/* --------------------------------------------------------------------------
+   Expanded detail
+   -------------------------------------------------------------------------- */
+
+.case-detail {
+    padding: 0 clamp(1.4rem, 3vw, 2rem) clamp(1.4rem, 3vw, 2rem);
+    border-top: 1px solid var(--border);
+}
+
+.case-detail[hidden] {
+    display: none;
+}
+
+.case-block {
+    padding-top: 1.75rem;
+}
+
+.case-block h4 {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    margin-bottom: .9rem;
+    color: var(--text-muted);
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.case-block h4::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+}
+
+.case-problem {
+    max-width: 78ch;
+    color: var(--text-secondary);
+}
+
+.case-approach li,
+.case-outcomes li {
+    position: relative;
+    max-width: 78ch;
+    margin-bottom: .55rem;
+    padding-left: 1.6rem;
+    color: var(--text-secondary);
+    font-size: var(--step-0);
+}
+
+.case-approach li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent-light);
+}
+
+.case-outcomes li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--success);
+}
+
+/* --------------------------------------------------------------------------
+   Architecture diagram — pure CSS, no library
+   -------------------------------------------------------------------------- */
+
+.architecture {
+    display: grid;
+    gap: .5rem;
+    padding: 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: rgba(2, 6, 23, .5);
+}
+
+.arch-layer {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    align-items: center;
+    gap: 1rem;
+}
+
+.arch-layer-name {
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: .74rem;
+    letter-spacing: .06em;
+    text-align: right;
+    text-transform: uppercase;
+}
+
+.arch-nodes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    padding: .7rem .85rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, .02);
+}
+
+.arch-node {
+    padding: .3rem .7rem;
+    border: 1px solid var(--accent-border);
+    border-radius: 6px;
+    background: var(--accent-soft);
+    color: #dbeafe;
+    font-family: var(--font-mono);
+    font-size: .74rem;
+}
+
+.arch-connector {
+    grid-column: 2;
+    justify-self: center;
+    height: 12px;
+    color: var(--text-muted);
+    font-size: .7rem;
+    line-height: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Trade-off table — the architecture-mindset signal
+   -------------------------------------------------------------------------- */
+
+.decisions {
+    display: grid;
+    gap: 1rem;
+}
+
+.decision {
+    padding: 1.25rem 1.4rem;
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent-light);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, .02);
+}
+
+.decision h5 {
+    margin-bottom: .85rem;
+    font-size: var(--step-0);
+    font-weight: 700;
+}
+
+.decision-row {
+    display: grid;
+    grid-template-columns: 88px 1fr;
+    gap: .75rem;
+    margin-bottom: .5rem;
+    font-size: var(--step--1);
+}
+
+.decision-label {
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: .72rem;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+}
+
+.decision-chose {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.decision-why,
+.decision-rejected {
+    color: var(--text-secondary);
+}
+
+.decision-rejected {
+    opacity: .82;
+}
+
+.case-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+    margin-top: 1.75rem;
+}
+
+/* --------------------------------------------------------------------------
+   AI Lab
+   -------------------------------------------------------------------------- */
+
+.lab-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: 1.25rem;
+}
+
+.lab-card {
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    transition: transform var(--transition), border-color var(--transition);
+}
+
+.lab-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-border);
+}
+
+.lab-card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .75rem;
+}
+
+.lab-card h3 {
+    font-size: var(--step-1);
+}
+
+.lab-status {
+    flex-shrink: 0;
+    padding: .2rem .65rem;
+    border-radius: var(--radius-pill);
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+}
+
+.lab-status[data-status="active"] {
+    border: 1px solid rgba(34, 197, 94, .3);
+    background: rgba(34, 197, 94, .1);
+    color: #86efac;
+}
+
+.lab-status[data-status="building"] {
+    border: 1px solid rgba(251, 191, 36, .3);
+    background: rgba(251, 191, 36, .1);
+    color: #fcd34d;
+}
+
+.lab-status[data-status="planned"] {
+    border: 1px solid var(--border-strong);
+    background: rgba(255, 255, 255, .04);
+    color: var(--text-muted);
+}
+
+.lab-card p {
+    flex: 1;
+    color: var(--text-secondary);
+    font-size: var(--step--1);
+}
+
+.lab-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .35rem;
+}
+
+.lab-stack li {
+    padding: .22rem .6rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: .7rem;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 720px) {
+
+    .arch-layer {
+        grid-template-columns: 1fr;
+        gap: .35rem;
+    }
+
+    .arch-layer-name {
+        text-align: left;
+    }
+
+    .arch-connector {
+        grid-column: 1;
+        justify-self: start;
+        margin-left: 1rem;
+    }
+
+    .decision-row {
+        grid-template-columns: 1fr;
+        gap: .15rem;
+        margin-bottom: .75rem;
+    }
+}

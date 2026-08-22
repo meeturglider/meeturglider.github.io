@@ -1,0 +1,205 @@
+{
+  "featured": [
+    {
+      "id": "digital-sme",
+      "title": "Digital SME",
+      "tagline": "A retrieval-grounded support assistant that answers from your own runbooks instead of guessing.",
+      "context": "Cognizant Technology Solutions",
+      "period": "2025 - Present",
+      "status": "In production",
+      "category": "AI Platform",
+
+      "problem": "Enterprise support teams held their knowledge in scattered runbooks, ticket history and the heads of a handful of senior engineers. New joiners escalated problems that had already been solved a dozen times, and a general-purpose LLM was worse than useless here: it answered confidently from training data that had never seen the customer's environment.",
+
+      "approach": [
+        "Ground every answer in retrieved internal documents, never in model memory alone.",
+        "Return citations with each answer so an engineer can verify before acting.",
+        "Keep the retrieval corpus and the model swappable, so neither becomes a lock-in point."
+      ],
+
+      "architecture": {
+        "layers": [
+          { "name": "Client", "nodes": ["Angular SPA", "Chat widget"] },
+          { "name": "Edge", "nodes": ["Cloud Load Balancing", "Identity-Aware Proxy"] },
+          { "name": "Application", "nodes": ["FastAPI on Cloud Run", "Retrieval orchestrator"] },
+          { "name": "Intelligence", "nodes": ["Vertex AI", "Gemini", "Embeddings + vector search"] },
+          { "name": "Data", "nodes": ["PostgreSQL", "Cloud Storage (document corpus)"] },
+          { "name": "Platform", "nodes": ["Terraform", "Cloud Build", "Cloud Logging"] }
+        ]
+      },
+
+      "decisions": [
+        {
+          "title": "RAG over fine-tuning",
+          "chose": "Retrieval-augmented generation against a live document corpus",
+          "why": "Support knowledge changes weekly. Retrieval lets the corpus update without a training cycle, and every answer carries a citation an engineer can check.",
+          "rejected": "Fine-tuning a base model — slow to update, expensive to re-run, and it makes hallucinations harder to trace back to a source."
+        },
+        {
+          "title": "Cloud Run over GKE",
+          "chose": "Serverless containers with scale-to-zero",
+          "why": "Support traffic is bursty and follows business hours. Paying for idle nodes overnight buys nothing, and the team should not be operating a control plane to serve a chatbot.",
+          "rejected": "A GKE cluster — right answer at a much larger scale, wrong answer for the operational burden it adds today."
+        },
+        {
+          "title": "Citations as a product requirement",
+          "chose": "Every response renders its source documents inline",
+          "why": "In support, an unverifiable answer is a liability. Citations turn the assistant from an oracle into a research tool, which is what actually earns engineer trust.",
+          "rejected": "A cleaner chat-only UI — better looking, but it hides exactly the information that makes the output usable."
+        }
+      ],
+
+      "outcomes": [
+        "Support knowledge is queryable in natural language instead of grep-and-hope across runbooks.",
+        "Answers arrive with sources attached, so engineers can verify before acting on them.",
+        "New joiners self-serve on problems that previously required a senior escalation."
+      ],
+
+      "stack": ["Google Cloud", "Vertex AI", "Gemini", "FastAPI", "Cloud Run", "PostgreSQL", "Terraform", "Angular", "Python", "Docker"]
+    },
+
+    {
+      "id": "core-assessment",
+      "title": "C.O.R.E Assessment Platform",
+      "tagline": "Adaptive technical assessment with real sandboxed execution — candidates run code, not multiple choice about code.",
+      "context": "Cognizant Technology Solutions",
+      "period": "2025 - Present",
+      "status": "In production",
+      "category": "Platform Engineering",
+
+      "problem": "Multiple-choice tests measure recall, not engineering ability. Assessing whether someone can actually operate a Linux box or debug a Python service means letting them touch a real one — which means running untrusted candidate code, safely, at speed, without letting it reach anything that matters.",
+
+      "approach": [
+        "Give every candidate a disposable, network-restricted execution sandbox.",
+        "Adapt question difficulty from live performance instead of fixing a static paper.",
+        "Score behaviour — approach, iteration, recovery — alongside the final answer."
+      ],
+
+      "architecture": {
+        "layers": [
+          { "name": "Client", "nodes": ["Angular SPA", "In-browser terminal"] },
+          { "name": "Edge", "nodes": ["Cloud Load Balancing", "Session auth"] },
+          { "name": "Application", "nodes": ["FastAPI on Cloud Run", "Adaptive engine", "Scoring service"] },
+          { "name": "Execution", "nodes": ["Per-candidate Docker sandbox", "Linux / Java / Python runtimes", "Egress-restricted, TTL-bound"] },
+          { "name": "Intelligence", "nodes": ["Vertex AI", "Gemini (report generation)"] },
+          { "name": "Data", "nodes": ["PostgreSQL", "Behavioural event log"] }
+        ]
+      },
+
+      "decisions": [
+        {
+          "title": "Isolation boundary per candidate",
+          "chose": "One ephemeral container per session, no shared runtime, egress denied by default, hard TTL",
+          "why": "Candidate code is untrusted by definition. The blast radius of a hostile submission has to end at a container that is thrown away minutes later.",
+          "rejected": "A shared multi-tenant runtime with a language-level sandbox — cheaper, but one escape compromises every concurrent session."
+        },
+        {
+          "title": "Adaptive difficulty over a fixed paper",
+          "chose": "Question selection driven by live response signal",
+          "why": "A fixed paper wastes a strong candidate's time on warm-ups and buries a weak one. Adapting reaches a confident signal in fewer questions.",
+          "rejected": "Static question sets — trivially easier to build and to compare across candidates, at the cost of resolution where it matters."
+        },
+        {
+          "title": "Behavioural analytics as a first-class signal",
+          "chose": "Capture the path to the answer, not just the answer",
+          "why": "How someone recovers from a failing command is more predictive than whether they eventually got it right. That signal only exists if you instrument for it from the start.",
+          "rejected": "Pass/fail scoring — simple and legible, but it discards the most interesting evidence in the session."
+        }
+      ],
+
+      "outcomes": [
+        "Candidates are assessed on live Linux, Java and Python environments rather than on questions about them.",
+        "Untrusted code runs inside a per-session boundary that is disposed on completion.",
+        "Assessment reports are generated from behavioural data, not just final scores."
+      ],
+
+      "stack": ["Google Cloud", "Cloud Run", "Docker", "FastAPI", "Python", "Vertex AI", "Gemini", "PostgreSQL", "Angular", "Terraform"]
+    },
+
+    {
+      "id": "hari-dev",
+      "title": "Hari.dev",
+      "tagline": "This site. Zero dependencies, zero build step, JSON-driven content — because the portfolio should demonstrate the claim, not just make it.",
+      "context": "Personal",
+      "period": "2025 - Present",
+      "status": "Live",
+      "category": "Frontend Engineering",
+
+      "problem": "A Cloud Architect claiming to care about product quality has a credibility problem: the claim is unfalsifiable unless something in reach of the reader demonstrates it. The portfolio is the one artifact a hiring manager can open DevTools on.",
+
+      "approach": [
+        "No framework, no bundler, no dependencies — the whole site is auditable in one sitting.",
+        "Content lives in JSON and renders through small, single-purpose classes.",
+        "Accessibility and performance treated as requirements, not as a later pass."
+      ],
+
+      "architecture": {
+        "layers": [
+          { "name": "Content", "nodes": ["experience.json", "projects.json"] },
+          { "name": "Render", "nodes": ["ExperienceRenderer", "ProjectsRenderer", "Safe DOM construction"] },
+          { "name": "Presentation", "nodes": ["CSS custom properties", "Fluid type scale", "Container queries"] },
+          { "name": "Delivery", "nodes": ["GitHub Pages", "Static assets", "Responsive WebP"] }
+        ]
+      },
+
+      "decisions": [
+        {
+          "title": "No framework",
+          "chose": "Vanilla JavaScript with ES classes and native APIs",
+          "why": "The site has three interactive behaviours. A framework would add a build step, a dependency tree and a supply-chain surface to solve a problem this site does not have.",
+          "rejected": "React or Astro — genuinely better past a certain complexity threshold, which this site is nowhere near."
+        },
+        {
+          "title": "createElement over innerHTML",
+          "chose": "Programmatic DOM construction with textContent",
+          "why": "Template-string rendering interpolates data straight into markup. Even with a trusted corpus, it is the wrong habit to demonstrate on a page whose whole argument is engineering care.",
+          "rejected": "Template literals — far more readable, and exactly the pattern that becomes an injection bug the moment content stops being first-party."
+        },
+        {
+          "title": "JSON-driven content",
+          "chose": "Separate data from presentation from the first commit",
+          "why": "Adding a role or a case study should be a data edit, not a markup edit. It also makes the content portable to a real CMS or API later without touching the render layer.",
+          "rejected": "Hardcoded HTML — faster to ship once, then a maintenance tax on every subsequent change."
+        }
+      ],
+
+      "outcomes": [
+        "Ships with no runtime dependencies and no build pipeline.",
+        "Keyboard navigable end to end, with reduced-motion and focus-visible support.",
+        "Responsive images and system fonts keep the payload small on mobile networks."
+      ],
+
+      "stack": ["HTML5", "CSS3", "JavaScript (ES2020)", "GitHub Pages", "WebP", "Git"],
+      "links": [
+        { "label": "Source on GitHub", "url": "https://github.com/meeturglider/meeturglider.github.io" }
+      ]
+    }
+  ],
+
+  "lab": [
+    {
+      "name": "Local AI Lab",
+      "status": "Active",
+      "summary": "Self-hosted LLM inference on local hardware — Ollama and Open WebUI, model comparison, quantisation trade-offs, and where local inference genuinely beats an API call.",
+      "stack": ["Ollama", "Open WebUI", "Local LLMs"]
+    },
+    {
+      "name": "OpenClaw",
+      "status": "Building",
+      "summary": "Telegram-native AI automation. Agent workflows triggered from chat, with the messaging layer as the interface rather than another dashboard nobody opens.",
+      "stack": ["Python", "Telegram Bot API", "LLM agents"]
+    },
+    {
+      "name": "Job Apply Assist",
+      "status": "Building",
+      "summary": "ATS-aware resume tooling — keyword gap analysis against a target role, resume variant generation, and application tracking.",
+      "stack": ["Python", "LLM", "ATS parsing"]
+    },
+    {
+      "name": "Nemo",
+      "status": "Planned",
+      "summary": "A lightweight guide for this site that routes a visitor to what they came for — recruiter, engineer or collaborator — without making them scroll to find it.",
+      "stack": ["JavaScript", "Retrieval"]
+    }
+  ]
+}
