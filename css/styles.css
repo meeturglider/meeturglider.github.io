@@ -890,7 +890,9 @@ footer p{
 
 .hero-profile-card {
 
-    width: 360px;
+    width: 100%;
+    
+    max-width: 420px;
 
     padding: 36px;
 
@@ -906,6 +908,10 @@ footer p{
         0 20px 40px rgba(0,0,0,.35);
 
     transition: .3s ease;
+
+    margin:auto;
+    
+    overflow:hidden;
 }
 
 .hero-profile-card:hover {
@@ -918,7 +924,9 @@ footer p{
 
 .hero-profile-image {
 
-    width: 170px;
+    width:100%;
+
+    height:420px;
 
     height: 170px;
 
