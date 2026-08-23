@@ -2,7 +2,7 @@ name: Deploy Hari.dev
 
 on:
   push:
-    branches: [portfolio-v2]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
