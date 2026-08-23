@@ -146,7 +146,8 @@ async function askGroq(question, chunks) {
                 }
             ],
             temperature: 0.3,
-            max_tokens: 300
+            max_tokens: 1024,
+            reasoning_effort: "low"
         })
     });
 
@@ -200,12 +201,24 @@ function fallbackAnswer(log, question, chunks) {
         return;
     }
 
-    const lines = chunks.map((c) =>
-        `<b>${c.id.replace(/-/g, " ")}</b> — ${fmt(c.text)}`);
+    /* A little variety so repeated fallbacks don't feel canned */
+    const intros = [
+        `Here's what I keep about <i>\u{201C}${fmt(question)}\u{201D}</i>:`,
+        `Oh, I know this one! About <i>\u{201C}${fmt(question)}\u{201D}</i>:`,
+        `From Hari's book of facts — <i>\u{201C}${fmt(question)}\u{201D}</i>:`,
+        `Let me check my notes on <i>\u{201C}${fmt(question)}\u{201D}</i>…`
+    ];
+    const intro = intros[Math.floor(Math.random() * intros.length)];
 
-    addMessage(log, "dory",
-        `My memory is a bit foggy right now, so here's what I keep about <i>“${fmt(question)}”</i>:<br><br>` +
-        lines.join("<br><br>"));
+    const lines = chunks.map((c) => {
+        const label = c.id
+            .replace(/-/g, " ")
+            .replace(/\b\w/g, (m) => m.toUpperCase());
+        const text = fmt(c.text.replace(/\s*Status:\s*[^.]*\.?\s*$/i, ""));
+        return `<b>${label}</b> — ${text}`;
+    });
+
+    addMessage(log, "dory", `${intro}<br><br>${lines.join("<br><br>")}`);
 }
 
 /* ------------------------------------------------------------------ */
