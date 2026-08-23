@@ -119,6 +119,65 @@
     },
 
     {
+      "id": "elevate-360",
+      "title": "Elevate 360",
+      "tagline": "An LLM lens over associate performance — anomalies flagged, coaching prescribed, and the reports nobody had time for, written automatically.",
+      "context": "Cognizant Technology Solutions",
+      "period": "2025 - Present",
+      "status": "Building",
+      "category": "AI Platform",
+
+      "problem": "Associate performance, engagement and growth are tracked across fragmented tools with no real-time view. Underperformance surfaces late, top performers go unrecognised, development actions are never followed up, and evaluations stay inconsistent across sites and specialisations.",
+
+      "approach": [
+        "Let an LLM watch the data: anomaly detection flags unusual performance patterns, risks and standout achievement across specialisations.",
+        "Turn scorecards into explanations — why TSR, SME or Lead metrics moved, and what to do about it.",
+        "Analyse case interactions in real time so sensitive cases get attention before they escalate.",
+        "Close the loop: personalised coaching recommendations feeding training platforms like Skillcraft."
+      ],
+
+      "architecture": {
+        "layers": [
+          { "name": "Client", "nodes": ["Angular dashboard", "Role-based views for TSR / SME / Lead"] },
+          { "name": "Application", "nodes": ["FastAPI on Cloud Run", "Insight orchestration", "Real-time alerting"] },
+          { "name": "Intelligence", "nodes": ["Vertex AI", "LLM insight engine"] },
+          { "name": "Data", "nodes": ["Cloud SQL (performance records)", "BigQuery (site & specialisation trends)"] },
+          { "name": "Platform", "nodes": ["Terraform", "Google Cloud"] }
+        ]
+      },
+
+      "decisions": [
+        {
+          "title": "Two data stores, two jobs",
+          "chose": "Cloud SQL for operational records, BigQuery for trend analytics",
+          "why": "Site- and specialisation-level scans are analytical workloads; running them against the app's transactional store would drag the dashboard down for everyone.",
+          "rejected": "A single PostgreSQL doing both — one less moving part until the first cross-site comparison query meets production traffic."
+        },
+        {
+          "title": "Insights with owners",
+          "chose": "Tailored views per role instead of one shared dashboard",
+          "why": "The same scorecard means a different action to an associate, a lead and a site manager. A view that speaks your job gets used; a generic one gets screenshotted into slide decks.",
+          "rejected": "A single role-agnostic dashboard — simpler to build, ignored by everyone it was meant to help."
+        },
+        {
+          "title": "Prevention over post-mortems",
+          "chose": "Alerts raised from live case-interaction analysis",
+          "why": "By the time a quarterly review catches a brewing escalation, the customer has already felt it. Real-time signal turns management from archaeology into intervention.",
+          "rejected": "Periodic batch reviews — familiar cadence, wrong speed for escalation risk."
+        }
+      ],
+
+      "outcomes": [
+        "Performance dips and exceptional achievements surface proactively instead of at review time.",
+        "Sensitive cases are flagged early enough to act on before they escalate, protecting customer experience.",
+        "Coaching recommendations are personalised per associate and trackable through to completion.",
+        "Team, specialisation and site performance becomes comparable at a glance in generated reports."
+      ],
+
+      "stack": ["Google Cloud", "Vertex AI", "FastAPI", "Python", "Cloud Run", "Cloud SQL", "BigQuery", "Terraform", "Angular"]
+    },
+
+    {
       "id": "hari-dev",
       "title": "Hari.dev",
       "tagline": "This site. Zero dependencies, zero build step, JSON-driven content — because the portfolio should demonstrate the claim, not just make it.",

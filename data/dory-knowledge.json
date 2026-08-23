@@ -316,6 +316,23 @@
         "code"
       ],
       "text": "This site (hari.dev at meeturglider.github.io) is Hari's hand-built portfolio: no frameworks, no bundler, no dependencies. Content lives in JSON files rendered by small vanilla-JS classes. It is keyboard accessible, respects reduced-motion preferences, and uses responsive images and system fonts to stay light. Source is on GitHub: meeturglider/meeturglider.github.io."
+    },
+    {
+      "id": "project-elevate-360",
+      "tags": [
+        "elevate",
+        "elevate360",
+        "dashboard",
+        "performance",
+        "talent",
+        "coaching",
+        "anomaly",
+        "gamified",
+        "scorecard",
+        "skillcraft",
+        "project"
+      ],
+      "text": "Elevate 360 is Hari's LLM-powered performance dashboard at Cognizant (currently building). It unifies associate performance data to proactively detect anomalies, explain TSR/SME/Lead scorecard fluctuations, raise real-time alerts on sensitive cases before they escalate, generate personalised coaching recommendations (integrating with Skillcraft), and automate team/site/specialisation comparison reports. Built with FastAPI on Cloud Run, Vertex AI, Cloud SQL, BigQuery, Terraform and Angular."
     }
   ]
 }
