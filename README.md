@@ -116,7 +116,7 @@ Multiple recruiter-focused resumes:
 Dory is the little animated fish living on this site — a bit forgetful, so she
 only ever repeats what Hari's portfolio actually says. She answers questions
 using **retrieval over his portfolio knowledge**, optionally sharpened by
-Llama 3.3 on Groq's free tier.
+an open LLM (GPT-OSS 120B) on Groq's free tier.
 
 How it works:
 

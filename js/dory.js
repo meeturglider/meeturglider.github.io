@@ -2,7 +2,7 @@
  * Dory — Hari's slightly forgetful little portfolio fish.
  *
  * Retrieval: BM25-flavoured TF-IDF over data/dory-knowledge.json.
- * Generation: Llama 3.3 via Groq's free-tier OpenAI-compatible API. The key
+ * Generation: GPT-OSS 120B via Groq's free-tier OpenAI-compatible API. The key
  * is injected at deploy time (GitHub Actions secret -> sed), so the repo
  * only ever holds a placeholder. Any API failure degrades gracefully to
  * showing the retrieved passages verbatim — Dory never goes dead.
@@ -21,7 +21,7 @@ const CONFIG = {
         (typeof localStorage !== "undefined" && localStorage.getItem("doryKey")) ||
         "__DORY_API_KEY__",
     endpoint: "https://api.groq.com/openai/v1/chat/completions",
-    model: "llama-3.3-70b-versatile",
+    model: "openai/gpt-oss-120b",
     topK: 4,
     maxQuestionsPerSession: 8,
     minSendGapMs: 1500,
