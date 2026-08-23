@@ -207,3 +207,28 @@ export function initYear() {
     const node = document.getElementById("year");
     if (node) node.textContent = String(new Date().getFullYear());
 }
+
+/* --------------------------------------------------------------------------
+   Hero "Start Conversation"
+   -------------------------------------------------------------------------- */
+
+/**
+ * There is no chat backend to open, so route the intent somewhere real:
+ * the contact footer, with the email link focused and ready.
+ */
+export function initMeetHari() {
+
+    const button = document.getElementById("meetHariBtn");
+    const contact = document.getElementById("contact");
+    if (!button || !contact) return;
+
+    button.addEventListener("click", () => {
+        contact.scrollIntoView({
+            behavior: REDUCED_MOTION.matches ? "auto" : "smooth",
+            block: "start"
+        });
+
+        const email = contact.querySelector("a[href^='mailto']");
+        if (email) email.focus({ preventScroll: true });
+    });
+}

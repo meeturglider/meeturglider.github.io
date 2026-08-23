@@ -4,7 +4,7 @@
  * Boots page chrome immediately, then renders the JSON-driven sections.
  */
 
-import { initNav, initHeaderState, initScrollSpy, initReveal, initYear, revealWithin } from "./ui.js";
+import { initNav, initHeaderState, initScrollSpy, initReveal, initYear, initMeetHari, revealWithin } from "./ui.js";
 import { ExperienceRenderer } from "./experience.js";
 import { ProjectsRenderer } from "./projects.js";
 
@@ -13,6 +13,7 @@ initHeaderState();
 initScrollSpy();
 initReveal();
 initYear();
+initMeetHari();
 
 const experience = new ExperienceRenderer("data/experience.json", "timeline");
 const projects = new ProjectsRenderer("data/projects.json", "projects-list", "lab-list");

@@ -1,0 +1,206 @@
+/* ==========================================================================
+   Personal overrides — legacy hero layout glue
+   --------------------------------------------------------------------------
+   Loaded after the base sheets. Supplies the rules the classic Hari.dev
+   markup expects that the rewritten base stylesheet no longer provides.
+   Additive only; edit here rather than in css/styles.css.
+   ========================================================================== */
+
+/* Hero: two-column layout (text left, profile card right) */
+
+.hero-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr);
+    align-items: center;
+    gap: clamp(2rem, 5vw, 5rem);
+    width: min(var(--container), 92%);
+    margin-inline: auto;
+}
+
+.hero-left {
+    min-width: 0;
+}
+
+.tag {
+    margin-bottom: 1rem;
+    color: var(--accent-light);
+    font-weight: 700;
+}
+
+.hero h1 {
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    line-height: 1;
+}
+
+.hero h1 span {
+    display: block;
+    margin-top: .5rem;
+    color: var(--accent-light);
+}
+
+.hero h2 {
+    margin-bottom: 1.25rem;
+    font-size: var(--step-2);
+    color: var(--text-muted);
+}
+
+.hero-description {
+    max-width: 640px;
+    margin-bottom: 2rem;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* Currently building — chip cards */
+
+.currently-building {
+    margin-top: 2rem;
+}
+
+.currently-building h3 {
+    margin-bottom: 1rem;
+    font-size: var(--step-0);
+}
+
+.currently-building ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.currently-building li {
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--surface);
+    font-size: var(--step--1);
+    text-align: center;
+    transition: border-color var(--transition), transform var(--transition);
+}
+
+.currently-building li:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+}
+
+/* Profile card — proportions from the original design */
+
+.hero-profile-card {
+    width: min(360px, 100%);
+    justify-self: end;
+    padding: clamp(1.75rem, 3vw, 2.25rem);
+    border-radius: 24px;
+    background: rgba(18, 27, 45, .95);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .35);
+}
+
+.hero-profile-card h3 {
+    margin-bottom: 8px;
+    font-size: 1.7rem;
+}
+
+/* The base sheet styles .hero-role as a large gradient headline for the
+   new hero; inside this card restore the original small accent line. */
+
+.hero-profile-card .hero-role {
+    margin-bottom: 10px;
+    background: none;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    -webkit-text-fill-color: var(--accent-light);
+    color: var(--accent-light);
+    font-size: var(--step-0);
+    letter-spacing: 0;
+}
+
+.hero-speciality {
+    margin-bottom: 26px;
+    color: var(--text-secondary);
+    font-size: var(--step--1);
+    line-height: 1.6;
+}
+
+.meet-hari h4 {
+    margin-bottom: 12px;
+}
+
+.meet-hari p {
+    margin-bottom: 24px;
+    color: var(--text-secondary);
+    font-size: var(--step--1);
+    line-height: 1.7;
+}
+
+/* The original button shipped unstyled; give it the primary treatment. */
+
+.primary-button {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .8rem 1.5rem;
+    border-radius: var(--radius-pill);
+    background: linear-gradient(135deg, var(--accent-light), var(--accent));
+    color: #04121f;
+    font-size: var(--step-0);
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 12px 28px rgba(59, 130, 246, .28);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.primary-button:hover {
+    transform: translateY(-2px);
+}
+
+.primary-button:focus-visible {
+    outline: 2px solid var(--accent-light);
+    outline-offset: 3px;
+}
+
+/* Fetch failure states (renderError) */
+
+.timeline-error {
+    padding: 2rem 0;
+    color: #f87171;
+    font-size: var(--step--1);
+}
+
+/* Responsive collapse */
+
+@media (max-width: 900px) {
+
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-profile-card {
+        justify-self: center;
+    }
+
+    .hero-description {
+        margin-inline: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 640px) {
+
+    .currently-building ul {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+}

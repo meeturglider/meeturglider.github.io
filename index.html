@@ -11,8 +11,12 @@
     <meta name="description"
         content="Building cloud platforms through Platform Engineering, Automation and AI.">
 
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/timeline.css">
+    <link rel="stylesheet" href="css/projects.css">
+    <link rel="stylesheet" href="css/personal/site.css">
 
 </head>
 
@@ -22,15 +26,23 @@
     <!-- Navigation -->
     <!-- ========================= -->
 
-    <header>
+    <header class="site-header" id="siteHeader">
 
-        <nav class="navbar">
+        <nav class="navbar" aria-label="Primary">
 
             <div class="logo">
                 Hari.dev
             </div>
 
-            <ul class="nav-links">
+            <button class="nav-toggle" id="navToggle" type="button"
+                aria-expanded="false" aria-controls="navLinks"
+                aria-label="Open navigation menu">
+                <span class="nav-toggle-bar" aria-hidden="true"></span>
+                <span class="nav-toggle-bar" aria-hidden="true"></span>
+                <span class="nav-toggle-bar" aria-hidden="true"></span>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
 
                 <li><a href="#about">Mission</a></li>
                 <li><a href="#experience">Experience</a></li>
@@ -138,7 +150,13 @@
                 <div class="hero-profile-card">
 
                     <img
-                        src="assets/Images/hari-profile.webp"
+                        src="assets/Images/hari-profile-320.webp"
+                        srcset="assets/Images/hari-profile-320.webp 320w,
+                                assets/Images/hari-profile-640.webp 640w"
+                        sizes="(max-width: 640px) 112px, 144px"
+                        width="144" height="144"
+                        fetchpriority="high"
+                        decoding="async"
                         alt="Hari Sankar"
                         class="hero-profile-image">
 
@@ -325,17 +343,24 @@
 
             <div class="container">
 
-                <h2>
+                <div class="section-header">
 
-                    Featured Projects
+                    <span class="section-tag">
+                        Work
+                    </span>
 
-                </h2>
+                    <h2>Featured Projects</h2>
 
-                <p>
+                    <p>
+                        Engineering case studies — the problem, the approach,
+                        the architecture and the trade-offs.
+                    </p>
 
-                    Engineering case studies coming soon.
+                </div>
 
-                </p>
+                <div id="projects-list" class="projects-list">
+                    <p class="loading-state">Loading case studies…</p>
+                </div>
 
             </div>
 
@@ -345,18 +370,24 @@
 
             <div class="container">
 
-                <h2>
+                <div class="section-header">
 
-                    AI Lab
+                    <span class="section-tag">
+                        Experiments
+                    </span>
 
-                </h2>
+                    <h2>AI Lab</h2>
 
-                <p>
+                    <p>
+                        Local AI, OpenClaw, Ollama,
+                        Open WebUI and AI experimentation.
+                    </p>
 
-                    Local AI, OpenClaw, Ollama,
-                    Open WebUI and AI experimentation.
+                </div>
 
-                </p>
+                <div id="lab-list" class="lab-list">
+                    <p class="loading-state">Loading experiments…</p>
+                </div>
 
             </div>
 
@@ -411,7 +442,7 @@
 
             <p class="copyright">
 
-                © 2026 Hari.dev
+                © <span id="year">2026</span> Hari.dev
 
             </p>
 
@@ -419,8 +450,7 @@
 
     </footer>
 
-    <script src="js/script.js"></script>
-    <script src="js/experience.js"></script>
+    <script type="module" src="js/main.js"></script>
 
 </body>
 
