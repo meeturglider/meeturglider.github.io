@@ -571,8 +571,8 @@ p {
 }
 
 .hero-profile-image {
-    width: 176px;
-    height: 176px;
+    width: 144px;
+    height: 144px;
     margin: 0 auto 1.25rem;
     border: 3px solid var(--accent-border);
     border-radius: 50%;
@@ -886,8 +886,8 @@ footer {
 @media (max-width: 640px) {
 
     .hero-profile-image {
-        width: 128px;
-        height: 128px;
+        width: 112px;
+        height: 112px;
     }
 
     .hero-buttons .btn {

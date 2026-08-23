@@ -9,6 +9,9 @@
 .idea/
 *.swp
 
+# AI tooling (local)
+.claude/
+
 # Logs / temp
 *.log
 node_modules/
