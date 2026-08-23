@@ -109,12 +109,31 @@
     box-shadow: 0 12px 32px rgba(59, 130, 246, .35);
     cursor: pointer;
     transition: transform var(--transition), box-shadow var(--transition);
-    animation: dory-glow 3s ease-in-out infinite;
+    animation:
+        dory-glow 3s ease-in-out infinite,
+        dory-nudge 7s ease-in-out infinite;
+}
+
+/* Expanding sonar ring, timed to arrive with each nudge */
+
+.dory-launcher::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 50%;
+    border: 2px solid rgba(96, 165, 250, .55);
+    opacity: 0;
+    pointer-events: none;
+    animation: dory-ripple 7s ease-out infinite;
 }
 
 .dory-launcher:hover {
     transform: translateY(-4px) scale(1.06);
     box-shadow: 0 16px 40px rgba(59, 130, 246, .5);
+    animation-play-state: paused;
+}
+
+.dory-launcher:hover::before {
     animation-play-state: paused;
 }
 
@@ -130,22 +149,68 @@
     }
 }
 
+/* Idle… idle… quick hop-and-flick to say "I'm here!" */
+
+@keyframes dory-nudge {
+
+    0%,
+    84%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    86% {
+        transform: translateY(-7px) rotate(-5deg);
+    }
+
+    89% {
+        transform: translateY(1px) rotate(4deg);
+    }
+
+    92% {
+        transform: translateY(-5px) rotate(-3deg);
+    }
+
+    95% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+@keyframes dory-ripple {
+
+    0%,
+    82% {
+        opacity: 0;
+        transform: scale(1);
+    }
+
+    85% {
+        opacity: .75;
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.7);
+    }
+}
+
 .dory-bubbles {
     position: absolute;
-    top: -4px;
-    right: 6px;
+    top: -6px;
+    right: 4px;
     pointer-events: none;
 }
 
 .dory-bubbles i {
     position: absolute;
     bottom: 0;
-    width: 6px;
-    height: 6px;
-    border: 1px solid rgba(147, 197, 253, .8);
+    width: 10px;
+    height: 10px;
+    border: 2px solid rgba(191, 219, 254, .9);
+    background: rgba(147, 197, 253, .12);
     border-radius: 50%;
     opacity: 0;
-    animation: dory-rise 2.8s linear infinite;
+    animation: dory-rise 3.2s linear infinite;
 }
 
 .dory-bubbles i:nth-child(1) {
@@ -154,30 +219,36 @@
 }
 
 .dory-bubbles i:nth-child(2) {
-    left: 12px;
-    width: 4px;
-    height: 4px;
-    animation-delay: .9s;
+    left: 15px;
+    width: 6px;
+    height: 6px;
+    animation-delay: 1.05s;
 }
 
 .dory-bubbles i:nth-child(3) {
-    left: 7px;
-    animation-delay: 1.8s;
+    left: 8px;
+    width: 8px;
+    height: 8px;
+    animation-delay: 2.1s;
 }
 
 @keyframes dory-rise {
 
     0% {
-        transform: translateY(0);
+        transform: translateY(0) scale(.7);
         opacity: 0;
     }
 
-    25% {
-        opacity: .9;
+    20% {
+        opacity: .95;
+    }
+
+    80% {
+        opacity: .5;
     }
 
     100% {
-        transform: translateY(-34px);
+        transform: translateY(-52px) scale(1.15);
         opacity: 0;
     }
 }
@@ -452,7 +523,7 @@
 }
 
 .dory-dock .dory-launcher {
-    position: static;
+    position: relative;
 }
 
 .dory-hint {
@@ -505,11 +576,16 @@
     .dory-fish .tail,
     .dory-fish .fin,
     .dory-launcher,
+    .dory-launcher::before,
     .dory-bubbles i,
     .dots i,
     .dory-chat[open],
     .dory-hint {
         animation: none;
         transition: none;
+    }
+
+    .dory-launcher::before {
+        opacity: 0;
     }
 }
