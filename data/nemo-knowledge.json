@@ -1,0 +1,119 @@
+{
+  "chunks": [
+    {
+      "id": "identity",
+      "tags": ["who", "hari", "harisankar", "about", "bio", "introduce", "yourself", "person"],
+      "text": "Hari (Harisankar) is a Senior Cloud Architect at Cognizant Technology Solutions, based in Hyderabad, India. He has 15+ years of experience across enterprise infrastructure, cloud architecture, DevOps and AI-driven automation, having worked at Google Operations Center, Cisco Systems, SecureKloud, Qruize Technologies and Real Image before Cognizant."
+    },
+    {
+      "id": "contact",
+      "tags": ["contact", "email", "phone", "number", "call", "reach", "linkedin", "github", "hire"],
+      "text": "You can reach Hari by email at pnharisankar@outlook.com or by phone at +91-9600124898. He is also on LinkedIn at linkedin.com/in/pnhari and GitHub at github.com/meeturglider."
+    },
+    {
+      "id": "location",
+      "tags": ["where", "location", "based", "live", "hyderabad", "city", "country", "india", "remote"],
+      "text": "Hari is based in Hyderabad, Telangana, India (pin 500089). His career has taken him through Chennai earlier in life; he now works out of Hyderabad."
+    },
+    {
+      "id": "summary",
+      "tags": ["summary", "overview", "experience", "years", "career", "background", "story"],
+      "text": "Hari has 15+ years of engineering experience: he started managing 100+ Linux servers at Real Image in 2011, moved into cloud with AWS at SecureKloud and Qruize, built DevOps platforms for Cisco Webex from 2017-2021, led 30+ GCP engineers at Google Operations Center from 2021-2024, managed a 200-engineer GCP operations merger at Cognizant in 2024-2025, and is now Senior Cloud Architect building AI-driven platforms on Google Cloud with Vertex AI and Gemini."
+    },
+    {
+      "id": "role-cognizant-now",
+      "tags": ["current", "now", "cognizant", "architect", "job", "role", "work", "today", "present"],
+      "text": "Since July 2025 Hari is Senior Cloud Architect at Cognizant Technology Solutions in Hyderabad. He leads AI-driven GCP transformation: designing enterprise applications with Google Cloud, Vertex AI and Gemini to automate support operations. Projected impact across his portfolio: 20% support-productivity gain and 10% reduction in consult rates. He also won the Transformation Spot Achiever award there."
+    },
+    {
+      "id": "project-digital-sme",
+      "tags": ["digital", "sme", "chatbot", "rag", "gemini", "vertex", "project", "assistant"],
+      "text": "Digital SME is Hari's retrieval-augmented support assistant at Cognizant: a Gemini Enterprise chatbot for Support Engineers that answers from the 'Golden dataset' instead of model memory, with citations. It includes an intelligent customer prioritization engine that flags high-risk accounts pre-escalation using historical signals (escalation rate, CES, stagnation) and an automated case-review pipeline replacing manual reviews of risky 'smoky' cases. Runs as FastAPI on Cloud Run with Vertex AI embeddings and vector search. Projected impact: 20% support-productivity gain, 10% fewer consult-rate cases via query deflection."
+    },
+    {
+      "id": "project-core",
+      "tags": ["core", "assessment", "platform", "sandbox", "hiring", "candidates", "exam"],
+      "text": "C.O.R.E (Comprehensive Online Review of Expertise) is Hari's assessment platform: Angular/PostgreSQL full-stack framework with Gemini 2.5 Flash driving computerized adaptive testing, an integrated Linux sandbox lab (VM/Docker) for hands-on terminal evaluations that self-destructs after completion, basic proctoring, behavioral analytics, and a Gemini-powered Behavioral AI simulator evaluating soft and technical skills across personas. Projected impact: 60% improvement in quality hiring and 35% advancement in critical Cloud Support metrics."
+    },
+    {
+      "id": "role-cognizant-manager",
+      "tags": ["manager", "merger", "200", "operations", "europe", "romania", "israel", "led"],
+      "text": "From August 2024 to July 2025 Hari was Senior Cloud Manager at Cognizant, guiding GCP operations teams across India and Europe. He completed the merger of GCP operations uniting 200 engineers across Romania and Israel, led the Transformation team infusing AI into workflows, and won the 'Raising the Bar - above and beyond' award."
+    },
+    {
+      "id": "role-goc",
+      "tags": ["google", "operations", "center", "goc", "technical", "lead", "mentor"],
+      "text": "Hari was Technical Lead at Google Operations Center (October 2021 - August 2024), leading and mentoring a team of 30+ engineers solving GCP issues across specializations. He helped top-tier GCP customers implement security best practices, presented business reviews to stakeholders, drove automation and FTE-savings initiatives, and won Best Performer (Bi-Annual Award) plus the Jump Starter TL recognition."
+    },
+    {
+      "id": "role-cisco",
+      "tags": ["cisco", "webex", "devops", "solution", "architect", "jenkins", "docker", "envoy", "consul"],
+      "text": "At Cisco Systems (October 2017 - October 2021) Hari was Technical Solution Architect handling a DevOps team for Webex: set up CI/CD via CloudBees Jenkins for all Webex deployments, independently converted a monolithic application to Docker-based microservices, built Dev/Staging environments on GCP with bastion access, and set up Envoy and Consul using Ansible and Terraform. He won Best Performer (Quarterly) and the Ninja Black Belt on Security."
+    },
+    {
+      "id": "role-securekloud",
+      "tags": ["securekloud", "8k", "miles", "aws", "cloudformation", "lambda", "cloudwatch", "novartis"],
+      "text": "At SecureKloud / 8K Miles (May 2016 - September 2017) Hari was Lead Cloud Engineer helping enterprise customers like Novartis adopt AWS: user account provisioning via CloudFormation and Python (boto), CloudWatch dashboards and custom metrics, Lambda automation, and AWS auditing/logging practices."
+    },
+    {
+      "id": "role-qruize",
+      "tags": ["qruize", "cliqr", "openstack", "hybrid", "migration", "vpc", "vpn"],
+      "text": "At Qruize Technologies (June 2015 - May 2016) Hari was Technical Lead responsible for CliQr support - a hybrid cloud management system - handling on-prem to AWS migrations, setting up OpenStack (Juno), and providing L2/L3 support for connectivity issues like VPC peering and VPN."
+    },
+    {
+      "id": "role-realimage",
+      "tags": ["real", "image", "start", "first", "linux", "unix", "servers", "career", "began", "early"],
+      "text": "Hari started his career at Real Image (February 2011 - October 2014) as Senior Technical Support Engineer: accountable for encrypting critical files shared via cloud storage, managing 100+ Unix/RHEL servers, satellite-based patching, hardware troubleshooting (servers, routers, switches) and scripting away repetitive manual work."
+    },
+    {
+      "id": "certifications",
+      "tags": ["certification", "certified", "certs", "google", "aws", "terraform", "hashicorp", "credential", "qualified"],
+      "text": "Hari holds five certifications: Professional Cloud Architect (Google Cloud, 2024-2026), Professional Cloud Security Engineer (Google Cloud, 2025-2027), HashiCorp Certified Terraform Associate 003 (2024-2026), Professional Cloud DevOps Engineer (Google Cloud, 2022-2024) and AWS Professional Cloud Architect (2021-2023). The first three are currently active."
+    },
+    {
+      "id": "awards",
+      "tags": ["award", "won", "recognition", "best", "performer", "achiever", "ninja"],
+      "text": "Hari's awards: Best Performer Bi-Annual Award and Jump Starter TL (Google Operations Center), Best Performer Quarterly and Ninja Black Belt on Security (Cisco Systems), Raising the Bar - Above and Beyond and Transformation Spot Achiever (Cognizant)."
+    },
+    {
+      "id": "education",
+      "tags": ["education", "degree", "college", "study", "bachelor", "be", "engineer", "school"],
+      "text": "Hari holds a Bachelor of Engineering in Electronics and Communication from Francis Xavier Engineering College (2009)."
+    },
+    {
+      "id": "skills",
+      "tags": ["skills", "stack", "technologies", "tools", "tech", "languages", "knows", "terraform", "python"],
+      "text": "Hari's core stack: Google Cloud Platform and AWS; Infrastructure as Code with Terraform and Ansible; containerization with Docker; CI/CD with Jenkins, Cloud Build and Lambda; scripting in Python and Shell/Bash; security operations with IAM, VPC and Security Command Center; API design and integration; and AI deployment with Vertex AI and Gemini. He also works with Angular frontends and PostgreSQL."
+    },
+    {
+      "id": "ai-interest",
+      "tags": ["ai", "genai", "llm", "gemini", "vertex", "interest", "machine", "learning"],
+      "text": "Hari's current focus is practical GenAI: retrieval-augmented assistants grounded in enterprise data (Digital SME), adaptive AI-driven assessments (C.O.R.E), and agentic automation workflows. His philosophy is grounding every answer in retrieved internal documents rather than trusting model memory alone, and keeping the corpus and model swappable to avoid lock-in."
+    },
+    {
+      "id": "lab-localai",
+      "tags": ["local", "ai", "lab", "ollama", "self-hosted", "inference"],
+      "text": "Local AI Lab is Hari's self-hosted LLM inference setup: Ollama and Open WebUI running on local hardware, model comparison, quantization trade-offs, and studying where local inference genuinely beats an API call. Status: active."
+    },
+    {
+      "id": "lab-openclaw",
+      "tags": ["openclaw", "personal", "assistant", "telegram", "agent"],
+      "text": "Personal Assistant using OpenClaw is Hari's Telegram-native AI automation project: agent workflows triggered from chat, with messaging as the interface rather than another dashboard. Status: building."
+    },
+    {
+      "id": "lab-applypilot",
+      "tags": ["applypilot", "job", "apply", "resume", "ats", "tool"],
+      "text": "ApplyPilot is Hari's ATS-aware resume tooling side project: keyword gap analysis against a target role, resume variant generation and application tracking. Status: building."
+    },
+    {
+      "id": "lab-nemo",
+      "tags": ["nemo", "you", "fish", "who are you", "bot", "chatbot", "guide"],
+      "text": "Nemo is me - the little guide living on this site! I answer questions about Hari using retrieval over his portfolio knowledge, optionally sharpened by Gemini Flash. I was built with zero dependencies and no backend server. Status: active."
+    },
+    {
+      "id": "site-purpose",
+      "tags": ["site", "website", "portfolio", "built", "how made", "source", "code"],
+      "text": "This site (hari.dev at meeturglider.github.io) is Hari's hand-built portfolio: no frameworks, no bundler, no dependencies. Content lives in JSON files rendered by small vanilla-JS classes. It is keyboard accessible, respects reduced-motion preferences, and uses responsive images and system fonts to stay light. Source is on GitHub: meeturglider/meeturglider.github.io."
+    }
+  ]
+}

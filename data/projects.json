@@ -199,9 +199,9 @@
     },
     {
       "name": "Nemo",
-      "status": "Planned",
-      "summary": "A lightweight guide for this site that routes a visitor to what they came for — recruiter, engineer or collaborator — without making them scroll to find it.",
-      "stack": ["JavaScript", "Retrieval"]
+      "status": "Active",
+      "summary": "The little guide living on this site — answers questions about Hari using retrieval over his portfolio knowledge, optionally sharpened by Gemini Flash. Zero dependencies, no backend.",
+      "stack": ["JavaScript", "TF-IDF retrieval", "Gemini Flash"]
     }
   ]
 }

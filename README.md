@@ -111,24 +111,49 @@ Multiple recruiter-focused resumes:
 
 ---
 
-### Phase 7 — Nemo
+### Phase 7 — Meet Nemo ✅ (shipped)
 
-A lightweight interactive assistant that guides visitors through the portfolio.
+Nemo is the little animated clownfish living on this site. He answers questions
+about Hari using **retrieval over his portfolio knowledge**, optionally
+sharpened by Gemini Flash.
 
-Future vision:
+How it works:
 
 ```
-👋 Hi!
-
-I'm Nemo.
-
-Would you like to explore:
-
-🏗 Projects
-☁ Cloud Experience
-📄 Resume
-🧠 AI Lab
+visitor question ──► TF-IDF retrieval over data/nemo-knowledge.json
+                        │
+              top 4 passages + strict system prompt
+                        │
+                Gemini Flash (browser REST call)
+                        │
+        answer ◄── or, on any API failure/quota limit,
+                   the retrieved passages shown verbatim
 ```
+
+- Zero dependencies, no backend server.
+- Without an API key (or if quota runs out), Nemo still works in
+  **retrieval mode** — he shows the matching knowledge chunks directly.
+
+#### Enable Gemini answers
+
+1. Open [Google AI Studio](https://aistudio.google.com/) → *Get API key*.
+   Use a **dedicated Google Cloud project with no billing attached** so the
+   worst case is a free-quota limit, never a charge.
+2. Restrict the key by **HTTP referrer** to `meeturglider.github.io/*`
+   (and your local dev origin while testing).
+3. Paste the key into `CONFIG.apiKey` in `js/nemo.js`.
+
+```js
+const CONFIG = {
+    apiKey: "",                 // ← paste your key here
+    model: "gemini-2.5-flash",
+    ...
+};
+```
+
+> Note: this is a client-side key by design (static GitHub Pages hosting).
+> Referrer restriction + no-billing project keeps the blast radius at zero.
+> To edit what Nemo knows, update `data/nemo-knowledge.json`.
 
 ---
 
