@@ -99,7 +99,7 @@
 
     <link
         rel="stylesheet"
-        href="css/nemo.css">
+        href="css/dory.css">
 
 </head>
 
@@ -263,26 +263,6 @@
                     <p class="hero-speciality">
                         Google Cloud • AI • Platform Engineering
                     </p>
-
-                    <div class="hero-divider"></div>
-
-                    <div class="meet-hari">
-
-                        <h4><span aria-hidden="true">🐠</span> Meet Nemo</h4>
-
-                        <p>
-                            A tiny fish who knows Hari well — ask him
-                            anything about Hari's work, stack,
-                            journey or how to reach him.
-                        </p>
-
-                        <button
-                            id="meetHariBtn"
-                            class="primary-button">
-                            Meet Nemo
-                        </button>
-
-                    </div>
 
                 </div>
 
@@ -587,16 +567,30 @@
 
     </footer>
 
-    <!-- Nemo launcher -->
+    <!-- Dory launcher -->
 
-    <button
-        class="nemo-launcher"
-        id="nemoLauncher"
-        type="button"
-        aria-label="Chat with Nemo about Hari">
+    <div class="dory-dock">
+
+        <span class="dory-hint" id="doryHint" hidden>
+
+            Hi, I'm Dory &#128032; Ask me anything about Hari
+
+            <button
+                class="dory-hint-close"
+                id="doryHintClose"
+                type="button"
+                aria-label="Dismiss">&times;</button>
+
+        </span>
+
+        <button
+            class="dory-launcher"
+            id="doryLauncher"
+            type="button"
+            aria-label="Chat with Dory about Hari">
 
         <svg
-            class="nemo-fish"
+            class="dory-fish"
             viewBox="0 0 64 44"
             aria-hidden="true"
             focusable="false">
@@ -623,25 +617,27 @@
 
         </svg>
 
-        <span class="nemo-bubbles" aria-hidden="true">
+        <span class="dory-bubbles" aria-hidden="true">
             <i></i><i></i><i></i>
         </span>
 
     </button>
 
-    <!-- Nemo chat -->
+    </div>
+
+    <!-- Dory chat -->
 
     <dialog
-        class="nemo-chat"
-        id="nemoChat"
-        aria-label="Chat with Nemo about Hari">
+        class="dory-chat"
+        id="doryChat"
+        aria-label="Chat with Dory about Hari">
 
-        <div class="nemo-head">
+        <div class="dory-head">
 
-            <span class="nemo-avatar">
+            <span class="dory-avatar">
 
                 <svg
-                    class="nemo-fish"
+                    class="dory-fish"
                     viewBox="0 0 64 44"
                     aria-hidden="true"
                     focusable="false">
@@ -670,17 +666,17 @@
 
             </span>
 
-            <div class="nemo-title">
+            <div class="dory-title">
 
-                <strong>Nemo</strong>
+                <strong>Dory</strong>
 
                 <span>Hari's little guide</span>
 
             </div>
 
             <button
-                class="nemo-close"
-                id="nemoClose"
+                class="dory-close"
+                id="doryClose"
                 type="button"
                 aria-label="Close chat">
                 &times;
@@ -688,20 +684,20 @@
 
         </div>
 
-        <div class="nemo-log" id="nemoLog" aria-live="polite"></div>
+        <div class="dory-log" id="doryLog" aria-live="polite"></div>
 
-        <form class="nemo-form" id="nemoForm">
+        <form class="dory-form" id="doryForm">
 
             <input
-                id="nemoInput"
+                id="doryInput"
                 type="text"
                 placeholder="Ask me about Hari…"
                 autocomplete="off"
                 maxlength="280"
-                aria-label="Ask Nemo a question about Hari">
+                aria-label="Ask Dory a question about Hari">
 
             <button
-                class="nemo-send"
+                class="dory-send"
                 type="submit"
                 aria-label="Send message">
 

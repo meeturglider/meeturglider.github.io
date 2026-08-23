@@ -5,7 +5,7 @@
  */
 
 import { initNav, initHeaderState, initScrollSpy, initReveal, initYear, revealWithin } from "./ui.js";
-import { initNemo } from "./nemo.js";
+import { initDory } from "./dory.js";
 import { ExperienceRenderer } from "./experience.js";
 import { ProjectsRenderer } from "./projects.js";
 
@@ -14,7 +14,7 @@ initHeaderState();
 initScrollSpy();
 initReveal();
 initYear();
-initNemo();
+initDory();
 
 const experience = new ExperienceRenderer("data/experience.json", "timeline");
 const projects = new ProjectsRenderer("data/projects.json", "projects-list", "lab-list");

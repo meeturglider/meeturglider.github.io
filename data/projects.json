@@ -198,9 +198,9 @@
       "stack": ["Python", "LLM", "ATS parsing"]
     },
     {
-      "name": "Nemo",
+      "name": "Dory",
       "status": "Active",
-      "summary": "The little guide living on this site — answers questions about Hari using retrieval over his portfolio knowledge, optionally sharpened by Gemini Flash. Zero dependencies, no backend.",
+      "summary": "The little blue guide living on this site — a slightly forgetful fish who answers questions about Hari using retrieval over his portfolio knowledge, optionally sharpened by Gemini Flash. Zero dependencies, no backend.",
       "stack": ["JavaScript", "TF-IDF retrieval", "Gemini Flash"]
     }
   ]

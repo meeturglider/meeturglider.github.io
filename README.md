@@ -111,49 +111,54 @@ Multiple recruiter-focused resumes:
 
 ---
 
-### Phase 7 — Meet Nemo ✅ (shipped)
+### Phase 7 — Meet Dory ✅ (shipped)
 
-Nemo is the little animated clownfish living on this site. He answers questions
-about Hari using **retrieval over his portfolio knowledge**, optionally
-sharpened by Gemini Flash.
+Dory is the little animated fish living on this site — a bit forgetful, so she
+only ever repeats what Hari's portfolio actually says. She answers questions
+using **retrieval over his portfolio knowledge**, optionally sharpened by
+Gemini Flash.
 
 How it works:
 
 ```
-visitor question ──► TF-IDF retrieval over data/nemo-knowledge.json
+visitor question ──► TF-IDF retrieval over data/dory-knowledge.json
                         │
               top 4 passages + strict system prompt
                         │
-                Gemini Flash (browser REST call)
+                 Gemini Flash (browser REST call)
                         │
         answer ◄── or, on any API failure/quota limit,
                    the retrieved passages shown verbatim
 ```
 
 - Zero dependencies, no backend server.
-- Without an API key (or if quota runs out), Nemo still works in
-  **retrieval mode** — he shows the matching knowledge chunks directly.
+- Without an API key (or if quota runs out), Dory still works in
+  **retrieval mode** — she shows the matching knowledge chunks directly.
 
-#### Enable Gemini answers
+#### Enable Gemini answers (deploy-time injection)
 
-1. Open [Google AI Studio](https://aistudio.google.com/) → *Get API key*.
-   Use a **dedicated Google Cloud project with no billing attached** so the
-   worst case is a free-quota limit, never a charge.
-2. Restrict the key by **HTTP referrer** to `meeturglider.github.io/*`
-   (and your local dev origin while testing).
-3. Paste the key into `CONFIG.apiKey` in `js/nemo.js`.
+The key never lives in the repo — GitHub Push Protection would (rightly)
+block it, and public history is forever. Instead the deploy workflow injects
+it at build time:
+
+1. Create an API key at [Google AI Studio](https://aistudio.google.com/)
+   (`AIza…`, 39 chars) in a **dedicated no-billing project**, restricted by
+   **HTTP referrer** to `meeturglider.github.io/*`.
+2. Repo **Settings → Secrets and variables → Actions** → add
+   `DORY_GEMINI_API_KEY`.
+3. Done. `.github/workflows/deploy.yml` swaps the `__DORY_API_KEY__`
+   placeholder in `js/dory.js` during every deploy. Rotation = update the
+   secret and re-run.
+
+Local testing without touching tracked files:
 
 ```js
-const CONFIG = {
-    apiKey: "",                 // ← paste your key here
-    model: "gemini-2.5-flash",
-    ...
-};
+localStorage.setItem("doryKey", "<your AIza… key>");
 ```
 
-> Note: this is a client-side key by design (static GitHub Pages hosting).
-> Referrer restriction + no-billing project keeps the blast radius at zero.
-> To edit what Nemo knows, update `data/nemo-knowledge.json`.
+> Note: the built site still ships a client-side key by design (static
+> hosting). No-billing project + referrer restriction keeps the blast radius
+> at zero. To edit what Dory knows, update `data/dory-knowledge.json`.
 
 ---
 
@@ -249,7 +254,7 @@ The long-term vision is to evolve this website into a living engineering platfor
 
 Future enhancements include:
 
-- AI-powered portfolio assistant (Nemo)
+- AI-powered portfolio assistant (Dory)
 - Dynamic project rendering
 - Interactive architecture diagrams
 - Engineering blog

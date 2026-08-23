@@ -1,10 +1,11 @@
 /**
- * Nemo — a tiny retrieval-augmented guide answering questions about Hari.
+ * Dory — Hari's slightly forgetful little portfolio fish.
  *
- * Retrieval: BM25-flavoured TF-IDF over data/nemo-knowledge.json.
- * Generation: Gemini Flash via browser REST call (key restricted by referrer,
- * free tier, no billing attached). Any API failure degrades gracefully to
- * showing the retrieved passages verbatim — Nemo never goes dead.
+ * Retrieval: BM25-flavoured TF-IDF over data/dory-knowledge.json.
+ * Generation: Gemini Flash via browser REST call. The key is injected at
+ * deploy time (GitHub Actions secret -> sed), so the repo only ever holds
+ * a placeholder. Any API failure degrades gracefully to showing the
+ * retrieved passages verbatim — Dory never goes dead.
  */
 
 import { el, loadJSON } from "./dom.js";
@@ -14,9 +15,11 @@ import { el, loadJSON } from "./dom.js";
 /* ------------------------------------------------------------------ */
 
 const CONFIG = {
-    // Paste your Google AI Studio key here (see README "Enable Nemo").
-    // Use a dedicated no-billing project with an HTTP-referrer restriction.
-    apiKey: "",
+    // Replaced at deploy time from the DORY_GEMINI_API_KEY Actions secret.
+    // For local testing run: localStorage.setItem("doryKey", "<AIza...>")
+    apiKey:
+        (typeof localStorage !== "undefined" && localStorage.getItem("doryKey")) ||
+        "__DORY_API_KEY__",
     model: "gemini-2.5-flash",
     endpoint: "https://generativelanguage.googleapis.com/v1beta/models",
     topK: 4,
@@ -26,7 +29,7 @@ const CONFIG = {
 };
 
 const SYSTEM_PROMPT = [
-    "You are Nemo, Hari's friendly little portfolio fish.",
+    "You are Dory, Hari's friendly little portfolio fish.",
     "Answer ONLY using the KNOWLEDGE passages provided.",
     "If the answer is not in them, say you don't know and suggest emailing Hari.",
     "Keep answers under 80 words, warm and factual. Refer to him as Hari.",
@@ -34,6 +37,8 @@ const SYSTEM_PROMPT = [
 ].join(" ");
 
 const GREETING = "Ask me about Hari. I can help you with my little knowledge about what I know about him.";
+
+const HINT_KEY = "doryHintSeen";
 
 const STOP_WORDS = new Set([
     "a", "an", "the", "is", "are", "was", "were", "be", "been", "to", "of", "in",
@@ -176,7 +181,7 @@ function addMessage(log, role, html) {
 }
 
 function addTyping(log) {
-    const typing = el("div", { class: "msg nemo typing", "aria-label": "Nemo is thinking" },
+    const typing = el("div", { class: "msg dory typing", "aria-label": "Dory is thinking" },
         el("span", { class: "dots", "aria-hidden": "true" },
             [el("i"), el("i"), el("i")]));
     log.append(typing);
@@ -186,32 +191,61 @@ function addTyping(log) {
 
 function fallbackAnswer(log, question, chunks) {
     if (!chunks.length) {
-        addMessage(log, "nemo",
-            "I'm just a little fish and I don't know that one yet! Try something about Hari's work, certifications or journey — or email <b>pnharisankar@outlook.com</b>.");
+        addMessage(log, "dory",
+            "I forgot that one completely! Try asking about Hari's work, certifications or journey — or email <b>pnharisankar@outlook.com</b>.");
         return;
     }
 
     const lines = chunks.map((c) =>
         `<b>${c.id.replace(/-/g, " ")}</b> — ${fmt(c.text)}`);
 
-    addMessage(log, "nemo",
-        `My brain-cloud is a bit sleepy right now, so here's what I know about <i>“${fmt(question)}”</i>:<br><br>` +
+    addMessage(log, "dory",
+        `My memory is a bit foggy right now, so here's what I keep about <i>“${fmt(question)}”</i>:<br><br>` +
         lines.join("<br><br>"));
+}
+
+/* ------------------------------------------------------------------ */
+/* Intro bubble                                                        */
+/* ------------------------------------------------------------------ */
+
+function hideHint(permanent) {
+    const hint = document.getElementById("doryHint");
+    if (permanent) {
+        try { localStorage.setItem(HINT_KEY, "1"); } catch (e) { /* private mode */ }
+    }
+    if (!hint || hint.hidden) return;
+    hint.classList.remove("show");
+    setTimeout(() => { hint.hidden = true; }, 200);
+}
+
+function maybeShowHint() {
+    const hint = document.getElementById("doryHint");
+    if (!hint) return;
+
+    let seen = false;
+    try { seen = Boolean(localStorage.getItem(HINT_KEY)); } catch (e) { /* private mode */ }
+    if (seen) return;
+
+    setTimeout(() => {
+        if (hint.hidden) {
+            hint.hidden = false;
+            requestAnimationFrame(() => hint.classList.add("show"));
+        }
+    }, 3000);
 }
 
 /* ------------------------------------------------------------------ */
 /* Chat controller                                                     */
 /* ------------------------------------------------------------------ */
 
-export function initNemo() {
+export function initDory() {
 
-    const launcher = document.getElementById("nemoLauncher");
-    const openBtn = document.getElementById("meetHariBtn");
-    const chat = document.getElementById("nemoChat");
-    const closeBtn = document.getElementById("nemoClose");
-    const form = document.getElementById("nemoForm");
-    const input = document.getElementById("nemoInput");
-    const log = document.getElementById("nemoLog");
+    const launcher = document.getElementById("doryLauncher");
+    const chat = document.getElementById("doryChat");
+    const closeBtn = document.getElementById("doryClose");
+    const form = document.getElementById("doryForm");
+    const input = document.getElementById("doryInput");
+    const log = document.getElementById("doryLog");
 
     if (!chat || !form || !input || !log) return;
 
@@ -221,33 +255,31 @@ export function initNemo() {
     let lastSendAt = 0;
     let busy = false;
 
-    loadJSON("data/nemo-knowledge.json")
+    loadJSON("data/dory-knowledge.json")
         .then((data) => { index = buildIndex(data.chunks || []); })
-        .catch((error) => console.error("Nemo knowledge:", error));
+        .catch((error) => console.error("Dory knowledge:", error));
 
     function greet() {
         if (greeted) return;
         greeted = true;
-        addMessage(log, "nemo", GREETING);
+        addMessage(log, "dory", GREETING);
     }
 
     function open() {
         lastFocus = document.activeElement;
+        hideHint(true);
         greet();
         chat.showModal();
         input.focus();
     }
 
-    function close() {
-        chat.close();
-    }
-
     launcher?.addEventListener("click", open);
-    openBtn?.addEventListener("click", open);
-    closeBtn?.addEventListener("click", close);
+    closeBtn?.addEventListener("click", () => chat.close());
+    document.getElementById("doryHintClose")
+        ?.addEventListener("click", () => hideHint(true));
 
     chat.addEventListener("click", (event) => {
-        if (event.target === chat) close();
+        if (event.target === chat) chat.close();
     });
 
     chat.addEventListener("close", () => {
@@ -264,7 +296,7 @@ export function initNemo() {
 
         const now = Date.now();
         if (sendCount >= CONFIG.maxQuestionsPerSession) {
-            addMessage(log, "nemo",
+            addMessage(log, "dory",
                 "I've answered all my little fins can manage this session 🐟 Try again later, or email <b>pnharisankar@outlook.com</b> directly.");
             return;
         }
@@ -284,8 +316,8 @@ export function initNemo() {
             setTimeout(() => {
                 typing.remove();
                 chat.classList.remove("is-thinking");
-                addMessage(log, "nemo",
-                    "I'm <b>Nemo</b> \u{1F420} Hari's little portfolio guide! Ask me about his work, certifications, projects or journey.");
+                addMessage(log, "dory",
+                    "I'm <b>Dory</b> \u{1F420} — a little forgetful, so I stick to Hari's facts! Ask me about his work, certifications, projects or journey.");
                 busy = false;
                 input.focus();
             }, 500);
@@ -295,11 +327,11 @@ export function initNemo() {
         const chunks = retrieve(question);
         let answer = null;
 
-        if (CONFIG.apiKey && chunks.length) {
+        if (!CONFIG.apiKey.includes("__") && CONFIG.apiKey && chunks.length) {
             try {
                 answer = await askGemini(question, chunks);
             } catch (error) {
-                console.error("Nemo:", error);
+                console.error("Dory:", error);
             }
         }
 
@@ -307,7 +339,7 @@ export function initNemo() {
         chat.classList.remove("is-thinking");
 
         if (answer) {
-            addMessage(log, "nemo", fmt(answer));
+            addMessage(log, "dory", fmt(answer));
         } else {
             fallbackAnswer(log, question, chunks);
         }
@@ -317,4 +349,6 @@ export function initNemo() {
     }
 
     form.addEventListener("submit", handleSend);
+
+    maybeShowHint();
 }

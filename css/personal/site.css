@@ -127,43 +127,6 @@
     line-height: 1.6;
 }
 
-.meet-hari h4 {
-    margin-bottom: 12px;
-}
-
-.meet-hari p {
-    margin-bottom: 24px;
-    color: var(--text-secondary);
-    font-size: var(--step--1);
-    line-height: 1.7;
-}
-
-/* The original button shipped unstyled; give it the primary treatment. */
-
-.primary-button {
-    display: inline-flex;
-    align-items: center;
-    gap: .5rem;
-    padding: .8rem 1.5rem;
-    border-radius: var(--radius-pill);
-    background: linear-gradient(135deg, var(--accent-light), var(--accent));
-    color: #04121f;
-    font-size: var(--step-0);
-    font-weight: 600;
-    white-space: nowrap;
-    box-shadow: 0 12px 28px rgba(59, 130, 246, .28);
-    transition: transform var(--transition), box-shadow var(--transition);
-}
-
-.primary-button:hover {
-    transform: translateY(-2px);
-}
-
-.primary-button:focus-visible {
-    outline: 2px solid var(--accent-light);
-    outline-offset: 3px;
-}
-
 /* Certifications & education strip */
 
 .cert-list {

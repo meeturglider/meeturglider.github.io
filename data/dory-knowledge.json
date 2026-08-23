@@ -106,9 +106,9 @@
       "text": "ApplyPilot is Hari's ATS-aware resume tooling side project: keyword gap analysis against a target role, resume variant generation and application tracking. Status: building."
     },
     {
-      "id": "lab-nemo",
-      "tags": ["nemo", "you", "fish", "who are you", "bot", "chatbot", "guide"],
-      "text": "Nemo is me - the little guide living on this site! I answer questions about Hari using retrieval over his portfolio knowledge, optionally sharpened by Gemini Flash. I was built with zero dependencies and no backend server. Status: active."
+      "id": "lab-dory",
+      "tags": ["dory", "nemo", "you", "fish", "who are you", "bot", "chatbot", "guide"],
+      "text": "Dory is me - Hari's slightly forgetful little guide living on this site! I answer questions about Hari by retrieving from his portfolio knowledge, optionally sharpened by Gemini Flash. I was built with zero dependencies and no backend server. Status: active."
     },
     {
       "id": "site-purpose",

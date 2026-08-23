@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Nemo — animated guide chat
+   Dory — animated guide chat
    --------------------------------------------------------------------------
    Pure CSS/SVG animation, no libraries. Every motion rule is disabled under
    prefers-reduced-motion.
@@ -9,53 +9,53 @@
    The fish
    -------------------------------------------------------------------------- */
 
-.nemo-fish {
+.dory-fish {
     width: 100%;
     height: 100%;
     overflow: visible;
 }
 
-.nemo-fish .swim {
-    animation: nemo-bob 2.2s ease-in-out infinite;
+.dory-fish .swim {
+    animation: dory-bob 2.2s ease-in-out infinite;
 }
 
-.nemo-fish .body {
+.dory-fish .body {
     fill: #ff8c2e;
     stroke: #d96b12;
     stroke-width: 1.5;
 }
 
-.nemo-fish .stripe {
+.dory-fish .stripe {
     fill: #fff7ed;
     stroke: #d96b12;
     stroke-width: 1;
 }
 
-.nemo-fish .tail {
+.dory-fish .tail {
     fill: #ff8c2e;
     stroke: #d96b12;
     stroke-width: 1.5;
     transform-origin: 17px 24px;
-    animation: nemo-wag .55s ease-in-out infinite alternate;
+    animation: dory-wag .55s ease-in-out infinite alternate;
 }
 
-.nemo-fish .fin {
+.dory-fish .fin {
     fill: #f27415;
     stroke: #d96b12;
     stroke-width: 1;
     transform-origin: center 60%;
-    animation: nemo-flutter .8s ease-in-out infinite alternate;
+    animation: dory-flutter .8s ease-in-out infinite alternate;
 }
 
-.nemo-fish .eye-white {
+.dory-fish .eye-white {
     fill: #fff;
 }
 
-.nemo-fish .eye-dot {
+.dory-fish .eye-dot {
     fill: #1f2937;
 }
 
-@keyframes nemo-bob {
+@keyframes dory-bob {
 
     0%,
     100% {
@@ -67,7 +67,7 @@
     }
 }
 
-@keyframes nemo-wag {
+@keyframes dory-wag {
 
     from {
         transform: rotate(-14deg);
@@ -78,7 +78,7 @@
     }
 }
 
-@keyframes nemo-flutter {
+@keyframes dory-flutter {
 
     from {
         transform: rotate(-10deg);
@@ -93,7 +93,7 @@
    Floating launcher
    -------------------------------------------------------------------------- */
 
-.nemo-launcher {
+.dory-launcher {
     position: fixed;
     right: 1.25rem;
     bottom: 1.25rem;
@@ -109,16 +109,16 @@
     box-shadow: 0 12px 32px rgba(59, 130, 246, .35);
     cursor: pointer;
     transition: transform var(--transition), box-shadow var(--transition);
-    animation: nemo-glow 3s ease-in-out infinite;
+    animation: dory-glow 3s ease-in-out infinite;
 }
 
-.nemo-launcher:hover {
+.dory-launcher:hover {
     transform: translateY(-4px) scale(1.06);
     box-shadow: 0 16px 40px rgba(59, 130, 246, .5);
     animation-play-state: paused;
 }
 
-@keyframes nemo-glow {
+@keyframes dory-glow {
 
     0%,
     100% {
@@ -130,14 +130,14 @@
     }
 }
 
-.nemo-bubbles {
+.dory-bubbles {
     position: absolute;
     top: -4px;
     right: 6px;
     pointer-events: none;
 }
 
-.nemo-bubbles i {
+.dory-bubbles i {
     position: absolute;
     bottom: 0;
     width: 6px;
@@ -145,27 +145,27 @@
     border: 1px solid rgba(147, 197, 253, .8);
     border-radius: 50%;
     opacity: 0;
-    animation: nemo-rise 2.8s linear infinite;
+    animation: dory-rise 2.8s linear infinite;
 }
 
-.nemo-bubbles i:nth-child(1) {
+.dory-bubbles i:nth-child(1) {
     left: 2px;
     animation-delay: 0s;
 }
 
-.nemo-bubbles i:nth-child(2) {
+.dory-bubbles i:nth-child(2) {
     left: 12px;
     width: 4px;
     height: 4px;
     animation-delay: .9s;
 }
 
-.nemo-bubbles i:nth-child(3) {
+.dory-bubbles i:nth-child(3) {
     left: 7px;
     animation-delay: 1.8s;
 }
 
-@keyframes nemo-rise {
+@keyframes dory-rise {
 
     0% {
         transform: translateY(0);
@@ -186,7 +186,7 @@
    Chat panel
    -------------------------------------------------------------------------- */
 
-.nemo-chat {
+.dory-chat {
     position: fixed;
     right: 1.25rem;
     bottom: calc(1.25rem + 74px);
@@ -205,16 +205,16 @@
     box-shadow: 0 24px 64px rgba(0, 0, 0, .5);
 }
 
-.nemo-chat[open] {
+.dory-chat[open] {
     display: flex;
-    animation: nemo-pop .22s ease-out;
+    animation: dory-pop .22s ease-out;
 }
 
-.nemo-chat::backdrop {
+.dory-chat::backdrop {
     background: transparent;
 }
 
-@keyframes nemo-pop {
+@keyframes dory-pop {
 
     from {
         opacity: 0;
@@ -227,7 +227,7 @@
     }
 }
 
-.nemo-head {
+.dory-head {
     display: flex;
     align-items: center;
     gap: .75rem;
@@ -236,7 +236,7 @@
     background: rgba(59, 130, 246, .08);
 }
 
-.nemo-avatar {
+.dory-avatar {
     display: grid;
     place-items: center;
     width: 42px;
@@ -247,22 +247,22 @@
     flex-shrink: 0;
 }
 
-.nemo-title {
+.dory-title {
     display: flex;
     flex-direction: column;
     line-height: 1.2;
 }
 
-.nemo-title strong {
+.dory-title strong {
     font-size: var(--step-0);
 }
 
-.nemo-title span {
+.dory-title span {
     color: var(--text-muted);
     font-size: .78rem;
 }
 
-.nemo-close {
+.dory-close {
     margin-left: auto;
     display: grid;
     place-items: center;
@@ -275,12 +275,12 @@
     transition: background var(--transition), color var(--transition);
 }
 
-.nemo-close:hover {
+.dory-close:hover {
     background: rgba(255, 255, 255, .08);
     color: var(--text);
 }
 
-.nemo-log {
+.dory-log {
     display: flex;
     flex-direction: column;
     gap: .6rem;
@@ -299,7 +299,7 @@
     word-break: break-word;
 }
 
-.msg.nemo {
+.msg.dory {
     align-self: flex-start;
     border: 1px solid var(--border);
     border-bottom-left-radius: 4px;
@@ -335,7 +335,7 @@
     height: 6px;
     border-radius: 50%;
     background: var(--accent-light);
-    animation: nemo-dots 1s ease-in-out infinite;
+    animation: dory-dots 1s ease-in-out infinite;
 }
 
 .dots i:nth-child(2) {
@@ -346,7 +346,7 @@
     animation-delay: .3s;
 }
 
-@keyframes nemo-dots {
+@keyframes dory-dots {
 
     0%,
     100% {
@@ -360,19 +360,19 @@
     }
 }
 
-/* While Nemo thinks, his avatar jiggles eagerly */
+/* While Dory thinks, his avatar jiggles eagerly */
 
-.nemo-chat.is-thinking .nemo-avatar .swim {
+.dory-chat.is-thinking .dory-avatar .swim {
     animation-duration: .5s;
 }
 
-.nemo-chat.is-thinking .nemo-avatar .tail {
+.dory-chat.is-thinking .dory-avatar .tail {
     animation-duration: .25s;
 }
 
 /* Input bar */
 
-.nemo-form {
+.dory-form {
     display: flex;
     gap: .55rem;
     padding: .75rem;
@@ -380,7 +380,7 @@
     background: rgba(2, 6, 23, .35);
 }
 
-.nemo-form input {
+.dory-form input {
     flex: 1;
     min-width: 0;
     padding: .65rem .95rem;
@@ -391,16 +391,16 @@
     font-size: var(--step--1);
 }
 
-.nemo-form input::placeholder {
+.dory-form input::placeholder {
     color: var(--text-muted);
 }
 
-.nemo-form input:focus-visible {
+.dory-form input:focus-visible {
     outline: 2px solid var(--accent-light);
     outline-offset: 1px;
 }
 
-.nemo-send {
+.dory-send {
     display: grid;
     place-items: center;
     width: 42px;
@@ -414,11 +414,11 @@
     transition: transform var(--transition);
 }
 
-.nemo-send:hover {
+.dory-send:hover {
     transform: scale(1.08);
 }
 
-.nemo-send svg {
+.dory-send svg {
     width: 17px;
     height: 17px;
     fill: currentColor;
@@ -428,7 +428,7 @@
 
 @media (max-width: 640px) {
 
-    .nemo-chat {
+    .dory-chat {
         right: 0;
         left: 0;
         bottom: 0;
@@ -440,17 +440,76 @@
     }
 }
 
+/* --------------------------------------------------------------------------
+   Dock — launcher + one-time intro bubble
+   -------------------------------------------------------------------------- */
+
+.dory-dock {
+    position: fixed;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    z-index: 150;
+}
+
+.dory-dock .dory-launcher {
+    position: static;
+}
+
+.dory-hint {
+    position: absolute;
+    right: 0;
+    bottom: calc(100% + 14px);
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    max-width: 240px;
+    padding: .6rem .8rem;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    border-bottom-right-radius: 4px;
+    background: var(--surface);
+    color: var(--text);
+    font-size: var(--step--1);
+    line-height: 1.45;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, .4);
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity var(--transition), transform var(--transition);
+}
+
+.dory-hint.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dory-hint-close {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    color: var(--text-muted);
+    font-size: .95rem;
+    line-height: 1;
+}
+
+.dory-hint-close:hover {
+    background: rgba(255, 255, 255, .08);
+    color: var(--text);
+}
+
 /* Reduced motion: everything static */
 
 @media (prefers-reduced-motion: reduce) {
 
-    .nemo-fish .swim,
-    .nemo-fish .tail,
-    .nemo-fish .fin,
-    .nemo-launcher,
-    .nemo-bubbles i,
+    .dory-fish .swim,
+    .dory-fish .tail,
+    .dory-fish .fin,
+    .dory-launcher,
+    .dory-bubbles i,
     .dots i,
-    .nemo-chat[open] {
+    .dory-chat[open],
+    .dory-hint {
         animation: none;
+        transition: none;
     }
 }
