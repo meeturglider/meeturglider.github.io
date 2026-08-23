@@ -207,6 +207,54 @@
     text-align: center;
 }
 
+/* Timeline project disclosures */
+
+.timeline-projects {
+    margin-top: .75rem;
+    padding-top: 1.25rem;
+    border-top: 1px dashed var(--border-strong);
+}
+
+.timeline-project {
+    margin-bottom: .75rem;
+    padding: .9rem 1.1rem;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, .03);
+}
+
+.timeline-project:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-project h4 {
+    margin-bottom: .5rem;
+    font-size: var(--step--1);
+    color: var(--accent-light);
+}
+
+.timeline-project ul {
+    margin: 0;
+    padding-left: 1.15rem;
+    list-style: disc;
+}
+
+.timeline-project li {
+    margin-bottom: .35rem;
+    color: var(--text-secondary);
+    font-size: var(--step--1);
+    line-height: 1.55;
+}
+
+.project-button-icon {
+    display: inline-block;
+    transition: transform var(--transition);
+}
+
+.project-button[aria-expanded="true"] .project-button-icon {
+    transform: rotate(90deg);
+}
+
 /* Fetch failure states (renderError) */
 
 .timeline-error {

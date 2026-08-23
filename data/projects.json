@@ -192,7 +192,7 @@
       "stack": ["Python", "Telegram Bot API", "LLM agents"]
     },
     {
-      "name": "Job Apply Assist",
+      "name": "ApplyPilot",
       "status": "Building",
       "summary": "ATS-aware resume tooling — keyword gap analysis against a target role, resume variant generation, and application tracking.",
       "stack": ["Python", "LLM", "ATS parsing"]
