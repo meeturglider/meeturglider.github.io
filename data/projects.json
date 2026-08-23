@@ -21,7 +21,7 @@
         "layers": [
           { "name": "Client", "nodes": ["Angular SPA", "Chat widget"] },
           { "name": "Edge", "nodes": ["Cloud Load Balancing", "Identity-Aware Proxy"] },
-          { "name": "Application", "nodes": ["FastAPI on Cloud Run", "Retrieval orchestrator"] },
+          { "name": "Application", "nodes": ["FastAPI on Cloud Run", "Retrieval orchestrator", "Customer prioritization engine", "Automated case-review pipeline"] },
           { "name": "Intelligence", "nodes": ["Vertex AI", "Gemini", "Embeddings + vector search"] },
           { "name": "Data", "nodes": ["PostgreSQL", "Cloud Storage (document corpus)"] },
           { "name": "Platform", "nodes": ["Terraform", "Cloud Build", "Cloud Logging"] }
@@ -50,8 +50,9 @@
       ],
 
       "outcomes": [
-        "Support knowledge is queryable in natural language instead of grep-and-hope across runbooks.",
-        "Answers arrive with sources attached, so engineers can verify before acting on them.",
+        "Projected impact: 20% support-productivity gain and 10% reduction in consult rates via query deflection and high-accuracy guidance.",
+        "High-risk customers are flagged pre-escalation from historical signals — escalation rate, CES, stagnation.",
+        "Support knowledge is queryable in natural language instead of grep-and-hope across runbooks, with sources attached to every answer.",
         "New joiners self-serve on problems that previously required a senior escalation."
       ],
 
@@ -81,7 +82,7 @@
           { "name": "Edge", "nodes": ["Cloud Load Balancing", "Session auth"] },
           { "name": "Application", "nodes": ["FastAPI on Cloud Run", "Adaptive engine", "Scoring service"] },
           { "name": "Execution", "nodes": ["Per-candidate Docker sandbox", "Linux / Java / Python runtimes", "Egress-restricted, TTL-bound"] },
-          { "name": "Intelligence", "nodes": ["Vertex AI", "Gemini (report generation)"] },
+          { "name": "Intelligence", "nodes": ["Vertex AI", "Gemini (report generation)", "Behavioral AI simulator"] },
           { "name": "Data", "nodes": ["PostgreSQL", "Behavioural event log"] }
         ]
       },
@@ -108,9 +109,10 @@
       ],
 
       "outcomes": [
+        "Projected impact: 60% improvement in quality hiring and 35% advancement in critical metrics for Cloud Support.",
         "Candidates are assessed on live Linux, Java and Python environments rather than on questions about them.",
         "Untrusted code runs inside a per-session boundary that is disposed on completion.",
-        "Assessment reports are generated from behavioural data, not just final scores."
+        "Assessment reports are generated from behavioral data, not just final scores."
       ],
 
       "stack": ["Google Cloud", "Cloud Run", "Docker", "FastAPI", "Python", "Vertex AI", "Gemini", "PostgreSQL", "Angular", "Terraform"]

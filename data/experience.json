@@ -8,29 +8,33 @@
     "role": "Senior Cloud Architect",
     "location": "Hyderabad, India",
 
-    "impact": "Leading AI-driven GCP cloud transformation by designing enterprise level applications built using Google Cloud, Vertex AI and Gemini to automate support operations and improve productivity and customer experience.",
+    "impact": "Leading AI-driven GCP cloud transformation by designing enterprise applications built using Google Cloud, Vertex AI and Gemini to automate support operations — projected impact across the portfolio: 20% support-productivity gain and 10% reduction in consult rates.",
 
     "highlights": [
-      "Designed Digital chatbot assistant for enterprise support operations",
-      "Developed adaptive assessment platform",
-      "Built secure coding sandbox labs"
+      "Leading the Transformation team infusing AI into support workflows",
+      "Projected 20% support-productivity gain and 10% fewer consult-rate cases via query deflection",
+      "Built secure coding sandbox labs for hands-on technical assessment",
+      "Transformation Spot Achiever — Cognizant award"
     ],
 
     "projects": [
       {
         "name": "Digital SME",
         "highlights": [
-          "Intelligent Knowledge Base based on RAG",
-          "AI-powered Troubleshooting Chatbot"
+          "Intelligent knowledge base grounded in RAG over the Golden dataset",
+          "Gemini Enterprise troubleshooting chatbot for Support Engineers",
+          "Customer prioritization engine flagging high-risk accounts pre-escalation",
+          "Automated case-review pipeline replacing manual smoky-case reviews"
         ]
       },
       {
         "name": "C.O.R.E Assessment Platform",
         "highlights": [
-          "Secure Sandbox Labs for Linux, Java and Python",
-          "Adaptive MCQ, Contextual and Sandbox Assessments",
-          "Behavioral Analytics",
-          "AI-powered Assessment Reports"
+          "Secure sandbox labs for Linux, Java and Python with self-destruct on completion",
+          "Adaptive MCQ, contextual and sandbox assessments with basic proctoring",
+          "Behavioral analytics",
+          "AI-powered assessment reports",
+          "Projected: 60% improvement in quality hiring"
         ]
       }
     ],
@@ -61,10 +65,10 @@
     "impact": "Led global Google Cloud operations across India and Europe while driving AI adoption, automation initiatives and operational excellence.",
 
     "highlights": [
-      "Led Google Cloud Operations across India and Europe",
-      "Managed 200+ engineers after organizational merger",
+      "Completed merger of GCP operations uniting 200 engineers across Romania and Israel",
+      "Led Google Cloud operations across India and Europe",
       "Created AI transformation initiatives",
-      "Improved delivery quality while reducing escalations"
+      "Raising the Bar — above and beyond, Cognizant award"
     ],
 
     "projects": [
@@ -99,6 +103,7 @@
 
     "highlights": [
       "Mentored 30+ Cloud Engineers",
+      "Best Performer — Bi-Annual Award, Google Operations Center",
       "Presented business reviews to leadership",
       "Designed automation initiatives reducing manual effort",
       "Helped enterprise customers implement security best practices"
@@ -138,7 +143,8 @@
       "Migrated monolithic applications to Docker",
       "Designed Jenkins CI/CD pipelines",
       "Built Google Cloud environments",
-      "Implemented Envoy, Consul and Terraform automation"
+      "Implemented Envoy, Consul and Terraform automation",
+      "Best Performer — Quarterly Award, Cisco Systems"
     ],
 
     "projects": [

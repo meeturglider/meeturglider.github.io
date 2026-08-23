@@ -80,7 +80,10 @@ export class ExperienceRenderer {
             el("span", { class: "timeline-year", text: exp.year }),
             el("h3", { class: "timeline-role", text: exp.role }),
             el("span", { class: "timeline-company", text: exp.company }),
-            el("span", { class: "timeline-location", text: `📍 ${exp.location}` })
+            el("span", { class: "timeline-location" }, [
+                el("span", { "aria-hidden": "true", text: "📍 " }),
+                el("span", { text: exp.location })
+            ])
         ]);
 
         const block = el("div", { class: "company-block" }, [

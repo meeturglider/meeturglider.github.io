@@ -164,6 +164,49 @@
     outline-offset: 3px;
 }
 
+/* Certifications & education strip */
+
+.cert-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .75rem;
+}
+
+.cert-list li {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+    padding: .9rem 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    transition: border-color var(--transition), transform var(--transition);
+}
+
+.cert-list li:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.cert-name {
+    font-size: var(--step--1);
+    font-weight: 600;
+}
+
+.cert-meta {
+    color: var(--text-muted);
+    font-size: .78rem;
+    letter-spacing: .03em;
+}
+
+.education-line {
+    margin-top: 1.5rem;
+    color: var(--text-muted);
+    font-size: var(--step--1);
+    text-align: center;
+}
+
 /* Fetch failure states (renderError) */
 
 .timeline-error {
