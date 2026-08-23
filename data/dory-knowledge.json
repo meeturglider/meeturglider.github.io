@@ -24,8 +24,7 @@
         "call",
         "reach",
         "linkedin",
-        "github",
-        "hire"
+        "github"
       ],
       "text": "You can reach Hari by email at pnharisankar@outlook.com or by phone at +91-9600124898. He is also on LinkedIn at linkedin.com/in/pnhari and GitHub at github.com/meeturglider."
     },
@@ -333,6 +332,97 @@
         "project"
       ],
       "text": "Elevate 360 is Hari's LLM-powered performance dashboard at Cognizant (currently building). It unifies associate performance data to proactively detect anomalies, explain TSR/SME/Lead scorecard fluctuations, raise real-time alerts on sensitive cases before they escalate, generate personalised coaching recommendations (integrating with Skillcraft), and automate team/site/specialisation comparison reports. Built with FastAPI on Cloud Run, Vertex AI, Cloud SQL, BigQuery, Terraform and Angular."
+    },
+    {
+      "id": "why-hire",
+      "tags": [
+        "hire",
+        "hiring",
+        "recruit",
+        "candidate",
+        "fit",
+        "value",
+        "recommend",
+        "strength",
+        "strengths",
+        "choose",
+        "pick",
+        "interview",
+        "good",
+        "best"
+      ],
+      "text": "Why Hari is worth hiring: fifteen-plus years that trace the exact arc modern platforms need — Linux infrastructure, network architecture at Cisco, cloud operations leadership at Google Operations Center, and now AI-driven GCP transformation as Senior Cloud Architect at Cognizant. He turns problem statements into shipped LLM systems (Digital SME, C.O.R.E, Elevate 360), carries projected impact of 20% support-productivity gain and 10% fewer consult cases, has won Best Performer awards at Cisco, GOC and Cognizant, and has mentored 30+ engineers along the way. Reachable at pnharisankar@outlook.com or +91-9600124898."
+    },
+    {
+      "id": "skills-genai",
+      "tags": [
+        "skill",
+        "skills",
+        "genai",
+        "ai",
+        "llm",
+        "rag",
+        "gemini",
+        "vertex",
+        "prompt",
+        "expertise",
+        "artificial",
+        "intelligence"
+      ],
+      "text": "Hari's GenAI skill: he designs LLM-powered products end to end — retrieval-grounded assistants with citations (Digital SME), sandboxed AI assessment (C.O.R.E), and an LLM insight dashboard (Elevate 360). Working stack: Vertex AI, Gemini, GPT-OSS on Groq, embeddings and RAG orchestration on FastAPI. He treats grounding, evaluation and hallucination control as design requirements, not afterthoughts."
+    },
+    {
+      "id": "skills-cloud",
+      "tags": [
+        "skill",
+        "skills",
+        "cloud",
+        "gcp",
+        "aws",
+        "terraform",
+        "architecture",
+        "iac",
+        "devops",
+        "bigquery",
+        "infrastructure"
+      ],
+      "text": "Hari's cloud architecture skill: a GCP specialist who designs serverless-first platforms — Cloud Run, Cloud SQL, BigQuery analytics splits, Identity-Aware Proxy edges — all reproducible through Terraform. Earlier chapters include AWS landing zones via CloudFormation, hybrid OpenStack work, enterprise IAM and security posture reviews at Google Operations Center, and CI/CD platform design at Cisco."
+    },
+    {
+      "id": "skills-engineering",
+      "tags": [
+        "skill",
+        "skills",
+        "python",
+        "fastapi",
+        "angular",
+        "docker",
+        "cicd",
+        "fullstack",
+        "coding",
+        "engineering",
+        "developer",
+        "javascript"
+      ],
+      "text": "Hari's engineering skill: he ships working software himself, not just diagrams — Python/FastAPI services, Angular frontends, Docker packaging, Jenkins and Cloud Build pipelines. Proof: the site you're reading is his hand-built, zero-dependency JavaScript codebase, complete with its own TF-IDF retrieval engine powering this chatbot."
+    },
+    {
+      "id": "skills-leadership",
+      "tags": [
+        "skill",
+        "skills",
+        "leader",
+        "leadership",
+        "mentor",
+        "mentoring",
+        "team",
+        "management",
+        "stakeholder",
+        "award",
+        "awards",
+        "transformation"
+      ],
+      "text": "Hari's leadership skill: he leads the Transformation team infusing AI into support workflows at Cognizant, united a 200-engineer Google Cloud operation across Romania and Israel after a merger, and mentored 30+ cloud engineers at Google Operations Center. Recognition followed every chapter: Best Performer at Cisco, Bi-Annual Best Performer at GOC, and both Transformation Spot Achiever and Raising the Bar at Cognizant."
     }
   ]
 }
