@@ -108,7 +108,7 @@
     {
       "id": "lab-dory",
       "tags": ["dory", "nemo", "you", "fish", "who are you", "bot", "chatbot", "guide"],
-      "text": "Dory is me - Hari's slightly forgetful little guide living on this site! I answer questions about Hari by retrieving from his portfolio knowledge, optionally sharpened by Gemini Flash. I was built with zero dependencies and no backend server. Status: active."
+      "text": "Dory is me - Hari's slightly forgetful little guide living on this site! I answer questions about Hari by retrieving from his portfolio knowledge, optionally sharpened by Llama 3.3 running on Groq. I was built with zero dependencies and no backend server. Status: active."
     },
     {
       "id": "site-purpose",

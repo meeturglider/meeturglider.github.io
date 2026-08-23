@@ -2,10 +2,10 @@
  * Dory — Hari's slightly forgetful little portfolio fish.
  *
  * Retrieval: BM25-flavoured TF-IDF over data/dory-knowledge.json.
- * Generation: Gemini Flash via browser REST call. The key is injected at
- * deploy time (GitHub Actions secret -> sed), so the repo only ever holds
- * a placeholder. Any API failure degrades gracefully to showing the
- * retrieved passages verbatim — Dory never goes dead.
+ * Generation: Llama 3.3 via Groq's free-tier OpenAI-compatible API. The key
+ * is injected at deploy time (GitHub Actions secret -> sed), so the repo
+ * only ever holds a placeholder. Any API failure degrades gracefully to
+ * showing the retrieved passages verbatim — Dory never goes dead.
  */
 
 import { el, loadJSON } from "./dom.js";
@@ -15,13 +15,13 @@ import { el, loadJSON } from "./dom.js";
 /* ------------------------------------------------------------------ */
 
 const CONFIG = {
-    // Replaced at deploy time from the DORY_GEMINI_API_KEY Actions secret.
-    // For local testing run: localStorage.setItem("doryKey", "<AIza...>")
+    // Replaced at deploy time from the DORY_GROQ_API_KEY Actions secret.
+    // For local testing run: localStorage.setItem("doryKey", "<gsk_...>")
     apiKey:
         (typeof localStorage !== "undefined" && localStorage.getItem("doryKey")) ||
         "__DORY_API_KEY__",
-    model: "gemini-2.5-flash",
-    endpoint: "https://generativelanguage.googleapis.com/v1beta/models",
+    endpoint: "https://api.groq.com/openai/v1/chat/completions",
+    model: "llama-3.3-70b-versatile",
     topK: 4,
     maxQuestionsPerSession: 8,
     minSendGapMs: 1500,
@@ -121,37 +121,41 @@ function contextBlock(chunks) {
 }
 
 /* ------------------------------------------------------------------ */
-/* Gemini                                                              */
+/* Groq (OpenAI-compatible)                                            */
 /* ------------------------------------------------------------------ */
 
-async function askGemini(question, chunks) {
-    const prompt = [
-        "KNOWLEDGE:",
-        contextBlock(chunks),
-        "",
-        `QUESTION: ${question}`
-    ].join("\n");
-
-    const response = await fetch(
-        `${CONFIG.endpoint}/${CONFIG.model}:generateContent?key=${encodeURIComponent(CONFIG.apiKey)}`,
-        {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
-                contents: [{ role: "user", parts: [{ text: prompt }] }],
-                generationConfig: { temperature: 0.3, maxOutputTokens: 300 }
-            })
-        }
-    );
+async function askGroq(question, chunks) {
+    const response = await fetch(CONFIG.endpoint, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${CONFIG.apiKey}`
+        },
+        body: JSON.stringify({
+            model: CONFIG.model,
+            messages: [
+                { role: "system", content: SYSTEM_PROMPT },
+                {
+                    role: "user",
+                    content: [
+                        "KNOWLEDGE:",
+                        contextBlock(chunks),
+                        "",
+                        `QUESTION: ${question}`
+                    ].join("\n")
+                }
+            ],
+            temperature: 0.3,
+            max_tokens: 300
+        })
+    });
 
     if (!response.ok) {
-        throw new Error(`Gemini ${response.status}`);
+        throw new Error(`Groq ${response.status}`);
     }
 
     const data = await response.json();
-    const parts = data.candidates?.[0]?.content?.parts;
-    const text = parts?.map((p) => p.text).join("").trim();
+    const text = data.choices?.[0]?.message?.content?.trim();
 
     if (!text) throw new Error("Empty answer");
     return text;
@@ -329,7 +333,7 @@ export function initDory() {
 
         if (!CONFIG.apiKey.includes("__") && CONFIG.apiKey && chunks.length) {
             try {
-                answer = await askGemini(question, chunks);
+                answer = await askGroq(question, chunks);
             } catch (error) {
                 console.error("Dory:", error);
             }

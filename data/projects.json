@@ -200,8 +200,8 @@
     {
       "name": "Dory",
       "status": "Active",
-      "summary": "The little blue guide living on this site — a slightly forgetful fish who answers questions about Hari using retrieval over his portfolio knowledge, optionally sharpened by Gemini Flash. Zero dependencies, no backend.",
-      "stack": ["JavaScript", "TF-IDF retrieval", "Gemini Flash"]
+      "summary": "The little blue guide living on this site — a slightly forgetful fish who answers questions about Hari using retrieval over his portfolio knowledge, optionally sharpened by Llama 3.3 on Groq's free tier. Zero dependencies, no backend.",
+      "stack": ["JavaScript", "TF-IDF retrieval", "Llama 3.3 via Groq"]
     }
   ]
 }

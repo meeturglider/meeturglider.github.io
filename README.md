@@ -116,7 +116,7 @@ Multiple recruiter-focused resumes:
 Dory is the little animated fish living on this site — a bit forgetful, so she
 only ever repeats what Hari's portfolio actually says. She answers questions
 using **retrieval over his portfolio knowledge**, optionally sharpened by
-Gemini Flash.
+Llama 3.3 on Groq's free tier.
 
 How it works:
 
@@ -125,7 +125,7 @@ visitor question ──► TF-IDF retrieval over data/dory-knowledge.json
                         │
               top 4 passages + strict system prompt
                         │
-                 Gemini Flash (browser REST call)
+           Groq API (OpenAI-compatible browser call)
                         │
         answer ◄── or, on any API failure/quota limit,
                    the retrieved passages shown verbatim
@@ -135,17 +135,16 @@ visitor question ──► TF-IDF retrieval over data/dory-knowledge.json
 - Without an API key (or if quota runs out), Dory still works in
   **retrieval mode** — she shows the matching knowledge chunks directly.
 
-#### Enable Gemini answers (deploy-time injection)
+#### Enable LLM answers (deploy-time injection)
 
 The key never lives in the repo — GitHub Push Protection would (rightly)
 block it, and public history is forever. Instead the deploy workflow injects
 it at build time:
 
-1. Create an API key at [Google AI Studio](https://aistudio.google.com/)
-   (`AIza…`, 39 chars) in a **dedicated no-billing project**, restricted by
-   **HTTP referrer** to `meeturglider.github.io/*`.
+1. Create a free key at [console.groq.com/keys](https://console.groq.com/keys)
+   (starts with `gsk_`). Free tier, no card, nothing to bill.
 2. Repo **Settings → Secrets and variables → Actions** → add
-   `DORY_GEMINI_API_KEY`.
+   `DORY_GROQ_API_KEY`.
 3. Done. `.github/workflows/deploy.yml` swaps the `__DORY_API_KEY__`
    placeholder in `js/dory.js` during every deploy. Rotation = update the
    secret and re-run.
@@ -153,12 +152,13 @@ it at build time:
 Local testing without touching tracked files:
 
 ```js
-localStorage.setItem("doryKey", "<your AIza… key>");
+localStorage.setItem("doryKey", "<your gsk_… key>");
 ```
 
-> Note: the built site still ships a client-side key by design (static
-> hosting). No-billing project + referrer restriction keeps the blast radius
-> at zero. To edit what Dory knows, update `data/dory-knowledge.json`.
+> Note: the built site ships a client-side key by design (static hosting).
+> The free-tier ceiling is the safety net: worst case someone burns Dory's
+> daily quota and she gracefully degrades to retrieval mode.
+> To edit what Dory knows, update `data/dory-knowledge.json`.
 
 ---
 
