@@ -20,28 +20,28 @@
 }
 
 .dory-fish .body {
-    fill: #ff8c2e;
-    stroke: #d96b12;
+    fill: #3a7bd5;
+    stroke: #1c4fa1;
     stroke-width: 1.5;
 }
 
-.dory-fish .stripe {
-    fill: #fff7ed;
-    stroke: #d96b12;
-    stroke-width: 1;
+/* Blue-tang "palette" marking around the eye */
+
+.dory-fish .mark {
+    fill: #101c33;
 }
 
 .dory-fish .tail {
-    fill: #ff8c2e;
-    stroke: #d96b12;
+    fill: #ffd43b;
+    stroke: #dfa20e;
     stroke-width: 1.5;
     transform-origin: 17px 24px;
     animation: dory-wag .55s ease-in-out infinite alternate;
 }
 
 .dory-fish .fin {
-    fill: #f27415;
-    stroke: #d96b12;
+    fill: #ffd43b;
+    stroke: #dfa20e;
     stroke-width: 1;
     transform-origin: center 60%;
     animation: dory-flutter .8s ease-in-out infinite alternate;
@@ -89,6 +89,41 @@
     }
 }
 
+/* Inside the bowl she wanders lazily back and forth, turning at each side.
+   Everywhere else (chat avatar) she keeps the gentle bob. */
+
+@keyframes dory-swim {
+
+    0%,
+    100% {
+        transform: translateX(-5px) scaleX(1);
+    }
+
+    40% {
+        transform: translateX(5px) scaleX(1);
+    }
+
+    46% {
+        transform: translateX(4px) scaleX(-1) rotate(7deg);
+    }
+
+    52% {
+        transform: translateX(5px) scaleX(-1);
+    }
+
+    90% {
+        transform: translateX(-5px) scaleX(-1);
+    }
+
+    95% {
+        transform: translateX(-5px) scaleX(1) rotate(-7deg);
+    }
+}
+
+.dory-launcher .swim {
+    animation: dory-swim 11s ease-in-out infinite;
+}
+
 /* --------------------------------------------------------------------------
    Floating launcher
    -------------------------------------------------------------------------- */
@@ -103,9 +138,11 @@
     width: 62px;
     height: 62px;
     padding: 14px;
-    border: 1px solid var(--accent-border);
+    border: 2px solid rgba(147, 197, 253, .4);
     border-radius: 50%;
-    background: radial-gradient(circle at 30% 25%, rgba(96, 165, 250, .28), var(--surface) 70%);
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 32% 26%, rgba(255, 255, 255, .18), rgba(96, 165, 250, .10) 55%, rgba(23, 52, 105, .38));
     box-shadow: 0 12px 32px rgba(59, 130, 246, .35);
     cursor: pointer;
     transition: transform var(--transition), box-shadow var(--transition);
@@ -114,9 +151,38 @@
         dory-nudge 7s ease-in-out infinite;
 }
 
-/* Expanding sonar ring, timed to arrive with each nudge */
+/* Water filling the lower two-thirds of the bowl */
 
 .dory-launcher::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+        rgba(125, 180, 255, .08) 0%,
+        rgba(59, 130, 246, .30) 48%,
+        rgba(29, 78, 160, .48) 100%);
+    pointer-events: none;
+}
+
+/* Glass shine on the upper-left curve */
+
+.dory-launcher::after {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 9px;
+    width: 18px;
+    height: 11px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .4);
+    filter: blur(1px);
+    transform: rotate(-28deg);
+    pointer-events: none;
+}
+
+/* Expanding sonar ring around the bowl, timed with each nudge */
+
+.dory-dock::after {
     content: "";
     position: absolute;
     inset: -2px;
@@ -133,7 +199,7 @@
     animation-play-state: paused;
 }
 
-.dory-launcher:hover::before {
+.dory-dock:hover::after {
     animation-play-state: paused;
 }
 
@@ -196,59 +262,57 @@
 
 .dory-bubbles {
     position: absolute;
-    top: -6px;
-    right: 4px;
+    top: 14px;
+    left: 13px;
     pointer-events: none;
 }
+
+/* Tiny fizz rising through the water */
 
 .dory-bubbles i {
     position: absolute;
     bottom: 0;
-    width: 10px;
-    height: 10px;
-    border: 2px solid rgba(191, 219, 254, .9);
-    background: rgba(147, 197, 253, .12);
+    width: 5px;
+    height: 5px;
+    border: 1px solid rgba(219, 234, 254, .85);
+    background: rgba(191, 219, 254, .25);
     border-radius: 50%;
     opacity: 0;
-    animation: dory-rise 3.2s linear infinite;
+    animation: dory-rise 2.6s linear infinite;
 }
 
 .dory-bubbles i:nth-child(1) {
-    left: 2px;
+    left: 0;
     animation-delay: 0s;
 }
 
 .dory-bubbles i:nth-child(2) {
-    left: 15px;
-    width: 6px;
-    height: 6px;
-    animation-delay: 1.05s;
+    left: 9px;
+    width: 3px;
+    height: 3px;
+    animation-delay: .85s;
 }
 
 .dory-bubbles i:nth-child(3) {
-    left: 8px;
-    width: 8px;
-    height: 8px;
-    animation-delay: 2.1s;
+    left: 5px;
+    width: 4px;
+    height: 4px;
+    animation-delay: 1.7s;
 }
 
 @keyframes dory-rise {
 
     0% {
-        transform: translateY(0) scale(.7);
+        transform: translateY(0) scale(.6);
         opacity: 0;
     }
 
-    20% {
-        opacity: .95;
-    }
-
-    80% {
-        opacity: .5;
+    25% {
+        opacity: .85;
     }
 
     100% {
-        transform: translateY(-52px) scale(1.15);
+        transform: translateY(-22px) scale(1.1);
         opacity: 0;
     }
 }
@@ -576,16 +640,12 @@
     .dory-fish .tail,
     .dory-fish .fin,
     .dory-launcher,
-    .dory-launcher::before,
+    .dory-dock::after,
     .dory-bubbles i,
     .dots i,
     .dory-chat[open],
     .dory-hint {
         animation: none;
         transition: none;
-    }
-
-    .dory-launcher::before {
-        opacity: 0;
     }
 }
