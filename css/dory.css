@@ -140,7 +140,6 @@
     padding: 14px;
     border: 2px solid rgba(147, 197, 253, .4);
     border-radius: 50%;
-    overflow: hidden;
     background:
         radial-gradient(circle at 32% 26%, rgba(255, 255, 255, .18), rgba(96, 165, 250, .10) 55%, rgba(23, 52, 105, .38));
     box-shadow: 0 12px 32px rgba(59, 130, 246, .35);
@@ -157,6 +156,7 @@
     content: "";
     position: absolute;
     inset: 0;
+    border-radius: 50%;
     background: linear-gradient(180deg,
         rgba(125, 180, 255, .08) 0%,
         rgba(59, 130, 246, .30) 48%,
@@ -262,23 +262,23 @@
 
 .dory-bubbles {
     position: absolute;
-    top: 14px;
-    left: 13px;
+    bottom: 18px;
+    left: 15px;
     pointer-events: none;
 }
 
-/* Tiny fizz rising through the water */
+/* Fizz born in the water, escaping past the rim */
 
 .dory-bubbles i {
     position: absolute;
     bottom: 0;
-    width: 5px;
-    height: 5px;
-    border: 1px solid rgba(219, 234, 254, .85);
-    background: rgba(191, 219, 254, .25);
+    width: 6px;
+    height: 6px;
+    border: 1.5px solid rgba(219, 234, 254, .9);
+    background: rgba(191, 219, 254, .22);
     border-radius: 50%;
     opacity: 0;
-    animation: dory-rise 2.6s linear infinite;
+    animation: dory-rise 3s linear infinite;
 }
 
 .dory-bubbles i:nth-child(1) {
@@ -287,17 +287,17 @@
 }
 
 .dory-bubbles i:nth-child(2) {
-    left: 9px;
-    width: 3px;
-    height: 3px;
-    animation-delay: .85s;
+    left: 11px;
+    width: 4px;
+    height: 4px;
+    animation-delay: 1s;
 }
 
 .dory-bubbles i:nth-child(3) {
-    left: 5px;
-    width: 4px;
-    height: 4px;
-    animation-delay: 1.7s;
+    left: 6px;
+    width: 5px;
+    height: 5px;
+    animation-delay: 2s;
 }
 
 @keyframes dory-rise {
@@ -307,12 +307,16 @@
         opacity: 0;
     }
 
-    25% {
-        opacity: .85;
+    15% {
+        opacity: .9;
+    }
+
+    70% {
+        opacity: .65;
     }
 
     100% {
-        transform: translateY(-22px) scale(1.1);
+        transform: translateY(-58px) scale(1.2);
         opacity: 0;
     }
 }
