@@ -27,8 +27,9 @@ jobs:
       - name: Inject Dory API key
         run: |
           sed -i "s|__DORY_API_KEY__|${{ secrets.DORY_GEMINI_API_KEY }}|g" js/dory.js
-          grep -q "AIza" js/dory.js \
-            || echo "::warning::DORY_GEMINI_API_KEY secret is missing or not an AIza key — Dory will run in retrieval mode"
+          if grep -q "__DORY_API_KEY__" js/dory.js; then
+            echo "::warning::DORY_GEMINI_API_KEY secret is missing — Dory will run in retrieval mode"
+          fi
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
