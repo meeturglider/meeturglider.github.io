@@ -312,9 +312,13 @@
         "built",
         "how made",
         "source",
-        "code"
+        "code",
+        "url",
+        "domain",
+        "link",
+        "address"
       ],
-      "text": "This site (hari.dev at meeturglider.github.io) is Hari's hand-built portfolio: no frameworks, no bundler, no dependencies. Content lives in JSON files rendered by small vanilla-JS classes. It is keyboard accessible, respects reduced-motion preferences, and uses responsive images and system fonts to stay light. Source is on GitHub: meeturglider/meeturglider.github.io."
+      "text": "This site (hari.is-a.dev, served from GitHub Pages at meeturglider.github.io) is Hari's hand-built portfolio: no frameworks, no bundler, no dependencies. Content lives in JSON files rendered by small vanilla-JS classes. It is keyboard accessible, respects reduced-motion preferences, and uses responsive images and system fonts to stay light. Source is on GitHub: meeturglider/meeturglider.github.io."
     },
     {
       "id": "project-elevate-360",

@@ -1,8 +1,8 @@
-# Hari.dev 🌌
+# Hari.is-a.dev 🌌
 
-## Why "Hari.dev"?
+## Why "Hari.is-a.dev"?
 
-Hari.dev isn't just a portfolio.
+Hari.is-a.dev isn't just a portfolio.
 
 It's an engineering lab—a place to document ideas, build automation, experiment with AI, and share practical solutions developed through real-world cloud engineering experience.
 
@@ -20,7 +20,7 @@ Every project on this site is built with one principle:
 
 ## 📖 About
 
-**Hari.dev** is my personal engineering portfolio and digital workspace.
+**Hari.is-a.dev** is my personal engineering portfolio and digital workspace.
 
 Rather than being a traditional résumé website, this project is designed to showcase my engineering philosophy, cloud architecture experience, AI experimentation, platform engineering projects, and continuous learning journey.
 
@@ -228,10 +228,10 @@ My passion is building systems that remove operational complexity and allow engi
 
 ## 🌐 Ecosystem
 
-Hari.dev is part of a larger engineering ecosystem.
+Hari.is-a.dev is part of a larger engineering ecosystem.
 
 ```
-                   Hari.dev
+                   Hari.is-a.dev
                       │
         ┌─────────────┼─────────────┐
         │             │             │
@@ -285,7 +285,7 @@ Future additions may include:
 ## 📬 Connect
 
 🌐 Portfolio  
-https://meeturglider.github.io
+https://hari.is-a.dev
 
 💼 LinkedIn  
 https://linkedin.com/in/pnhari
@@ -303,4 +303,6 @@ Each sprint focuses on one production-quality improvement, following a Git-based
 
 ---
 
-> *"Build systems that make engineers happier."*# meeturglider.github.io
+> *"Build systems that make engineers happier."*
+
+# meeturglider.github.io

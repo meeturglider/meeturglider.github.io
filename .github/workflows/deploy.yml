@@ -1,4 +1,4 @@
-name: Deploy Hari.dev
+name: Deploy hari.is-a.dev
 
 on:
   push:

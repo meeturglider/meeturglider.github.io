@@ -1,5 +1,5 @@
 /**
- * Hari.dev — entry point.
+ * Hari.is-a.dev — entry point.
  *
  * Boots page chrome immediately, then renders the JSON-driven sections.
  */
