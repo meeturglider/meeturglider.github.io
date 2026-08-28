@@ -17,6 +17,8 @@
 
 .dory-fish .swim {
     animation: dory-bob 2.2s ease-in-out infinite;
+    transform-box: fill-box;
+    transform-origin: center;
 }
 
 .dory-fish .body {
@@ -96,7 +98,7 @@
 
     /* Cruise right toward the glass */
     0% {
-        transform: translate(-5px, -2px) scaleX(1) rotate(-3deg);
+        transform: translate(-7px, -2px) scaleX(1) rotate(-3deg);
     }
 
     20% {
@@ -106,7 +108,7 @@
     /* Nose pressed against the right wall — squash! */
     38%,
     41% {
-        transform: translate(8px, 1px) scaleX(.82) rotate(4deg);
+        transform: translate(9px, 1px) scaleX(.82) rotate(4deg);
     }
 
     /* Recoil off the glass and turn around */
@@ -115,31 +117,31 @@
     }
 
     48% {
-        transform: translate(4px, 0) scaleX(-1) rotate(-6deg);
+        transform: translate(3px, 0) scaleX(-1) rotate(-6deg);
     }
 
     /* Cruise left, diving toward the bowl's bottom curve */
     70% {
-        transform: translate(-2px, 4px) scaleX(-1) rotate(-2deg);
+        transform: translate(-4px, 5px) scaleX(-1) rotate(-2deg);
     }
 
     /* Belly-bump on the lower glass arc */
     80%,
     83% {
-        transform: translate(-5px, 6px) scaleY(.82) rotate(-5deg);
+        transform: translate(-7px, 8px) scaleY(.82) rotate(-5deg);
     }
 
     /* Pop back up and face right again */
     87% {
-        transform: translate(-4px, 3px) scaleY(1) rotate(6deg);
+        transform: translate(-5px, 4px) scaleY(1) rotate(6deg);
     }
 
     91% {
-        transform: translate(-4px, 1px) scaleX(1) rotate(-4deg);
+        transform: translate(-4px, 2px) scaleX(1) rotate(-4deg);
     }
 
     100% {
-        transform: translate(-5px, -2px) scaleX(1) rotate(-3deg);
+        transform: translate(-7px, -2px) scaleX(1) rotate(-3deg);
     }
 }
 
@@ -181,20 +183,18 @@
     z-index: 150;
     display: grid;
     place-items: center;
-    width: 62px;
-    height: 62px;
-    padding: 12px;
+    width: 74px;
+    height: 74px;
+    padding: 13px;
     overflow: hidden;
     border: 2px solid rgba(147, 197, 253, .4);
     border-radius: 50%;
     background:
         radial-gradient(circle at 32% 26%, rgba(255, 255, 255, .18), rgba(96, 165, 250, .10) 55%, rgba(23, 52, 105, .38));
-    box-shadow: 0 12px 32px rgba(59, 130, 246, .35);
+    box-shadow: 0 14px 36px rgba(59, 130, 246, .35);
     cursor: pointer;
     transition: transform var(--transition), box-shadow var(--transition);
-    animation:
-        dory-glow 3s ease-in-out infinite,
-        dory-nudge 7s ease-in-out infinite;
+    animation: dory-glow 3s ease-in-out infinite;
 }
 
 /* Water filling the lower two-thirds of the bowl */
@@ -227,26 +227,9 @@
     pointer-events: none;
 }
 
-/* Expanding sonar ring around the bowl, timed with each nudge */
-
-.dory-dock::after {
-    content: "";
-    position: absolute;
-    inset: -2px;
-    border-radius: 50%;
-    border: 2px solid rgba(96, 165, 250, .55);
-    opacity: 0;
-    pointer-events: none;
-    animation: dory-ripple 7s ease-out infinite;
-}
-
 .dory-launcher:hover {
     transform: translateY(-4px) scale(1.06);
-    box-shadow: 0 16px 40px rgba(59, 130, 246, .5);
-    animation-play-state: paused;
-}
-
-.dory-dock:hover::after {
+    box-shadow: 0 18px 44px rgba(59, 130, 246, .5);
     animation-play-state: paused;
 }
 
@@ -254,56 +237,11 @@
 
     0%,
     100% {
-        box-shadow: 0 12px 32px rgba(59, 130, 246, .3);
+        box-shadow: 0 14px 36px rgba(59, 130, 246, .3);
     }
 
     50% {
-        box-shadow: 0 12px 38px rgba(59, 130, 246, .55);
-    }
-}
-
-/* Idle… idle… quick hop-and-flick to say "I'm here!" */
-
-@keyframes dory-nudge {
-
-    0%,
-    84%,
-    100% {
-        transform: translateY(0) rotate(0deg);
-    }
-
-    86% {
-        transform: translateY(-7px) rotate(-5deg);
-    }
-
-    89% {
-        transform: translateY(1px) rotate(4deg);
-    }
-
-    92% {
-        transform: translateY(-5px) rotate(-3deg);
-    }
-
-    95% {
-        transform: translateY(0) rotate(0deg);
-    }
-}
-
-@keyframes dory-ripple {
-
-    0%,
-    82% {
-        opacity: 0;
-        transform: scale(1);
-    }
-
-    85% {
-        opacity: .75;
-    }
-
-    100% {
-        opacity: 0;
-        transform: scale(1.7);
+        box-shadow: 0 14px 44px rgba(59, 130, 246, .55);
     }
 }
 
@@ -375,7 +313,7 @@
 .dory-chat {
     position: fixed;
     right: 1.25rem;
-    bottom: calc(1.25rem + 74px);
+    bottom: calc(1.25rem + 90px);
     left: auto;
     display: none;
     flex-direction: column;
@@ -704,7 +642,6 @@
     .dory-fish .fin,
     .dory-launcher,
     .dory-launcher::before,
-    .dory-dock::after,
     .dory-bubbles i,
     .dots i,
     .dory-chat[open],
