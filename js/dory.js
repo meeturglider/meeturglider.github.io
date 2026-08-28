@@ -325,8 +325,6 @@ export function initDory() {
 
     launcher?.addEventListener("click", open);
     closeBtn?.addEventListener("click", () => chat.close());
-    document.getElementById("doryHintClose")
-        ?.addEventListener("click", () => hideHint());
 
     chat.addEventListener("click", (event) => {
         if (event.target === chat) chat.close();
