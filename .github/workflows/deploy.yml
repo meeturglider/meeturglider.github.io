@@ -31,6 +31,9 @@ jobs:
             echo "::warning::DORY_GROQ_API_KEY secret is missing — Dory will run in retrieval mode"
           fi
 
+      - name: Exclude tracker source from publish
+        run: rm -rf tracker
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 

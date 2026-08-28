@@ -16,3 +16,7 @@
 *.log
 node_modules/
 .cache/
+
+# Tracker worker (local wrangler state)
+tracker/.wrangler/
+tracker/.dev.vars

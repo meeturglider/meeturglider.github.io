@@ -406,6 +406,24 @@
     color: var(--text);
 }
 
+.dory-note-btn {
+    margin-left: auto;
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    color: var(--text-secondary);
+    font-size: .95rem;
+    line-height: 1;
+    transition: background var(--transition), color var(--transition);
+}
+
+.dory-note-btn:hover {
+    background: rgba(255, 255, 255, .1);
+    color: var(--text);
+}
+
 .dory-log {
     display: flex;
     flex-direction: column;
@@ -494,6 +512,109 @@
 
 .dory-chat.is-thinking .dory-avatar .tail {
     animation-duration: .25s;
+}
+
+/* Guestbook note card */
+
+.dory-note {
+    display: none;
+    flex-direction: column;
+    gap: .55rem;
+    margin: 0 .75rem .75rem;
+    padding: .8rem .9rem;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: rgba(2, 6, 23, .55);
+}
+
+.dory-note:not([hidden]) {
+    display: flex;
+}
+
+.dory-note-title {
+    color: var(--text);
+    font-size: var(--step--1);
+    font-weight: 600;
+}
+
+.dory-note label {
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}
+
+.dory-note label span {
+    color: var(--text-secondary);
+    font-size: .72rem;
+}
+
+.dory-note label em {
+    color: var(--text-muted);
+    font-style: normal;
+}
+
+.dory-note input,
+.dory-note textarea {
+    padding: .55rem .7rem;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, .05);
+    color: var(--text);
+    font-size: var(--step--1);
+    font-family: inherit;
+}
+
+.dory-note textarea {
+    resize: vertical;
+    min-height: 70px;
+}
+
+.dory-note input::placeholder,
+.dory-note textarea::placeholder {
+    color: var(--text-muted);
+}
+
+.dory-note input:focus-visible,
+.dory-note textarea:focus-visible {
+    outline: 2px solid var(--accent-light);
+    outline-offset: 1px;
+}
+
+.dory-note-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: .5rem;
+}
+
+.dory-note-cancel,
+.dory-note-submit {
+    padding: .45rem .9rem;
+    border-radius: 999px;
+    font-size: var(--step--1);
+    cursor: pointer;
+    transition: background var(--transition), transform var(--transition);
+}
+
+.dory-note-cancel {
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    background: transparent;
+}
+
+.dory-note-cancel:hover {
+    background: rgba(255, 255, 255, .06);
+    color: var(--text);
+}
+
+.dory-note-submit {
+    border: none;
+    background: linear-gradient(135deg, var(--accent-light), var(--accent));
+    color: #04121f;
+    font-weight: 600;
+}
+
+.dory-note-submit:hover {
+    transform: scale(1.04);
 }
 
 /* Input bar */

@@ -275,6 +275,12 @@ export function initDory() {
     const form = document.getElementById("doryForm");
     const input = document.getElementById("doryInput");
     const log = document.getElementById("doryLog");
+    const noteBtn = document.getElementById("doryNote");
+    const noteCard = document.getElementById("doryNoteCard");
+    const noteName = document.getElementById("noteName");
+    const noteCompany = document.getElementById("noteCompany");
+    const noteText = document.getElementById("noteText");
+    const noteCancel = document.getElementById("noteCancel");
 
     if (!chat || !form || !input || !log) return;
 
@@ -324,12 +330,57 @@ export function initDory() {
     launcher?.addEventListener("click", open);
     closeBtn?.addEventListener("click", () => chat.close());
 
+    noteBtn?.addEventListener("click", toggleNote);
+
+    if (noteCancel) noteCancel.addEventListener("click", () => { hideNote(); });
+
+    if (noteCard) {
+        noteCard.addEventListener("submit", async (event) => {
+            event.preventDefault();
+            const note = noteText.value.trim();
+            if (!note) { noteText.focus(); return; }
+
+            const sent = window.__tracker
+                ? await window.__tracker.postNote({
+                    name: noteName.value.trim() || null,
+                    company: noteCompany.value.trim() || null,
+                    note: note
+                })
+                : false;
+
+            if (sent) {
+                hideNote();
+                noteName.value = "";
+                noteCompany.value = "";
+                noteText.value = "";
+                addMessage(log, "dory", "Thanks! Hari reads every note 💙");
+            } else {
+                addMessage(log, "dory", "Heads up — your note didn't reach Hari. You can try again in a moment.");
+            }
+        });
+    }
+
+    function toggleNote() {
+        if (!noteCard) return;
+        if (noteCard.hidden) {
+            noteCard.hidden = false;
+            noteText?.focus();
+        } else {
+            hideNote();
+        }
+    }
+
+    function hideNote() {
+        if (noteCard) noteCard.hidden = true;
+    }
+
     chat.addEventListener("click", (event) => {
         if (event.target === chat) chat.close();
     });
 
     chat.addEventListener("close", () => {
         input.value = "";
+        hideNote();
         lastFocus?.focus?.();
     });
 

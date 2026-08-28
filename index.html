@@ -667,6 +667,12 @@
             </div>
 
             <button
+                class="dory-note-btn"
+                id="doryNote"
+                type="button"
+                aria-label="Leave a note for Hari" title="Leave a note">&#9998;</button>
+
+            <button
                 class="dory-close"
                 id="doryClose"
                 type="button"
@@ -677,6 +683,33 @@
         </div>
 
         <div class="dory-log" id="doryLog" aria-live="polite"></div>
+
+        <form class="dory-note" id="doryNoteCard" hidden>
+
+            <span class="dory-note-title">Leave a note for Hari</span>
+
+            <label>
+                <span>Your name <em>(optional)</em></span>
+                <input id="noteName" type="text" maxlength="80" autocomplete="off">
+            </label>
+
+            <label>
+                <span>Company <em>(optional)</em></span>
+                <input id="noteCompany" type="text" maxlength="120" autocomplete="off">
+            </label>
+
+            <label>
+                <span>Note</span>
+                <textarea id="noteText" rows="3" maxlength="2000" required
+                    placeholder="Say hi, or ask anything…"></textarea>
+            </label>
+
+            <div class="dory-note-actions">
+                <button class="dory-note-cancel" id="noteCancel" type="button">Cancel</button>
+                <button class="dory-note-submit" type="submit">Send note</button>
+            </div>
+
+        </form>
 
         <form class="dory-form" id="doryForm">
 
@@ -703,6 +736,7 @@
 
     </dialog>
 
+    <script src="js/tracker.js"></script>
     <script type="module" src="js/main.js"></script>
 
 </body>
