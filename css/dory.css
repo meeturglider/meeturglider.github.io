@@ -646,36 +646,52 @@
     right: 0;
     bottom: calc(100% + 14px);
     display: flex;
-    align-items: center;
-    gap: .5rem;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: .4rem;
+    max-width: 240px;
+}
+
+.dory-hint-msg {
     max-width: 240px;
     padding: .6rem .8rem;
     border: 1px solid var(--border);
     border-radius: 12px;
-    border-bottom-right-radius: 4px;
     background: var(--surface);
     color: var(--text);
     font-size: var(--step--1);
     line-height: 1.45;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, .4);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, .35);
     opacity: 0;
     transform: translateY(6px);
     transition: opacity var(--transition), transform var(--transition);
 }
 
-.dory-hint.show {
+/* reads as a second message: slides in just after the first */
+.dory-hint-msg--two {
+    border-bottom-right-radius: 4px;
+    transition-delay: 400ms;
+}
+
+.dory-hint.show .dory-hint-msg {
     opacity: 1;
     transform: translateY(0);
 }
 
 .dory-hint-close {
+    position: absolute;
+    top: -9px;
+    right: -9px;
+    z-index: 1;
     flex-shrink: 0;
     width: 22px;
     height: 22px;
     border-radius: 50%;
+    background: var(--surface);
     color: var(--text-muted);
     font-size: .95rem;
     line-height: 1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .4);
 }
 
 .dory-hint-close:hover {
@@ -696,7 +712,8 @@
     .dory-bubbles i,
     .dots i,
     .dory-chat[open],
-    .dory-hint {
+    .dory-hint,
+    .dory-hint-msg {
         animation: none;
         transition: none;
     }

@@ -44,7 +44,10 @@ const SYSTEM_PROMPT = [
 
 const GREETING = "Hi there! I'm Dory, Hari's assistant fish. I may forget things, but whatever I remember about him — his work, his skills, his journey — just ask!";
 
-const HINT_KEY = "doryHintSeen";
+/* Intro bubble cycle: appear, hold, vanish, repeat until the chat is opened */
+const HINT_FIRST_DELAY = 3000;
+const HINT_INTERVAL_MS = 120000;
+const HINT_HOLD_MS = 8000;
 
 const STOP_WORDS = new Set([
     "a", "an", "the", "is", "are", "was", "were", "be", "been", "to", "of", "in",
@@ -246,30 +249,18 @@ function fallbackAnswer(log, question, chunks) {
 /* Intro bubble                                                        */
 /* ------------------------------------------------------------------ */
 
-function hideHint(permanent) {
+function showHint() {
     const hint = document.getElementById("doryHint");
-    if (permanent) {
-        try { localStorage.setItem(HINT_KEY, "1"); } catch (e) { /* private mode */ }
-    }
+    if (!hint) return;
+    hint.hidden = false;
+    requestAnimationFrame(() => hint.classList.add("show"));
+}
+
+function hideHint() {
+    const hint = document.getElementById("doryHint");
     if (!hint || hint.hidden) return;
     hint.classList.remove("show");
     setTimeout(() => { hint.hidden = true; }, 200);
-}
-
-function maybeShowHint() {
-    const hint = document.getElementById("doryHint");
-    if (!hint) return;
-
-    let seen = false;
-    try { seen = Boolean(localStorage.getItem(HINT_KEY)); } catch (e) { /* private mode */ }
-    if (seen) return;
-
-    setTimeout(() => {
-        if (hint.hidden) {
-            hint.hidden = false;
-            requestAnimationFrame(() => hint.classList.add("show"));
-        }
-    }, 3000);
 }
 
 /* ------------------------------------------------------------------ */
@@ -292,10 +283,31 @@ export function initDory() {
     let sendCount = 0;
     let lastSendAt = 0;
     let busy = false;
+    let hintTimer = null;
+    let hintStopped = false;
 
     loadJSON("data/dory-knowledge.json")
         .then((data) => { index = buildIndex(data.chunks || []); })
         .catch((error) => console.error("Dory knowledge:", error));
+
+    function stopHint() {
+        hintStopped = true;
+        if (hintTimer) { clearTimeout(hintTimer); hintTimer = null; }
+        hideHint();
+    }
+
+    function hintCycle() {
+        if (hintStopped) return;
+        showHint();
+        hintTimer = setTimeout(() => {
+            hideHint();
+            hintTimer = setTimeout(hintCycle, HINT_INTERVAL_MS);
+        }, HINT_HOLD_MS);
+    }
+
+    function startHintLoop() {
+        hintTimer = setTimeout(hintCycle, HINT_FIRST_DELAY);
+    }
 
     function greet() {
         if (greeted) return;
@@ -305,7 +317,7 @@ export function initDory() {
 
     function open() {
         lastFocus = document.activeElement;
-        hideHint(true);
+        stopHint();
         greet();
         chat.showModal();
         input.focus();
@@ -314,7 +326,7 @@ export function initDory() {
     launcher?.addEventListener("click", open);
     closeBtn?.addEventListener("click", () => chat.close());
     document.getElementById("doryHintClose")
-        ?.addEventListener("click", () => hideHint(true));
+        ?.addEventListener("click", () => hideHint());
 
     chat.addEventListener("click", (event) => {
         if (event.target === chat) chat.close();
@@ -388,5 +400,5 @@ export function initDory() {
 
     form.addEventListener("submit", handleSend);
 
-    maybeShowHint();
+    startHintLoop();
 }
