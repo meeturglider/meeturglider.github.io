@@ -96,7 +96,7 @@
 
     /* Cruise right toward the glass */
     0% {
-        transform: translate(-6px, -2px) scaleX(1) rotate(-3deg);
+        transform: translate(-5px, -2px) scaleX(1) rotate(-3deg);
     }
 
     20% {
@@ -106,16 +106,16 @@
     /* Nose pressed against the right wall — squash! */
     38%,
     41% {
-        transform: translate(10px, 1px) scaleX(.82) rotate(4deg);
+        transform: translate(8px, 1px) scaleX(.82) rotate(4deg);
     }
 
     /* Recoil off the glass and turn around */
     45% {
-        transform: translate(7px, 0) scaleX(1) rotate(8deg);
+        transform: translate(6px, 0) scaleX(1) rotate(8deg);
     }
 
     48% {
-        transform: translate(5px, 0) scaleX(-1) rotate(-6deg);
+        transform: translate(4px, 0) scaleX(-1) rotate(-6deg);
     }
 
     /* Cruise left, diving toward the bowl's bottom curve */
@@ -126,7 +126,7 @@
     /* Belly-bump on the lower glass arc */
     80%,
     83% {
-        transform: translate(-6px, 7px) scaleY(.82) rotate(-5deg);
+        transform: translate(-5px, 6px) scaleY(.82) rotate(-5deg);
     }
 
     /* Pop back up and face right again */
@@ -139,7 +139,7 @@
     }
 
     100% {
-        transform: translate(-6px, -2px) scaleX(1) rotate(-3deg);
+        transform: translate(-5px, -2px) scaleX(1) rotate(-3deg);
     }
 }
 
@@ -183,7 +183,8 @@
     place-items: center;
     width: 62px;
     height: 62px;
-    padding: 14px;
+    padding: 12px;
+    overflow: hidden;
     border: 2px solid rgba(147, 197, 253, .4);
     border-radius: 50%;
     background:
@@ -428,6 +429,7 @@
     height: 42px;
     padding: 7px;
     border-radius: 50%;
+    overflow: hidden;
     background: radial-gradient(circle at 30% 25%, rgba(96, 165, 250, .25), transparent 75%);
     flex-shrink: 0;
 }

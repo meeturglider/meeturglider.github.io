@@ -299,10 +299,8 @@ export function initDory() {
     function hintCycle() {
         if (hintStopped) return;
         showHint();
-        hintTimer = setTimeout(() => {
-            hideHint();
-            hintTimer = setTimeout(hintCycle, HINT_INTERVAL_MS);
-        }, HINT_HOLD_MS);
+        setTimeout(hideHint, HINT_HOLD_MS);
+        hintTimer = setTimeout(hintCycle, HINT_INTERVAL_MS);
     }
 
     function startHintLoop() {
