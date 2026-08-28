@@ -30,16 +30,18 @@ npm run deploy
 
 The deploy prints a worker URL like `https://hari-tracker.<account>.workers.dev`.
 
-## Wire the site to it
+## Wire the site to it (done)
 
-In `js/tracker.js`, replace the placeholder:
+`js/tracker.js` already points at the live worker:
 
 ```js
-const TRACKER_ENDPOINT = "https://hari-tracker.<account>.workers.dev";
+const TRACKER_ENDPOINT = "https://hari-tracker.pnharisankar.workers.dev";
 ```
 
-Then commit + push — the GitHub Actions deploy ships the site, and the tracker
-source is excluded from the Pages publish automatically.
+The tracker source is excluded from the GitHub Pages publish automatically.
+
+> Note: the end-to-end checks left a few `smoke`/`final-check` test entries and
+> a "Smoke Test" note on the day they were run — identify them by their names.
 
 ## Viewing visits
 
