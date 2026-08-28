@@ -11,7 +11,7 @@
     "use strict";
 
     /* After deploying the tracker Worker, paste its URL here. */
-    var TRACKER_ENDPOINT = "__TRACKER_ENDPOINT__";
+    var TRACKER_ENDPOINT = "https://hari-tracker.pnharisankar.workers.dev";
 
     var VID_COOKIE = "vid";
 

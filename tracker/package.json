@@ -2,13 +2,17 @@
   "name": "hari-tracker",
   "version": "1.0.0",
   "private": true,
-  "description": "Anonymous visit tracker + guestbook notes for hari.is-a.dev (Cloudflare Worker)", 
+  "description": "Anonymous visit tracker + guestbook notes for hari.is-a.dev (Cloudflare Worker)",
   "main": "src/worker.js",
   "scripts": {
     "dev": "wrangler dev",
     "deploy": "wrangler deploy"
   },
   "devDependencies": {
-    "wrangler": "^3.99.0"
+    "wrangler": "^4.127.0"
+  },
+  "allowScripts": {
+    "esbuild@0.28.1": true,
+    "workerd@1.20260826.1": true
   }
 }
