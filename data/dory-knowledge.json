@@ -54,7 +54,7 @@
         "background",
         "story"
       ],
-      "text": "Hari has 15+ years of engineering experience: he started managing 100+ Linux servers at Real Image in 2011, moved into cloud with AWS at SecureKloud and Qruize, built DevOps platforms for Cisco Webex from 2017-2021, led 30+ GCP engineers at Google Operations Center from 2021-2024, managed a 200-engineer GCP operations merger at Cognizant in 2024-2025, and is now Senior Cloud Architect building AI-driven platforms on Google Cloud with Vertex AI and Gemini."
+      "text": "Hari has 15+ years of engineering experience: he started managing 100+ Linux servers at Real Image in 2011, moved into cloud with AWS at SecureKloud and Qruize, built DevOps platforms for Cisco Webex from 2017-2021, led 30+ GCP engineers at Google Operations Center from 2021-2024, managed a GCP operations merger at Cognizant in 2024-2025, and is now Senior Cloud Architect building AI-driven platforms on Google Cloud with Vertex AI and Gemini."
     },
     {
       "id": "role-cognizant-now",
@@ -103,14 +103,13 @@
       "tags": [
         "manager",
         "merger",
-        "200",
         "operations",
         "europe",
         "romania",
         "israel",
         "led"
       ],
-      "text": "From August 2024 to July 2025 Hari was Senior Cloud Manager at Cognizant, guiding GCP operations teams across India and Europe. He completed the merger of GCP operations uniting 200 engineers across Romania and Israel, led the Transformation team infusing AI into workflows, and won the 'Raising the Bar - above and beyond' award."
+      "text": "From August 2024 to July 2025 Hari was Senior Cloud Manager at Cognizant, guiding GCP operations teams across India and Europe. He completed the merger of GCP operations uniting teams across Romania and Israel, led the Transformation team infusing AI into workflows, and won the 'Raising the Bar - above and beyond' award."
     },
     {
       "id": "role-goc",
@@ -450,7 +449,7 @@
         "awards",
         "transformation"
       ],
-      "text": "Hari's leadership skill: he leads the Transformation team infusing AI into support workflows at Cognizant, united a 200-engineer Google Cloud operation across Romania and Israel after a merger, and mentored 30+ cloud engineers at Google Operations Center. Recognition followed every chapter: Best Performer at Cisco, Bi-Annual Best Performer at GOC, and both Transformation Spot Achiever and Raising the Bar at Cognizant."
+      "text": "Hari's leadership skill: he leads the Transformation team infusing AI into support workflows at Cognizant, united Google Cloud operations across Romania and Israel after a merger, and mentored 30+ cloud engineers at Google Operations Center. Recognition followed every chapter: Best Performer at Cisco, Bi-Annual Best Performer at GOC, and both Transformation Spot Achiever and Raising the Bar at Cognizant."
     }
   ]
 }

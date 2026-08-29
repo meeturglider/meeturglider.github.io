@@ -55,11 +55,24 @@
     --step-3: clamp(1.8rem, 1.45rem + 1.5vw, 2.6rem);
     --step-4: clamp(2.4rem, 1.8rem + 2.8vw, 4rem);
 
-    /* Font stacks — system fonts, zero webfont payload */
+    /* Font stacks — system fonts + one self-hosted pixel font */
     --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
         "Helvetica Neue", Arial, sans-serif;
     --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
         "Liberation Mono", monospace;
+    --font-pixel: "Press Start 2P", var(--font-mono);
+}
+
+/* ==========================================================================
+   Fonts
+   ========================================================================== */
+
+@font-face {
+    font-family: "Press Start 2P";
+    src: url("../assets/fonts/press-start-2p.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
 }
 
 /* ==========================================================================
@@ -305,9 +318,10 @@ p {
     display: inline-flex;
     align-items: center;
     gap: .6rem;
-    font-size: var(--step-1);
-    font-weight: 700;
-    letter-spacing: -.02em;
+    font-family: var(--font-pixel);
+    font-size: clamp(.58rem, .52rem + .38vw, .8rem);
+    letter-spacing: .06em;
+    text-shadow: 0 0 18px rgba(96, 165, 250, .35);
 }
 
 .logo-mark {
