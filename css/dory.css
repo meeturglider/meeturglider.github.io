@@ -313,12 +313,13 @@
 .dory-chat {
     position: fixed;
     right: 1.25rem;
-    bottom: calc(1.25rem + 90px);
+    bottom: calc(1.25rem + 90px + env(safe-area-inset-bottom));
     left: auto;
     display: none;
     flex-direction: column;
     width: min(380px, calc(100vw - 2rem));
     height: min(540px, calc(100dvh - 8.5rem));
+    margin: 0;
     padding: 0;
     overflow: hidden;
     border: 1px solid var(--border);
@@ -630,6 +631,7 @@
 .dory-form input {
     flex: 1;
     min-width: 0;
+    min-height: 44px;
     padding: .65rem .95rem;
     border: 1px solid var(--border);
     border-radius: 999px;
@@ -650,8 +652,8 @@
 .dory-send {
     display: grid;
     place-items: center;
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
     flex-shrink: 0;
     border: none;
     border-radius: 50%;
@@ -659,6 +661,13 @@
     color: #04121f;
     cursor: pointer;
     transition: transform var(--transition);
+}
+
+.dory-send,
+.dory-launcher,
+.dory-note-btn,
+.dory-close {
+    touch-action: manipulation;
 }
 
 .dory-send:hover {
@@ -680,10 +689,19 @@
         left: 0;
         bottom: 0;
         width: 100%;
+        max-width: none;
         height: 100dvh;
         max-height: none;
         border-radius: 0;
         border: none;
+    }
+
+    .dory-head {
+        padding-top: calc(.8rem + env(safe-area-inset-top));
+    }
+
+    .dory-form {
+        padding-bottom: calc(.75rem + env(safe-area-inset-bottom));
     }
 }
 
@@ -694,7 +712,7 @@
 .dory-dock {
     position: fixed;
     right: 1.25rem;
-    bottom: 1.25rem;
+    bottom: calc(1.25rem + env(safe-area-inset-bottom));
     z-index: 150;
 }
 

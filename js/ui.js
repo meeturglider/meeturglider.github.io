@@ -39,7 +39,7 @@ export function initNav() {
     });
 
     // Reset state when the menu stops being a menu
-    window.matchMedia("(min-width: 861px)").addEventListener("change", (event) => {
+    window.matchMedia("(min-width: 860px)").addEventListener("change", (event) => {
         if (event.matches) setOpen(false);
     });
 }

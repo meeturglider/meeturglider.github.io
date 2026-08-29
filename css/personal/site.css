@@ -120,6 +120,14 @@
         width: 140px;
         height: 140px;
     }
+
+    .hero h1 {
+        font-size: clamp(2rem, 9vw, 3rem);
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
 }
 
 /* The base sheet styles .hero-role as a large gradient headline for the

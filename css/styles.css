@@ -91,6 +91,7 @@ html {
     scroll-behavior: smooth;
     scroll-padding-top: calc(var(--header-height) + 1.5rem);
     -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -256,6 +257,12 @@ p {
         border-color var(--transition), box-shadow var(--transition);
 }
 
+.btn,
+.nav-toggle,
+.nav-links a {
+    touch-action: manipulation;
+}
+
 .btn-primary {
     background: linear-gradient(135deg, var(--accent-light), var(--accent));
     color: #04121f;
@@ -391,8 +398,12 @@ p {
 .nav-toggle {
     display: none;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 5px;
-    padding: .6rem;
+    min-width: 44px;
+    min-height: 44px;
+    padding: .5rem;
     border-radius: var(--radius-sm);
 }
 
@@ -755,7 +766,7 @@ p {
    ========================================================================== */
 
 footer {
-    padding-block: clamp(3.5rem, 7vw, 6rem) 2.5rem;
+    padding-block: clamp(3.5rem, 7vw, 6rem) calc(2.5rem + env(safe-area-inset-bottom));
     border-top: 1px solid var(--border);
     background: linear-gradient(180deg, transparent, rgba(59, 130, 246, .05));
 }
@@ -916,6 +927,59 @@ footer {
 
     .stats {
         grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+
+    .section {
+        padding-block: 3rem;
+    }
+
+    .section-header {
+        margin-bottom: 2rem;
+    }
+
+    .section-header h2 {
+        font-size: var(--step-2);
+    }
+
+    .footer-links a {
+        padding: .5rem .75rem;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+    }
+}
+
+@media (max-width: 360px) {
+
+    .stats {
+        gap: .75rem;
+    }
+
+    .stat-card {
+        padding: 1.25rem .75rem;
+    }
+
+    .stat-card h3 {
+        font-size: var(--step-2);
+    }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+
+    .hero {
+        padding-block: 3rem;
+    }
+
+    .hero-profile-card {
+        padding: 1.25rem;
+    }
+
+    .hero-profile-image {
+        width: 104px;
+        height: 104px;
+        margin-bottom: .75rem;
     }
 }
 
