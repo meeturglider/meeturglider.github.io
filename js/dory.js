@@ -44,6 +44,30 @@ const SYSTEM_PROMPT = [
 
 const GREETING = "Hi there! I'm Dory, Hari's assistant fish. I may forget things, but whatever I remember about him — his work, his skills, his journey — just ask!";
 
+const THANKS_REPLY = "Aw, thank you! 🐟 I hope I was helpful to you — that's exactly why this forgetful fish exists. Ask me anything else about Hari, or tap the ✎ button to leave him a note!";
+
+const BYE_REPLY = "Thank you! 🐟 I'll take a rest for now. Bye for now — feel free to tap me back if you need any more information about Hari!";
+
+/* Politesse / farewell intents answered with canned replies instead of retrieval.
+   "bye" is checked first so a mixed 'thank you, bye' lands on the farewell. */
+const INTENT_PATTERNS = [
+    { key: "bye", re: /\b(?:bye|goodbye|good\s?bye|see\s?ya|see\s?you|good\s?night|see\s?u)\b/i },
+    { key: "thanks", re: /\b(?:ty|thx|thank\s?you|thanks|thank|appreciate)\b/i }
+];
+
+const INTENT_REPLIES = {
+    bye: BYE_REPLY,
+    thanks: THANKS_REPLY
+};
+
+function classifyIntent(text) {
+    const q = text.toLowerCase();
+    for (const { key, re } of INTENT_PATTERNS) {
+        if (re.test(q)) return key;
+    }
+    return null;
+}
+
 /* Intro bubble cycle: appear, hold, vanish, repeat until the chat is opened */
 const HINT_FIRST_DELAY = 3000;
 const HINT_INTERVAL_MS = 120000;
@@ -408,16 +432,26 @@ export function initDory() {
         const typing = addTyping(log);
         chat.classList.add("is-thinking");
 
-        /* Pure small-talk / stop-word queries get a canned hello. */
-        if (!tokenize(question).length) {
+        function replyCanned(reply) {
             setTimeout(() => {
                 typing.remove();
                 chat.classList.remove("is-thinking");
-                addMessage(log, "dory",
-                    "I'm <b>Dory</b> \u{1F420} — a little forgetful, so I stick to Hari's facts! Ask me about his work, certifications, projects or journey.");
+                addMessage(log, "dory", reply);
                 busy = false;
                 input.focus();
             }, 500);
+        }
+
+        /* Politeness / farewell intents get a canned reply. */
+        const intent = classifyIntent(question);
+        if (intent && INTENT_REPLIES[intent]) {
+            replyCanned(INTENT_REPLIES[intent]);
+            return;
+        }
+
+        /* Pure small-talk / stop-word queries get a canned hello. */
+        if (!tokenize(question).length) {
+            replyCanned("I'm <b>Dory</b> \u{1F420} — a little forgetful, so I stick to Hari's facts! Ask me about his work, certifications, projects or journey.");
             return;
         }
 
