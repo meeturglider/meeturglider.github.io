@@ -382,6 +382,7 @@ export function initDory() {
                 noteCompany.value = "";
                 noteText.value = "";
                 addMessage(log, "dory", "Thanks! Hari reads every note 💙");
+                scheduleChatFade();
             } else {
                 addMessage(log, "dory", "Heads up — your note didn't reach Hari. You can try again in a moment.");
             }
@@ -423,6 +424,13 @@ export function initDory() {
             fading = false;
             if (chat.open) chat.close();
         }, 950);
+    }
+
+    /* Wait a beat so the reply is readable, then dissolve the chat.
+       A follow-up message (handleSend) cancels the pending timer. */
+    function scheduleChatFade() {
+        if (byeFadeTimer) clearTimeout(byeFadeTimer);
+        byeFadeTimer = setTimeout(closeChatSmoothly, 2200);
     }
 
     async function handleSend(event) {
@@ -470,7 +478,7 @@ export function initDory() {
         const intent = classifyIntent(question);
         if (intent && INTENT_REPLIES[intent]) {
             const afterReply = intent === "bye"
-                ? () => { byeFadeTimer = setTimeout(closeChatSmoothly, 2200); }
+                ? scheduleChatFade
                 : null;
             replyCanned(INTENT_REPLIES[intent], afterReply);
             return;
