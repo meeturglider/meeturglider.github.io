@@ -313,6 +313,8 @@ export function initDory() {
     let sendCount = 0;
     let lastSendAt = 0;
     let busy = false;
+    let byeFadeTimer = null;
+    let fading = false;
     let hintTimer = null;
     let hintStopped = false;
 
@@ -347,6 +349,8 @@ export function initDory() {
         lastFocus = document.activeElement;
         stopHint();
         greet();
+        fading = false;
+        chat.classList.remove("fading");
         chat.showModal();
         input.focus();
     }
@@ -408,12 +412,31 @@ export function initDory() {
         lastFocus?.focus?.();
     });
 
+    /* Slow dissolve of the whole chat panel, then close it. */
+    function closeChatSmoothly() {
+        if (fading) return;
+        fading = true;
+        byeFadeTimer = null;
+        chat.classList.add("fading");
+        setTimeout(() => {
+            chat.classList.remove("fading");
+            fading = false;
+            if (chat.open) chat.close();
+        }, 950);
+    }
+
     async function handleSend(event) {
 
         event.preventDefault();
 
         const question = input.value.trim().slice(0, CONFIG.maxInputChars);
-        if (!question || busy) return;
+        if (!question || busy || fading) return;
+
+        /* A new message inside the goodbye window cancels the farewell fade. */
+        if (byeFadeTimer) {
+            clearTimeout(byeFadeTimer);
+            byeFadeTimer = null;
+        }
 
         const now = Date.now();
         if (sendCount >= CONFIG.maxQuestionsPerSession) {
@@ -432,20 +455,24 @@ export function initDory() {
         const typing = addTyping(log);
         chat.classList.add("is-thinking");
 
-        function replyCanned(reply) {
+        function replyCanned(reply, afterReply) {
             setTimeout(() => {
                 typing.remove();
                 chat.classList.remove("is-thinking");
                 addMessage(log, "dory", reply);
                 busy = false;
                 input.focus();
+                if (afterReply) afterReply();
             }, 500);
         }
 
         /* Politeness / farewell intents get a canned reply. */
         const intent = classifyIntent(question);
         if (intent && INTENT_REPLIES[intent]) {
-            replyCanned(INTENT_REPLIES[intent]);
+            const afterReply = intent === "bye"
+                ? () => { byeFadeTimer = setTimeout(closeChatSmoothly, 2200); }
+                : null;
+            replyCanned(INTENT_REPLIES[intent], afterReply);
             return;
         }
 

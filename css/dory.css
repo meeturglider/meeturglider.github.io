@@ -352,6 +352,14 @@
     }
 }
 
+/* Slow dissolve out of the whole chat panel after a farewell reply */
+.dory-chat.fading {
+    opacity: 0;
+    transform: translateY(12px) scale(.97);
+    pointer-events: none;
+    transition: opacity .9s ease, transform .9s ease;
+}
+
 .dory-head {
     display: flex;
     align-items: center;
