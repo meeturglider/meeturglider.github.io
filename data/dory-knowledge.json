@@ -99,6 +99,21 @@
       "text": "C.O.R.E (Comprehensive Online Review of Expertise) is Hari's assessment platform: Angular/PostgreSQL full-stack framework with Gemini 2.5 Flash driving computerized adaptive testing, an integrated Linux sandbox lab (VM/Docker) for hands-on terminal evaluations that self-destructs after completion, basic proctoring, behavioral analytics, and a Gemini-powered Behavioral AI simulator evaluating soft and technical skills across personas. Projected impact: 60% improvement in quality hiring and 35% advancement in critical Cloud Support metrics."
     },
     {
+      "id": "project-ai-interviewer",
+      "tags": [
+        "interviewer",
+        "interview",
+        "ai",
+        "multimodal",
+        "voice",
+        "video",
+        "proctoring",
+        "live",
+        "assessment"
+      ],
+      "text": "AI Technical Interviewer is Hari's real-time voice-and-video interview platform (currently building at Cognizant): a Next.js/WebRTC browser streams 16 kHz audio via AudioWorklet and 1 FPS video frames over WebSockets to a FastAPI gateway, which runs a bidirectional live session on the Gemini Multimodal Live API — natural conversation with context-aware follow-ups and mid-sentence barge-in across Linux, compute systems, GKE and AI/ML infrastructure. Client-side MediaPipe edge proctoring detects gaze drift, secondary faces and device switching on-device, logging only incidents. After each session a Gemini scoring engine emits Pydantic-validated scorecards: STAR-method answers, Junior-to-Staff depth levels and integrity scores. Stack: FastAPI, Pydantic, PostgreSQL, Redis and Docker."
+    },
+    {
       "id": "role-cognizant-manager",
       "tags": [
         "manager",

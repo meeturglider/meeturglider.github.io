@@ -178,6 +178,65 @@
     },
 
     {
+      "id": "ai-interviewer",
+      "title": "AI Technical Interviewer",
+      "tagline": "A voice-and-video technical interviewer that runs the conversation live on Gemini, watches integrity on the candidate's own device, and writes the scorecard itself.",
+      "context": "Cognizant Technology Solutions",
+      "period": "2026 - Present",
+      "status": "Building",
+      "category": "AI Platform",
+
+      "problem": "A good technical interview is a conversation: it listens to an answer, senses where the understanding is thin, and drills in. That costs an hour of senior-engineer time per candidate, so at scale candidates get scripted questions that measure recall of answers rehearsed on the internet. Handing it to a text chatbot is worse — turn-based typing flattens the pacing, hesitation and interruption that reveal how someone actually thinks — and proctoring an online session usually means shipping the candidate's camera feed to a third party.",
+
+      "approach": [
+        "Interview as a live bidirectional conversation: voice in, voice out, context-aware follow-ups, mid-sentence barge-in.",
+        "Watch integrity at the edge: gaze drift, second faces and device switching detected in the candidate's browser — only timestamped incidents cross the wire.",
+        "Make the verdict a contract: post-interview scoring emits a Pydantic-validated scorecard — STAR-method answers, Junior-to-Staff depth levels, integrity score."
+      ],
+
+      "architecture": {
+        "layers": [
+          { "name": "Client", "nodes": ["Next.js candidate browser", "AudioWorklet — 16 kHz PCM streaming", "MediaPipe vision loop (gaze & multi-face tracking)", "Canvas snapshot engine — 1 FPS frames"] },
+          { "name": "Transport", "nodes": ["WebSocket — JSON + binary packets"] },
+          { "name": "Application", "nodes": ["FastAPI gateway", "Session manager"] },
+          { "name": "Intelligence", "nodes": ["Gemini Multimodal Live API", "Bidirectional voice & vision loop", "Domain personas — Linux, compute, GKE, AI/ML infrastructure"] },
+          { "name": "Persistence", "nodes": ["PostgreSQL session logs", "Redis buffer"] },
+          { "name": "Evaluation", "nodes": ["Gemini scoring & audit engine", "Pydantic structured output"] }
+        ]
+      },
+
+      "decisions": [
+        {
+          "title": "Native bidirectional audio over a stitched pipeline",
+          "chose": "Gemini Multimodal Live API for voice in and voice out",
+          "why": "Turn-taking is signal: a candidate who barges in mid-sentence or stalls on a follow-up is showing you how they think. A native multimodal stream preserves that; a transcription pipeline serialises it away.",
+          "rejected": "Speech-to-text, a text LLM and text-to-speech chained together — workable, but every hop compounds latency and interruption starts to feel like a satellite call."
+        },
+        {
+          "title": "Proctoring at the edge, not on a GPU farm",
+          "chose": "Client-side MediaPipe gaze and face detection; incidents only, no continuous video upload",
+          "why": "Gaze drift and a second face in frame are lightweight vision problems the browser can solve alone. Streaming video to server GPUs for them spends the most money on the least valuable workload and widens the privacy surface for zero extra signal.",
+          "rejected": "Server-side video analysis — more capable, wrong economics: the gateway needs conclusions, not pixels."
+        },
+        {
+          "title": "Structured output over a written report",
+          "chose": "Scorecards as Pydantic-validated schemas — STAR method, depth level, integrity score",
+          "why": "A hiring manager can diff a schema and only skim prose. Validation also fails loudly when the model drifts off format, instead of letting a malformed report reach the UI.",
+          "rejected": "Free-form LLM summary — reads beautifully, aggregates terribly."
+        }
+      ],
+
+      "outcomes": [
+        "Interviews run live across Linux internals, distributed compute, GKE architecture and AI/ML infrastructure, with depth following the candidate's answers.",
+        "Candidates get a real conversation — follow-ups, interruptions, tone — not a question queue.",
+        "Integrity signals (off-screen gaze drift, secondary faces, device switching) are detected on-device and logged as timestamped incidents.",
+        "Every session ends in a structured scorecard: STAR-method breakdown, Junior-to-Staff depth rating and a proctoring integrity score."
+      ],
+
+      "stack": ["Gemini Multimodal Live API", "Next.js", "WebRTC", "AudioWorklet", "MediaPipe", "FastAPI", "WebSockets", "Python", "Pydantic", "PostgreSQL", "Redis", "Docker"]
+    },
+
+    {
       "id": "hari-dev",
       "title": "Hari.is-a.dev",
       "tagline": "This site. Zero dependencies, zero build step, JSON-driven content — because the portfolio should demonstrate the claim, not just make it.",
