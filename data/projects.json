@@ -6,7 +6,7 @@
       "tagline": "A portfolio of specialized cloud-assist agents that runs Google Cloud support — telemetry in, guarded remediation out, humans promoted from operators to policy-makers.",
       "context": "Cognizant Technology Solutions",
       "period": "2026 - Present",
-      "status": "PoC",
+      "status": "Building",
       "category": "AI Platform",
 
       "problem": "Cloud support is still a reactive ticketing business. Support tiers are priced by account revenue instead of workload risk, the SLA measures how fast a human acknowledged a failure instead of whether it got fixed, and context is rebuilt from scratch at every tier handoff while senior specialists — the scarcest resource in the chain — gate every complex escalation. The irony is structural: the telemetry that already reveals the degraded environment is generated before the customer ever files the ticket.",
