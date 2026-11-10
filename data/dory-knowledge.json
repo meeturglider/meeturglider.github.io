@@ -72,6 +72,23 @@
       "text": "Since July 2025 Hari is Senior Cloud Architect at Cognizant Technology Solutions in Hyderabad. He leads AI-driven GCP transformation: designing enterprise applications with Google Cloud, Vertex AI and Gemini to automate support operations. Projected impact across his portfolio: 20% support-productivity gain and 10% reduction in consult rates. He also won the Transformation Spot Achiever award there."
     },
     {
+      "id": "project-caas",
+      "tags": [
+        "caas",
+        "cloud",
+        "assist",
+        "agent",
+        "agents",
+        "autonomous",
+        "remediation",
+        "telemetry",
+        "sre",
+        "guardrails",
+        "agentic"
+      ],
+      "text": "Cloud Assist as a Service (CaaS) is Hari's agentic AI platform for Google Cloud support (PoC stage at Cognizant): a portfolio of specialized agents — incident response (SRE), security sentinel, compliance guardian, FinOps controller and migration navigator — orchestrated through the open Agent2Agent protocol on Vertex AI Agent Builder and Google's Agent Development Kit (ADK). Agents run a continuous perception-reasoning-action loop over native GCP telemetry (Cloud Logging, Monitoring, Pub/Sub) with a Vertex AI Vector Search and Spanner Graph memory fabric. Safety is deterministic, not model-judged: OPA/Rego policy gates, zero-standing privilege with JIT tokens via Workload Identity Federation, Terraform state locking, GitOps loop pausing, canary staging with atomic auto-rollback, a 45-second fail-closed telemetry watchdog and poison-pill quarantine. Autonomy is graduated — shadow mode, HITL approval gates, then zero-touch within an approved policy envelope — with a verifiable graduation protocol (30 human-verified remediations, 99%+ acceptance, zero guardrail violations). The end-to-end PoC loop is proven: anomaly detected, playbook retrieved, HITL-approved, sandboxed execution, telemetry-validated closure. Humans shift from operators to policy-makers."
+    },
+    {
       "id": "project-digital-sme",
       "tags": [
         "digital",

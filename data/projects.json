@@ -1,6 +1,65 @@
 {
   "featured": [
     {
+      "id": "caas",
+      "title": "Cloud Assist as a Service (CaaS)",
+      "tagline": "A portfolio of specialized cloud-assist agents that runs Google Cloud support — telemetry in, guarded remediation out, humans promoted from operators to policy-makers.",
+      "context": "Cognizant Technology Solutions",
+      "period": "2026 - Present",
+      "status": "PoC",
+      "category": "AI Platform",
+
+      "problem": "Cloud support is still a reactive ticketing business. Support tiers are priced by account revenue instead of workload risk, the SLA measures how fast a human acknowledged a failure instead of whether it got fixed, and context is rebuilt from scratch at every tier handoff while senior specialists — the scarcest resource in the chain — gate every complex escalation. The irony is structural: the telemetry that already reveals the degraded environment is generated before the customer ever files the ticket.",
+
+      "approach": [
+        "A portfolio of specialized agents — incident response (SRE), security sentinel, compliance guardian, FinOps controller, migration navigator — orchestrated through the open Agent2Agent protocol instead of one monolithic assistant.",
+        "A continuous perception-reasoning-action loop over native Google Cloud telemetry: ingest, reason over the customer's environment and history, act — or recommend — before a human notices the problem.",
+        "Graduated autonomy by design: read-only shadow mode first, execution rights behind human-in-the-loop approval gates, then zero-touch operation inside an approved policy envelope."
+      ],
+
+      "architecture": {
+        "layers": [
+          { "name": "Telemetry", "nodes": ["Edge anomaly pre-filtering", "15s synthetic heartbeat dead-man's switch", "Cloud Logging / Monitoring", "Pub/Sub"] },
+          { "name": "Context & Memory", "nodes": ["Vertex AI Vector Search", "Spanner Graph", "Cloud Trace", "Causal baselines"] },
+          { "name": "Orchestration", "nodes": ["Vertex AI Agent Builder", "Agent Development Kit (ADK)", "A2A protocol routing", "DAG conflict arbitration"] },
+          { "name": "Execution", "nodes": ["Agent Harness", "Terraform state locks", "GitOps loop pause", "Speculative CI/CD dry-runs"] },
+          { "name": "Guardrails", "nodes": ["OPA/Rego policy gates", "Zero-standing privilege", "JIT access broker (Workload Identity Federation)", "Model Armor"] },
+          { "name": "Blast Radius & Recovery", "nodes": ["Canary staging", "Pre-execution snapshots", "Atomic auto-rollback", "Poison-pill quarantine"] }
+        ]
+      },
+
+      "decisions": [
+        {
+          "title": "Agent portfolio over a monolithic mega-agent",
+          "chose": "Specialized single-domain agents delegating tasks via the open Agent2Agent protocol",
+          "why": "A monolith that migrates, remediates and audits is impossible to trust incrementally: one regression lands in every domain at once. Small agents graduate to autonomy per domain, fail in isolation, and can be priced and subscribed to individually.",
+          "rejected": "One mega-agent with every tool — simpler to demo, impossible to govern, and a single prompt-injection surface guarding every blast radius."
+        },
+        {
+          "title": "Graduated autonomy over a single cutover",
+          "chose": "Four-stage maturity model — shadow, assisted, HITL-gated, autonomous — with a verifiable graduation protocol",
+          "why": "Trust in an autonomous operator is earned per playbook, not granted globally. An action graduates to zero-touch only after 30 human-verified remediations at ≥99% acceptance, validated across distinct environmental edge states, with zero guardrail violations.",
+          "rejected": "A go-live cutover to autonomy — faster to ship, and it puts the least-tested configuration in charge of production."
+        },
+        {
+          "title": "Deterministic guardrails over model confidence",
+          "chose": "Fail-closed circuit breaker (45s telemetry latency halts all writes), atomic rollback, poison-pill quarantine and out-of-band mutation yield",
+          "why": "An autonomous system's worst failure is confident action on stale context. If the telemetry stream stalls, the agent must stop writing — not keep reasoning over a world it can no longer see. High-blast-radius operations stay permanently gated behind human approval regardless of the agent's confidence.",
+          "rejected": "Confidence thresholds on the model — a number that drifts with prompt phrasing and cannot be audited."
+        }
+      ],
+
+      "outcomes": [
+        "End-to-end PoC loop proven: anomaly fired in a sandboxed GCP environment → telemetry routed to the orchestrator → RAG playbook retrieval → HITL approval in an active web dashboard → sandboxed execution → telemetry-validated closure.",
+        "Escalation briefs carry the complete record of every action already attempted, so a human specialist starts from full context instead of re-discovering the environment.",
+        "Idempotent, low-blast-radius actions (pod scaling, disk extension) graduate to zero-touch autonomy while IAM, network and stateful database operations remain permanently supervised.",
+        "The human role shifts from operator to policy-maker: defining the guardrail envelope, reviewing exceptions and approving high-risk actions — with an immutable audit trail behind every automated step."
+      ],
+
+      "stack": ["Vertex AI", "Gemini", "Agent Builder", "Agent Development Kit (ADK)", "A2A Protocol", "OPA/Rego", "Terraform", "Workload Identity Federation", "Model Armor", "Pub/Sub", "Spanner Graph", "Python"]
+    },
+
+    {
       "id": "digital-sme",
       "title": "Digital SME",
       "tagline": "A retrieval-grounded support assistant that answers from your own runbooks instead of guessing.",
